@@ -126,6 +126,7 @@
     return DEFAULT_TABLE_VIEW_ROW_HEIGHT;
 }
 
+#pragma mark - click
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
     //该方法响应列表中行的点击事件
@@ -142,6 +143,56 @@
     } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
     } else {
+    }
+}
+
+#pragma mark - longClick
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0 && indexPath.row == 0;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    return indexPath.section == 0 && indexPath.row == 0;
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    if (action == @selector(cut:)){
+
+    } else if(action == @selector(copy:)){
+
+    } else if(action == @selector(paste:)){
+
+    } else if(action == @selector(select:)){
+
+    } else if(action == @selector(selectAll:)){
+
+    } else  {
+
+    }
+}
+
+#pragma mark - leftSlide
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        // 从数据源中删除
+        NSMutableArray *mDataSource = [self.dataSource mutableCopy];
+        NSMutableArray *mSectionData = [mDataSource[indexPath.section] mutableCopy];
+        [mSectionData removeObjectAtIndex:indexPath.row];
+        [mDataSource[indexPath.section] = mSectionData copy];
+        self.dataSource = mDataSource;
+        // 从列表中删除
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
