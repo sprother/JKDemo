@@ -9,8 +9,11 @@
 #ifndef TencentAdditions_h
 #define TencentAdditions_h
 
-#import "UIView+Tencent.h"
-#import "UIImage+Tencent.h"
 #import "MBProgressHUD+Tencent.h"
+#import "UIImage+Tencent.h"
+#import "UINavigationController+Tencent.h"
+#import "UIView+Tencent.h"
+#import "UIViewController+Tencent.h"
+
 
 #endif /* TencentAdditions_h */

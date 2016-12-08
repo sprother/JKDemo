@@ -8,6 +8,7 @@
 
 #import "JKDemoViewController.h"
 #import "JKTableViewCell.h"
+#import "ImageCollectViewController.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -30,7 +31,8 @@
 
 - (void)loadView {
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.title                = @"工具";
 
     [self.view addSubview:self.tableView];
 }
@@ -41,28 +43,37 @@
     [self buildDataSourceAndReload];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    self.hidesBottomBarWhenPushed = NO;
+    [super viewDidDisappear:animated];
+}
+
 #pragma mark - DataSource
 - (void)buildDataSourceAndReload {
-    NSMutableArray *mDataSource        = [NSMutableArray array];
-    NSMutableArray *mSectionDataSource = nil;
+//    [immutableObject copy] // 浅复制，copy得到不可变对象 (immutableObject比如NSObject)
+//    [immutableObject mutableCopy] //深复制，mutableCopy得到可变对象
+//    [mutableObject copy] //深复制，copy得到不可变对象 (mutableObject比如NSString)
+//    [mutableObject mutableCopy] //深复制,对于容器类里面的内容，拷贝的都是指针
+    NSMutableArray *mDataSource       = [NSMutableArray array];
+    NSArray        *sectionDataSource = nil;
 
-    mSectionDataSource = [NSMutableArray arrayWithObjects:ROW_NAME_SCAN_BLE, ROW_NAME_SCAN_MFI, nil];
-    [mDataSource addObject:[mSectionDataSource mutableCopy]];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SCAN_BLE, ROW_NAME_SCAN_MFI, nil];
+    [mDataSource addObject:sectionDataSource];
 
-    mSectionDataSource = [NSMutableArray arrayWithObjects:ROW_NAME_CALC, ROW_NAME_ANIMATION, ROW_NAME_PHOTOS, nil];
-    [mDataSource addObject:[mSectionDataSource mutableCopy]];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_CALC, ROW_NAME_ANIMATION, ROW_NAME_PHOTOS, nil];
+    [mDataSource addObject:sectionDataSource];
 
-    mSectionDataSource = [NSMutableArray arrayWithObjects:ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, nil];
-    [mDataSource addObject:[mSectionDataSource mutableCopy]];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, nil];
+    [mDataSource addObject:sectionDataSource];
 
-    self.dataSource = [mDataSource mutableCopy];
+    self.dataSource = mDataSource;
     [self.tableView reloadData];
 }
 
 #pragma mark - views' getter
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT-DEFAULT_NAVIGATION_BAR_HEIGHT) style:UITableViewStyleGrouped];
         [_tableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
@@ -118,6 +129,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
     //该方法响应列表中行的点击事件
+    NSString *rowName = self.dataSource[indexPath.section][indexPath.row];
+    if ([rowName isEqualToString:ROW_NAME_SCAN_BLE]) {
+    } else if ([rowName isEqualToString:ROW_NAME_SCAN_MFI]) {
+    } else if ([rowName isEqualToString:ROW_NAME_CALC]) {
+    } else if ([rowName isEqualToString:ROW_NAME_ANIMATION]) {
+    } else if ([rowName isEqualToString:ROW_NAME_PHOTOS]) {
+        ImageCollectViewController *vc = [[ImageCollectViewController alloc] init];
+        vc.title                      = ROW_NAME_PHOTOS;
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {
+    } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
+    } else {
+    }
 }
 
 @end

@@ -45,6 +45,12 @@
 		9B0D53361DF8F90E005C9893 /* JKDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53351DF8F90E005C9893 /* JKDemoViewController.m */; };
 		9B0D533A1DF904E2005C9893 /* JKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53391DF904E2005C9893 /* JKTableViewCell.m */; };
 		9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D533C1DF90650005C9893 /* UIImage+Tencent.m */; };
+		9B0D53401DF936DC005C9893 /* JKFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D533F1DF936DC005C9893 /* JKFirstViewController.m */; };
+		9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53421DF9373F005C9893 /* JKFindViewController.m */; };
+		9B0D53461DF93759005C9893 /* JKMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53451DF93759005C9893 /* JKMoreViewController.m */; };
+		9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53481DF93AF3005C9893 /* UIViewController+Tencent.m */; };
+		9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */; };
+		9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +137,18 @@
 		9B0D53391DF904E2005C9893 /* JKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKTableViewCell.m; path = Classes/Views/Common/JKTableViewCell.m; sourceTree = "<group>"; };
 		9B0D533B1DF90650005C9893 /* UIImage+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Tencent.h"; path = "Classes/Additions/UIImage+Tencent.h"; sourceTree = "<group>"; };
 		9B0D533C1DF90650005C9893 /* UIImage+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Tencent.m"; path = "Classes/Additions/UIImage+Tencent.m"; sourceTree = "<group>"; };
+		9B0D533E1DF936DC005C9893 /* JKFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKFirstViewController.h; path = Classes/ViewControllers/RootVc/JKFirstViewController.h; sourceTree = "<group>"; };
+		9B0D533F1DF936DC005C9893 /* JKFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKFirstViewController.m; path = Classes/ViewControllers/RootVc/JKFirstViewController.m; sourceTree = "<group>"; };
+		9B0D53411DF9373F005C9893 /* JKFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKFindViewController.h; path = Classes/ViewControllers/RootVc/JKFindViewController.h; sourceTree = "<group>"; };
+		9B0D53421DF9373F005C9893 /* JKFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKFindViewController.m; path = Classes/ViewControllers/RootVc/JKFindViewController.m; sourceTree = "<group>"; };
+		9B0D53441DF93759005C9893 /* JKMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKMoreViewController.h; path = Classes/ViewControllers/RootVc/JKMoreViewController.h; sourceTree = "<group>"; };
+		9B0D53451DF93759005C9893 /* JKMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKMoreViewController.m; path = Classes/ViewControllers/RootVc/JKMoreViewController.m; sourceTree = "<group>"; };
+		9B0D53471DF93AF3005C9893 /* UIViewController+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Tencent.h"; path = "Classes/Additions/UIViewController+Tencent.h"; sourceTree = "<group>"; };
+		9B0D53481DF93AF3005C9893 /* UIViewController+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Tencent.m"; path = "Classes/Additions/UIViewController+Tencent.m"; sourceTree = "<group>"; };
+		9B0D534A1DF93C1E005C9893 /* UINavigationController+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Tencent.h"; path = "Classes/Additions/UINavigationController+Tencent.h"; sourceTree = "<group>"; };
+		9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Tencent.m"; path = "Classes/Additions/UINavigationController+Tencent.m"; sourceTree = "<group>"; };
+		9B0D534E1DF93F18005C9893 /* ImageCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectViewController.h; path = Classes/ViewControllers/Photos/ImageCollectViewController.h; sourceTree = "<group>"; };
+		9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectViewController.m; path = Classes/ViewControllers/Photos/ImageCollectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +269,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B0D534D1DF93EF8005C9893 /* Photos */,
 				9B0D51AD1DF6E3C5005C9893 /* Common */,
 				9B0D51A51DF6DF2A005C9893 /* Login */,
 				9B0D51A41DF6DEF8005C9893 /* RootVc */,
@@ -279,6 +298,12 @@
 			children = (
 				9B0D53341DF8F90E005C9893 /* JKDemoViewController.h */,
 				9B0D53351DF8F90E005C9893 /* JKDemoViewController.m */,
+				9B0D53411DF9373F005C9893 /* JKFindViewController.h */,
+				9B0D53421DF9373F005C9893 /* JKFindViewController.m */,
+				9B0D533E1DF936DC005C9893 /* JKFirstViewController.h */,
+				9B0D533F1DF936DC005C9893 /* JKFirstViewController.m */,
+				9B0D53441DF93759005C9893 /* JKMoreViewController.h */,
+				9B0D53451DF93759005C9893 /* JKMoreViewController.m */,
 			);
 			name = RootVc;
 			sourceTree = "<group>";
@@ -395,13 +420,17 @@
 		9B0D52F91DF82B78005C9893 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				9B0D53001DF82DE8005C9893 /* TencentAdditions.h */,
 				9B0D52FA1DF82B94005C9893 /* MBProgressHUD+Tencent.h */,
 				9B0D52FB1DF82B94005C9893 /* MBProgressHUD+Tencent.m */,
-				9B0D52FD1DF82DDC005C9893 /* UIView+Tencent.h */,
-				9B0D52FE1DF82DDC005C9893 /* UIView+Tencent.m */,
+				9B0D53001DF82DE8005C9893 /* TencentAdditions.h */,
 				9B0D533B1DF90650005C9893 /* UIImage+Tencent.h */,
 				9B0D533C1DF90650005C9893 /* UIImage+Tencent.m */,
+				9B0D534A1DF93C1E005C9893 /* UINavigationController+Tencent.h */,
+				9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */,
+				9B0D52FD1DF82DDC005C9893 /* UIView+Tencent.h */,
+				9B0D52FE1DF82DDC005C9893 /* UIView+Tencent.m */,
+				9B0D53471DF93AF3005C9893 /* UIViewController+Tencent.h */,
+				9B0D53481DF93AF3005C9893 /* UIViewController+Tencent.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -429,6 +458,15 @@
 				9B0D53391DF904E2005C9893 /* JKTableViewCell.m */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		9B0D534D1DF93EF8005C9893 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D534E1DF93F18005C9893 /* ImageCollectViewController.h */,
+				9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */,
+			);
+			name = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,16 +590,22 @@
 				9B0D52F81DF8244B005C9893 /* UIView+WebCacheOperation.m in Sources */,
 				9B0D52F41DF8244B005C9893 /* UIImage+GIF.m in Sources */,
 				9B0D52F21DF8244B005C9893 /* SDWebImagePrefetcher.m in Sources */,
+				9B0D53461DF93759005C9893 /* JKMoreViewController.m in Sources */,
 				9B0D519E1DF6DC92005C9893 /* main.m in Sources */,
 				9B0D53111DF837BA005C9893 /* JKAppDelegate+MainUI.m in Sources */,
 				9B0D52EA1DF8244B005C9893 /* MBProgressHUD.m in Sources */,
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
+				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
+				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
+				9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */,
 				9B0D52F31DF8244B005C9893 /* UIButton+WebCache.m in Sources */,
 				9B0D533A1DF904E2005C9893 /* JKTableViewCell.m in Sources */,
+				9B0D53401DF936DC005C9893 /* JKFirstViewController.m in Sources */,
 				9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */,
 				9B0D52FF1DF82DDC005C9893 /* UIView+Tencent.m in Sources */,
+				9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */,
 				9B0D52EB1DF8244B005C9893 /* NSData+ImageContentType.m in Sources */,
 				9B0D51AA1DF6E0FF005C9893 /* JKLoginViewController.m in Sources */,
 				9B0D52F71DF8244B005C9893 /* UIImageView+WebCache.m in Sources */,

@@ -14,6 +14,10 @@
 
 @implementation JKBaseViewController
 
+- (void)dealloc {
+    JLog(@"%@ dealloc", NSStringFromClass([self class]));
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

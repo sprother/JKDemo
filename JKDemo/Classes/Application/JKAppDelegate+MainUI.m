@@ -8,7 +8,10 @@
 
 #import "JKAppDelegate+MainUI.h"
 #import "JKLoginViewController.h"
+#import "JKFirstViewController.h"
 #import "JKDemoViewController.h"
+#import "JKFindViewController.h"
+#import "JKMoreViewController.h"
 
 @implementation JKAppDelegate (MainUI)
 
@@ -41,20 +44,19 @@
 
 #pragma mark - lazzyLoad
 - (JKTabBarController *)createRootTabBarController {
-    JKLoginViewController          *firstVC  = [[JKLoginViewController alloc] init];
+    JKFirstViewController          *firstVC  = [[JKFirstViewController alloc] init];
     JKBaseNavigationViewController *firstNav = [[JKBaseNavigationViewController alloc] initWithRootViewController:firstVC];
-
     firstVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"tabbar_icon_at"] selectedImage:[UIImage imageNamed:@"tabbar_icon_at_click"]];
 
     JKDemoViewController           *secondVC  = [[JKDemoViewController alloc] init];
     JKBaseNavigationViewController *secondNav = [[JKBaseNavigationViewController alloc] initWithRootViewController:secondVC];
     secondVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"演示" image:[UIImage imageNamed:@"tabbar_icon_auth"] selectedImage:[UIImage imageNamed:@"tabbar_icon_auth_click"]];
 
-    JKLoginViewController          *thirdVC  = [[JKLoginViewController alloc] init];
+    JKFindViewController          *thirdVC  = [[JKFindViewController alloc] init];
     JKBaseNavigationViewController *thirdNav = [[JKBaseNavigationViewController alloc] initWithRootViewController:thirdVC];
     thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"发现" image:[UIImage imageNamed:@"tabbar_icon_space"] selectedImage:[UIImage imageNamed:@"tabbar_icon_space_click.png"]];
 
-    JKLoginViewController          *fourthVC  = [[JKLoginViewController alloc] init];
+    JKMoreViewController          *fourthVC  = [[JKMoreViewController alloc] init];
     JKBaseNavigationViewController *fourthNav = [[JKBaseNavigationViewController alloc] initWithRootViewController:fourthVC];
     fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"更多" image:[UIImage imageNamed:@"tabbar_icon_more"] selectedImage:[UIImage imageNamed:@"tabbar_icon_more_click"]];
 
