@@ -1,0 +1,19 @@
+//
+//  JKDemo-Prefix.pch
+//  JKDemo
+//
+//  Created by jackyjiao on 12/6/16.
+//  Copyright © 2016 jackyjiao. All rights reserved.
+//
+
+#ifndef JKDemo_pch
+#define JKDemo_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "JKCommonMacros.h"
+#import "JKViewConsts.h"
+#import "TencentAdditions.h"
+
+#endif
