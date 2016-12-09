@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self buildDataSourceAndReload];
+    [self buildDataSource];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -49,7 +49,7 @@
 }
 
 #pragma mark - DataSource
-- (void)buildDataSourceAndReload {
+- (void)buildDataSource {
 //    [immutableObject copy] // 浅复制，copy得到不可变对象 (immutableObject比如NSObject)
 //    [immutableObject mutableCopy] //深复制，mutableCopy得到可变对象
 //    [mutableObject copy] //深复制，copy得到不可变对象 (mutableObject比如NSString)
@@ -67,7 +67,6 @@
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
-    [self.tableView reloadData];
 }
 
 #pragma mark - views' getter
@@ -88,6 +87,7 @@
 }
 
 #pragma mark TableView header
+//TableView layoutSubviews时会执行reloadData
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return DEFAULT_TABLE_VIEW_HEADER_HEIGHT;
 }

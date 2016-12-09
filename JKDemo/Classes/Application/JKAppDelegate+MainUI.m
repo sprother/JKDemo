@@ -44,6 +44,9 @@
 
 #pragma mark - lazzyLoad
 - (JKTabBarController *)createRootTabBarController {
+    if (self.rootTabBarController) {
+        return self.rootTabBarController;
+    }
     JKFirstViewController          *firstVC  = [[JKFirstViewController alloc] init];
     JKBaseNavigationViewController *firstNav = [[JKBaseNavigationViewController alloc] initWithRootViewController:firstVC];
     firstVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"tabbar_icon_at"] selectedImage:[UIImage imageNamed:@"tabbar_icon_at_click"]];
@@ -65,6 +68,18 @@
     self.rootTabBarController.title = @"TabBarVC";
 
     self.rootTabBarController.viewControllers = [NSArray arrayWithObjects:firstNav, secondNav, thirdNav, fourthNav, nil];
+
+//    //修改TabBarb的背景色的第二种方法
+//    UIView *backView = [[UIView alloc] initWithFrame:self.rootTabBarController.tabBar.bounds];
+//    backView.backgroundColor = [UIColor blackColor];
+//    [self.rootTabBarController.tabBar insertSubview:backView atIndex:0];
+//    self.rootTabBarController.tabBar.opaque = YES;
+    
+    //修改TabBarb选中时的背景色
+    CGSize indicatorImageSize = CGSizeMake(self.rootTabBarController.tabBar.bounds.size.width/self.rootTabBarController.tabBar.items.count, self.rootTabBarController.tabBar.bounds.size.height);
+    self.rootTabBarController.tabBar.selectionIndicatorImage = [UIImage tc_imageWithColor:DEFAULT_BACKGROUND_COLOR size:indicatorImageSize];
+    
+    
     return self.rootTabBarController;
 }
 

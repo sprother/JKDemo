@@ -25,6 +25,7 @@
     self.window                 = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = UIColorFromHex(0xffffff);
     [self.window makeKeyAndVisible];
+    [self configModules];
     [self configCommonUI];
     [self showMainViewAnimated:NO];
     return YES;
@@ -74,6 +75,11 @@
 
 #pragma mark - UI
 - (void)configCommonUI {
+    [self configNavigationBar];
+    [self configTabBar];
+}
+
+- (void)configNavigationBar {
     UIImage *image = [UIImage tc_imageWithColor:UIColorFromHex(0x303030) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
@@ -82,6 +88,17 @@
     [[UINavigationBar appearance] setShadowImage:[UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x000000, 0) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, 1)]];
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+}
+
+- (void)configTabBar {
+    //修改TabBarb的背景色的第一种方法
+    //不要使用  [[UITabBar appearance] setBackgroundColor:DEFAULT_BACKGROUND_COLOR];
+    [[UITabBar appearance] setBarTintColor:DEFAULT_BACKGROUND_COLOR];
+    [UITabBar appearance].translucent = NO;
+}
+
+- (void)configModules {
+    [NSThread saveMethodDict];
 }
 
 #pragma mark - Service Push

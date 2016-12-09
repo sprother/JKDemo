@@ -53,6 +53,7 @@
 		9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */; };
 		9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */; };
 		9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */; };
+		9B0D53651DFA4F9D005C9893 /* NSThread+Qstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMNumberPickerView.m; path = Classes/Views/Common/DMNumberPickerView.m; sourceTree = "<group>"; };
 		9B0D53541DF98BD9005C9893 /* UILabel+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Tencent.h"; path = "Classes/Additions/UILabel+Tencent.h"; sourceTree = "<group>"; };
 		9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Tencent.m"; path = "Classes/Additions/UILabel+Tencent.m"; sourceTree = "<group>"; };
+		9B0D53631DFA4F9D005C9893 /* NSThread+Qstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSThread+Qstack.h"; path = "Classes/Public/NSThread+Qstack.h"; sourceTree = "<group>"; };
+		9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSThread+Qstack.m"; path = "Classes/Public/NSThread+Qstack.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,7 @@
 		9B0D51941DF6DA2F005C9893 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9B0D53621DFA4F7F005C9893 /* Public */,
 				9B0D52F91DF82B78005C9893 /* Additions */,
 				9B0D51951DF6DA36005C9893 /* Application */,
 				9B0D51AB1DF6E267005C9893 /* Consts */,
@@ -479,6 +483,15 @@
 			name = Photos;
 			sourceTree = "<group>";
 		};
+		9B0D53621DFA4F7F005C9893 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D53631DFA4F9D005C9893 /* NSThread+Qstack.h */,
+				9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */,
+			);
+			name = Public;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -601,6 +614,7 @@
 				9B0D52F81DF8244B005C9893 /* UIView+WebCacheOperation.m in Sources */,
 				9B0D52F41DF8244B005C9893 /* UIImage+GIF.m in Sources */,
 				9B0D52F21DF8244B005C9893 /* SDWebImagePrefetcher.m in Sources */,
+				9B0D53651DFA4F9D005C9893 /* NSThread+Qstack.m in Sources */,
 				9B0D53461DF93759005C9893 /* JKMoreViewController.m in Sources */,
 				9B0D519E1DF6DC92005C9893 /* main.m in Sources */,
 				9B0D53111DF837BA005C9893 /* JKAppDelegate+MainUI.m in Sources */,
