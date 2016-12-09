@@ -13,11 +13,8 @@
 
 //颜色
 #define UIColorFromHex(hexValue)                     [UIColor colorWithRed : ((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green : ((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue : (float)((hexValue & 0xFF)) / 255.0 alpha : 1.0f]
-
 #define UIColorFromHexAndAlpha(hexValue, alphaValue) [UIColor colorWithRed : ((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green : ((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue : (float)((hexValue & 0xFF)) / 255.0 alpha : alphaValue]
-
 #define UIColorFromRgbAlpha(rgb, halpha)             [UIColor colorWithRed : ((float)((rgb & 0xFF0000) >> 16)) / 255.0 green : ((float)((rgb & 0xFF00) >> 8)) / 255.0 blue : (float)((rgb & 0xFF)) / 255.0 alpha : (float)((halpha & 0xFF)) / 255.0]
-
 #define UIColorFromRgbFloatAlpha(rgb, falpha)        [UIColor colorWithRed : ((float)((rgb & 0xFF0000) >> 16)) / 255.0 green : ((float)((rgb & 0xFF00) >> 8)) / 255.0 blue : (float)((rgb & 0xFF)) / 255.0 alpha : falpha]
 #define RANDOM_COLOR             UIColorFromHex(arc4random()%0x1000000)
 #define DEFAULT_BACKGROUND_COLOR UIColorFromHex(0xF0F0F0)

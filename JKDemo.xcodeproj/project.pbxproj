@@ -55,6 +55,11 @@
 		9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */; };
 		9B0D53651DFA4F9D005C9893 /* NSThread+Qstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */; };
 		9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */; };
+		9B0D543F1DFA8B7E005C9893 /* JKAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D543E1DFA8B7E005C9893 /* JKAnimationViewController.m */; };
+		9B0D54431DFAA384005C9893 /* JKRunTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54421DFAA384005C9893 /* JKRunTrackView.m */; };
+		9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54451DFAA97C005C9893 /* JKEllipseView.m */; };
+		9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */; };
+		9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +166,16 @@
 		9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSThread+Qstack.m"; path = "Classes/Public/NSThread+Qstack.m"; sourceTree = "<group>"; };
 		9B0D54391DFA7EE8005C9893 /* JKReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKReadWriteLock.h; path = Classes/Public/JKReadWriteLock.h; sourceTree = "<group>"; };
 		9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReadWriteLock.m; path = Classes/Public/JKReadWriteLock.m; sourceTree = "<group>"; };
+		9B0D543D1DFA8B7E005C9893 /* JKAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKAnimationViewController.h; path = Classes/ViewControllers/Animations/JKAnimationViewController.h; sourceTree = "<group>"; };
+		9B0D543E1DFA8B7E005C9893 /* JKAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAnimationViewController.m; path = Classes/ViewControllers/Animations/JKAnimationViewController.m; sourceTree = "<group>"; };
+		9B0D54411DFAA384005C9893 /* JKRunTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKRunTrackView.h; path = Classes/Views/Animation/JKRunTrackView.h; sourceTree = "<group>"; };
+		9B0D54421DFAA384005C9893 /* JKRunTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKRunTrackView.m; path = Classes/Views/Animation/JKRunTrackView.m; sourceTree = "<group>"; };
+		9B0D54441DFAA97C005C9893 /* JKEllipseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKEllipseView.h; path = Classes/Views/Animation/JKEllipseView.h; sourceTree = "<group>"; };
+		9B0D54451DFAA97C005C9893 /* JKEllipseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKEllipseView.m; path = Classes/Views/Animation/JKEllipseView.m; sourceTree = "<group>"; };
+		9B0D54471DFAAAF0005C9893 /* JKEllipseLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKEllipseLineView.h; path = Classes/Views/Animation/JKEllipseLineView.h; sourceTree = "<group>"; };
+		9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKEllipseLineView.m; path = Classes/Views/Animation/JKEllipseLineView.m; sourceTree = "<group>"; };
+		9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMScanCircleView.h; path = Classes/Views/Animation/DMScanCircleView.h; sourceTree = "<group>"; };
+		9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMScanCircleView.m; path = Classes/Views/Animation/DMScanCircleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +297,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B0D543C1DFA8B34005C9893 /* Animations */,
 				9B0D534D1DF93EF8005C9893 /* Photos */,
 				9B0D51AD1DF6E3C5005C9893 /* Common */,
 				9B0D51A51DF6DF2A005C9893 /* Login */,
@@ -294,6 +310,7 @@
 		9B0D51A21DF6DD0D005C9893 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B0D54401DFAA33B005C9893 /* Animations */,
 				9B0D53371DF904B6005C9893 /* Common */,
 			);
 			name = Views;
@@ -497,6 +514,30 @@
 			name = Public;
 			sourceTree = "<group>";
 		};
+		9B0D543C1DFA8B34005C9893 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D543D1DFA8B7E005C9893 /* JKAnimationViewController.h */,
+				9B0D543E1DFA8B7E005C9893 /* JKAnimationViewController.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		9B0D54401DFAA33B005C9893 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D54411DFAA384005C9893 /* JKRunTrackView.h */,
+				9B0D54421DFAA384005C9893 /* JKRunTrackView.m */,
+				9B0D54441DFAA97C005C9893 /* JKEllipseView.h */,
+				9B0D54451DFAA97C005C9893 /* JKEllipseView.m */,
+				9B0D54471DFAAAF0005C9893 /* JKEllipseLineView.h */,
+				9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */,
+				9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */,
+				9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -616,6 +657,7 @@
 				9B0D53361DF8F90E005C9893 /* JKDemoViewController.m in Sources */,
 				9B0D51B01DF6E3F0005C9893 /* JKBaseViewController.m in Sources */,
 				9B0D52ED1DF8244B005C9893 /* SDWebImageCompat.m in Sources */,
+				9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */,
 				9B0D52F81DF8244B005C9893 /* UIView+WebCacheOperation.m in Sources */,
 				9B0D52F41DF8244B005C9893 /* UIImage+GIF.m in Sources */,
 				9B0D52F21DF8244B005C9893 /* SDWebImagePrefetcher.m in Sources */,
@@ -623,6 +665,7 @@
 				9B0D53461DF93759005C9893 /* JKMoreViewController.m in Sources */,
 				9B0D519E1DF6DC92005C9893 /* main.m in Sources */,
 				9B0D53111DF837BA005C9893 /* JKAppDelegate+MainUI.m in Sources */,
+				9B0D54431DFAA384005C9893 /* JKRunTrackView.m in Sources */,
 				9B0D52EA1DF8244B005C9893 /* MBProgressHUD.m in Sources */,
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
@@ -630,10 +673,13 @@
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
 				9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */,
+				9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */,
 				9B0D52F31DF8244B005C9893 /* UIButton+WebCache.m in Sources */,
 				9B0D533A1DF904E2005C9893 /* JKTableViewCell.m in Sources */,
+				9B0D543F1DFA8B7E005C9893 /* JKAnimationViewController.m in Sources */,
 				9B0D53401DF936DC005C9893 /* JKFirstViewController.m in Sources */,
 				9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */,
+				9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */,
 				9B0D52FF1DF82DDC005C9893 /* UIView+Tencent.m in Sources */,
 				9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */,
 				9B0D52EB1DF8244B005C9893 /* NSData+ImageContentType.m in Sources */,

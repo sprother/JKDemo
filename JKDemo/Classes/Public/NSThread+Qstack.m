@@ -55,6 +55,7 @@ static JKReadWriteLock *jkReadWriteLock = nil;
             Class classinst = classes[i];
             NSString *className = [NSString stringWithFormat:@"%s",class_getName(classinst)];
             Method *methods = class_copyMethodList(classinst, &outMethodCount);
+            
             for (int j = 0; j < outMethodCount; j++) {
                 Method method = methods[j];
                 // 获得属性名称

@@ -9,6 +9,7 @@
 #import "JKDemoViewController.h"
 #import "JKTableViewCell.h"
 #import "ImageCollectViewController.h"
+#import "JKAnimationViewController.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -135,9 +136,11 @@
     } else if ([rowName isEqualToString:ROW_NAME_SCAN_MFI]) {
     } else if ([rowName isEqualToString:ROW_NAME_CALC]) {
     } else if ([rowName isEqualToString:ROW_NAME_ANIMATION]) {
+        JKAnimationViewController *vc = [[JKAnimationViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_PHOTOS]) {
         ImageCollectViewController *vc = [[ImageCollectViewController alloc] init];
-        vc.title                      = ROW_NAME_PHOTOS;
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {

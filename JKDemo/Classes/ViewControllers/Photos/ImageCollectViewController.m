@@ -35,13 +35,13 @@
 - (void)loadView {
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.collectionView];
-    self.defaultTitle = self.title;
+    self.defaultTitle = @"相册";
     self.title        = @"加载中...";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.collectionView];
 }
 
 #pragma mark - views' getter
@@ -84,11 +84,6 @@
     UICollectionViewCell *cell           = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
 
     cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
-
-    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.picSize.width, self.picSize.height)];
-    img.contentMode = UIViewContentModeScaleAspectFit;
-    [cell addSubview:img];
-
     PHAsset *result = [self.picArray objectAtIndex:indexPath.row];
     //这里的逻辑很奇怪，返回的image尺寸老是错的
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
@@ -101,7 +96,10 @@
                                                   options:options
                                             resultHandler:^(UIImage *alaImg, NSDictionary *info) {
          // 得到一张 UIImage，展示到界面上
-         img.image = alaImg;
+        UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.picSize.width, self.picSize.height)];
+        img.contentMode = UIViewContentModeScaleAspectFit;
+        cell.backgroundView = img;
+        img.image = alaImg;
      }];
 
     return cell;

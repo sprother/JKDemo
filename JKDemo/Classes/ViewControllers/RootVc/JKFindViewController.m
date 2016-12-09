@@ -21,12 +21,11 @@
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     self.title = @"发现";
-    
-    [self.view addSubview:self.numberPickerView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.numberPickerView];
 }
 
 #pragma mark - NumberPickerView
