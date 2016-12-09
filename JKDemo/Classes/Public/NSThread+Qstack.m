@@ -7,10 +7,16 @@
 //
 
 #import "NSThread+Qstack.h"
+#import "JKReadWriteLock.h"
 
 static NSDictionary *methodDict = nil;
+static JKReadWriteLock *jkReadWriteLock = nil;
 
 @implementation NSThread (Qstack)
+
++ (void)load {
+    jkReadWriteLock = [[JKReadWriteLock alloc] init];
+}
 
 #pragma mark - saveMethodDict Interface
 + (void)saveMethodDict {
@@ -61,7 +67,9 @@ static NSDictionary *methodDict = nil;
         }
         free(classes);
     }
+    [jkReadWriteLock writeLock];
     methodDict = tmpMethodDict;//为了避免深拷贝，不用copy
+    [jkReadWriteLock writeUnlock];
     JLog(@"generalMethedDict finished(total %d class).", numClasses);
     return;
 }
@@ -89,12 +97,14 @@ static NSDictionary *methodDict = nil;
         return;
     }
     [_fileHandle seekToFileOffset:0];
+    [jkReadWriteLock readLock];
     for (NSNumber *key in methodDict) {
         NSString *info = [methodDict objectForKey:key];
         NSString* keyInfo = [NSString stringWithFormat:@"%@ : %@\n", key, info];
         NSData* data = [keyInfo dataUsingEncoding:NSUTF8StringEncoding];
         [_fileHandle writeData:data];
     }
+    [jkReadWriteLock readUnlock];
     [_fileHandle synchronizeFile];
     JLog(@"saveMethodDict finished.");
     return;
@@ -123,7 +133,9 @@ static NSDictionary *methodDict = nil;
             NSString *strOffset = [pgnText substringWithRange:[match rangeAtIndex:4]];
             unsigned long ulong = strtoul([strAddress UTF8String], 0, 16)-strtoul([strOffset UTF8String], 0, 10);
             NSNumber* methodAddr = [NSNumber numberWithUnsignedLong:ulong];
+            [jkReadWriteLock readLock];
             NSString* destMethod = [methodDict objectForKey:methodAddr];
+            [jkReadWriteLock readUnlock];
             if (destMethod) {
                 //JLog(@"%@%@ -%@ + %@ - %@", strProcess, strAddress, destMethod, strOffset, strMethod);
                 newText = [NSString stringWithFormat:@"%@%@ -%@ + %@ - %@", strProcess, strAddress, destMethod, strOffset, strMethod];

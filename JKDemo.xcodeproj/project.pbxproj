@@ -54,6 +54,7 @@
 		9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */; };
 		9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */; };
 		9B0D53651DFA4F9D005C9893 /* NSThread+Qstack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */; };
+		9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Tencent.m"; path = "Classes/Additions/UILabel+Tencent.m"; sourceTree = "<group>"; };
 		9B0D53631DFA4F9D005C9893 /* NSThread+Qstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSThread+Qstack.h"; path = "Classes/Public/NSThread+Qstack.h"; sourceTree = "<group>"; };
 		9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSThread+Qstack.m"; path = "Classes/Public/NSThread+Qstack.m"; sourceTree = "<group>"; };
+		9B0D54391DFA7EE8005C9893 /* JKReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKReadWriteLock.h; path = Classes/Public/JKReadWriteLock.h; sourceTree = "<group>"; };
+		9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKReadWriteLock.m; path = Classes/Public/JKReadWriteLock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +491,8 @@
 			children = (
 				9B0D53631DFA4F9D005C9893 /* NSThread+Qstack.h */,
 				9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */,
+				9B0D54391DFA7EE8005C9893 /* JKReadWriteLock.h */,
+				9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				9B0D52F11DF8244B005C9893 /* SDWebImageManager.m in Sources */,
 				9B0D52EE1DF8244B005C9893 /* SDWebImageDecoder.m in Sources */,
 				9B0D52EC1DF8244B005C9893 /* SDImageCache.m in Sources */,
+				9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
