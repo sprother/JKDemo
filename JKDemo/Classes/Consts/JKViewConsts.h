@@ -13,6 +13,11 @@
 #define APPLICATION_SCREEN_WIDTH         ([UIScreen mainScreen].bounds.size.width)
 #define APPLICATION_BOUNDS               ([UIScreen mainScreen].bounds)
 
+#define SCALE_OF_SCREEN_HEIGHT_TO_IPHONE6       ([UIScreen mainScreen].bounds.size.height / 667)
+#define SCALE_OF_SCREEN_WIDTH_TO_IPHONE6        ([UIScreen mainScreen].bounds.size.width / 375)
+#define SCALE_HEIGHT(h)                         floor((h) * SCALE_OF_SCREEN_HEIGHT_TO_IPHONE6)
+#define SCALE_WIDTH(w)                          floor((w) * SCALE_OF_SCREEN_WIDTH_TO_IPHONE6)
+
 #define DEFAULT_FONT(s) ([UIFont respondsToSelector:@selector(systemFontOfSize:weight:)] ? [UIFont systemFontOfSize : s weight:UIFontWeightLight] :[UIFont systemFontOfSize:s])
 
 #define DEFAULT_STATUS_BAR_HEIGHT        ([UIApplication sharedApplication].statusBarFrame.size.height)

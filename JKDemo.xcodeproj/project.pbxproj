@@ -51,6 +51,8 @@
 		9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53481DF93AF3005C9893 /* UIViewController+Tencent.m */; };
 		9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */; };
 		9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */; };
+		9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */; };
+		9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,10 @@
 		9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Tencent.m"; path = "Classes/Additions/UINavigationController+Tencent.m"; sourceTree = "<group>"; };
 		9B0D534E1DF93F18005C9893 /* ImageCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectViewController.h; path = Classes/ViewControllers/Photos/ImageCollectViewController.h; sourceTree = "<group>"; };
 		9B0D534F1DF93F18005C9893 /* ImageCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectViewController.m; path = Classes/ViewControllers/Photos/ImageCollectViewController.m; sourceTree = "<group>"; };
+		9B0D53511DF98A4C005C9893 /* DMNumberPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMNumberPickerView.h; path = Classes/Views/Common/DMNumberPickerView.h; sourceTree = "<group>"; };
+		9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMNumberPickerView.m; path = Classes/Views/Common/DMNumberPickerView.m; sourceTree = "<group>"; };
+		9B0D53541DF98BD9005C9893 /* UILabel+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Tencent.h"; path = "Classes/Additions/UILabel+Tencent.h"; sourceTree = "<group>"; };
+		9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Tencent.m"; path = "Classes/Additions/UILabel+Tencent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +431,8 @@
 				9B0D53001DF82DE8005C9893 /* TencentAdditions.h */,
 				9B0D533B1DF90650005C9893 /* UIImage+Tencent.h */,
 				9B0D533C1DF90650005C9893 /* UIImage+Tencent.m */,
+				9B0D53541DF98BD9005C9893 /* UILabel+Tencent.h */,
+				9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */,
 				9B0D534A1DF93C1E005C9893 /* UINavigationController+Tencent.h */,
 				9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */,
 				9B0D52FD1DF82DDC005C9893 /* UIView+Tencent.h */,
@@ -456,6 +464,8 @@
 			children = (
 				9B0D53381DF904E2005C9893 /* JKTableViewCell.h */,
 				9B0D53391DF904E2005C9893 /* JKTableViewCell.m */,
+				9B0D53511DF98A4C005C9893 /* DMNumberPickerView.h */,
+				9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -580,6 +590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0D52F61DF8244B005C9893 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9B0D52F51DF8244B005C9893 /* UIImage+MultiFormat.m in Sources */,
 				9B0D52F01DF8244B005C9893 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -609,6 +620,7 @@
 				9B0D52EB1DF8244B005C9893 /* NSData+ImageContentType.m in Sources */,
 				9B0D51AA1DF6E0FF005C9893 /* JKLoginViewController.m in Sources */,
 				9B0D52F71DF8244B005C9893 /* UIImageView+WebCache.m in Sources */,
+				9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */,
 				9B0D53171DF83A61005C9893 /* JKTabBarController.m in Sources */,
 				9B0D52F11DF8244B005C9893 /* SDWebImageManager.m in Sources */,
 				9B0D52EE1DF8244B005C9893 /* SDWebImageDecoder.m in Sources */,
