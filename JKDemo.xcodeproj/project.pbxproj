@@ -60,6 +60,8 @@
 		9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54451DFAA97C005C9893 /* JKEllipseView.m */; };
 		9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */; };
 		9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */; };
+		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
+		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,10 @@
 		9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKEllipseLineView.m; path = Classes/Views/Animation/JKEllipseLineView.m; sourceTree = "<group>"; };
 		9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMScanCircleView.h; path = Classes/Views/Animation/DMScanCircleView.h; sourceTree = "<group>"; };
 		9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMScanCircleView.m; path = Classes/Views/Animation/DMScanCircleView.m; sourceTree = "<group>"; };
+		9B72F19F1DFE517C00B92A8A /* DMPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPullToRefreshControl.h; sourceTree = "<group>"; };
+		9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPullToRefreshControl.m; sourceTree = "<group>"; };
+		9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCGraintCircleLayer.h; sourceTree = "<group>"; };
+		9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCGraintCircleLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +318,7 @@
 			children = (
 				9B0D54401DFAA33B005C9893 /* Animations */,
 				9B0D53371DF904B6005C9893 /* Common */,
+				9B72F19E1DFE517C00B92A8A /* RefreshControl */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -538,6 +545,18 @@
 			name = Animations;
 			sourceTree = "<group>";
 		};
+		9B72F19E1DFE517C00B92A8A /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				9B72F19F1DFE517C00B92A8A /* DMPullToRefreshControl.h */,
+				9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */,
+				9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */,
+				9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */,
+			);
+			name = RefreshControl;
+			path = Classes/Views/RefreshControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -691,6 +710,8 @@
 				9B0D52EE1DF8244B005C9893 /* SDWebImageDecoder.m in Sources */,
 				9B0D52EC1DF8244B005C9893 /* SDImageCache.m in Sources */,
 				9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */,
+				9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */,
+				9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "JKTableViewCell.h"
 #import "ImageCollectViewController.h"
 #import "JKAnimationViewController.h"
+#import "DMPullToRefreshControl.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -25,6 +26,8 @@
 
 @property (nonatomic, strong) UITableView       *tableView;
 @property (nonatomic, copy) NSArray <NSArray *> *dataSource;
+
+@property (nonatomic, strong) DMPullToRefreshControl *refreshControl;
 
 @end
 
@@ -73,7 +76,7 @@
 #pragma mark - views' getter
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT-DEFAULT_NAVIGATION_BAR_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT) style:UITableViewStyleGrouped];
         [_tableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
@@ -82,7 +85,9 @@
 //        [_tableView setSeparatorColor:UIColorFromHex(0xE0E0E0)];
         [_tableView setSeparatorInset:UIEdgeInsetsMake(0, DEFAULT_PADDING_LEFT, 0, 0)];
         [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(DEFAULT_NAVIGATION_BAR_HEIGHT, 0, 0, 0)];
+        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        
+        [_tableView addSubview:self.refreshControl];
     }
     return _tableView;
 }
@@ -198,5 +203,35 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
+
+#pragma mark - hideNavigation
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+//    if(velocity.y > 0) {
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    } else {
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    }
+//}
+
+#pragma mark - refreshControl
+- (DMPullToRefreshControl *)refreshControl {
+    if (_refreshControl == nil) {
+        _refreshControl =  [[DMPullToRefreshControl alloc] initWithFrame:CGRectMake(0, -24, 24, 24)];
+        _refreshControl.tcCenterX = _tableView.tcCenterX;
+    }
+    return _refreshControl;
+}
+
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat spaceHeight = DEFAULT_TABLE_VIEW_HEADER_HEIGHT + 24;
+//    CGFloat offset = scrollView.contentOffset.y;
+//    if (offset > -spaceHeight) {
+//        self.refreshControl.tcTop = -24;
+//        return;
+//    }
+//    self.refreshControl.tcTop = -24 + (offset + spaceHeight);
+//    self.tableView.contentInset = UIEdgeInsetsMake(39, 0, 0, 0);
+//}
 
 @end
