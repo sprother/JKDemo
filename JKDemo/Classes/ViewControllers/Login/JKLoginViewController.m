@@ -183,7 +183,6 @@
 -(void)btn1Click:sender{
     JLog(@"Login button1 clicked.");
     if ([textfield1.text isEqualToString:@"123"] &&  [textfield2.text isEqualToString:@"asd"]){
-        //[[MyConfig getInstance] setLogin];
         [USER_DEFAULT setBool:YES forKey:@"hasLogin"];
         [[JKAppDelegate shareInstance] showMainViewAnimated:YES];
     }
@@ -198,7 +197,4 @@
     
 }
 
-- (BOOL)shouldAutorotate {
-    return NO;
-}
 @end

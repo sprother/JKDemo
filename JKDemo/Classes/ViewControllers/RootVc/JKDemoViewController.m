@@ -6,6 +6,7 @@
 //  Copyright © 2016 jackyjiao. All rights reserved.
 //
 
+#import "JKAppDelegate+MainUI.h"
 #import "JKDemoViewController.h"
 #import "JKTableViewCell.h"
 #import "ImageCollectViewController.h"
@@ -149,6 +150,7 @@
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {
+        [[JKAppDelegate shareInstance] showLoginViewAnimated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
     } else {
     }
