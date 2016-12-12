@@ -24,7 +24,7 @@
 
 - (void)showMainViewAnimated:(BOOL)animated {
     [self createRootTabBarController];
-    [self setRootViewController:self.rootTabBarController animated:animated];
+    [self setRootViewController:self.drawerViewController animated:animated];
 }
 
 #pragma mark - setRoot
@@ -79,6 +79,7 @@
     CGSize indicatorImageSize = CGSizeMake(self.rootTabBarController.tabBar.bounds.size.width/self.rootTabBarController.tabBar.items.count, self.rootTabBarController.tabBar.bounds.size.height);
     self.rootTabBarController.tabBar.selectionIndicatorImage = [UIImage tc_imageWithColor:DEFAULT_BACKGROUND_COLOR size:indicatorImageSize];
     
+    self.drawerViewController = [[DrawerViewController alloc] initWithSubvc:self.rootTabBarController];
     
     return self.rootTabBarController;
 }

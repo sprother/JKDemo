@@ -83,7 +83,7 @@
     static NSString      *CellIdentifier = @"UICollectionViewCell";
     UICollectionViewCell *cell           = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
 
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    cell.backgroundColor = [UIColor clearColor];
     PHAsset *result = [self.picArray objectAtIndex:indexPath.row];
     //这里的逻辑很奇怪，返回的image尺寸老是错的
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];

@@ -62,6 +62,7 @@
 		9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */; };
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
+		9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A61DFE885700B92A8A /* DrawerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,8 @@
 		9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPullToRefreshControl.m; sourceTree = "<group>"; };
 		9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCGraintCircleLayer.h; sourceTree = "<group>"; };
 		9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCGraintCircleLayer.m; sourceTree = "<group>"; };
+		9B72F1A51DFE885700B92A8A /* DrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawerViewController.h; path = Classes/ViewControllers/RootVc/DrawerViewController.h; sourceTree = "<group>"; };
+		9B72F1A61DFE885700B92A8A /* DrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawerViewController.m; path = Classes/ViewControllers/RootVc/DrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +336,8 @@
 		9B0D51A41DF6DEF8005C9893 /* RootVc */ = {
 			isa = PBXGroup;
 			children = (
+				9B72F1A51DFE885700B92A8A /* DrawerViewController.h */,
+				9B72F1A61DFE885700B92A8A /* DrawerViewController.m */,
 				9B0D53341DF8F90E005C9893 /* JKDemoViewController.h */,
 				9B0D53351DF8F90E005C9893 /* JKDemoViewController.m */,
 				9B0D53411DF9373F005C9893 /* JKFindViewController.h */,
@@ -686,6 +691,7 @@
 				9B0D53111DF837BA005C9893 /* JKAppDelegate+MainUI.m in Sources */,
 				9B0D54431DFAA384005C9893 /* JKRunTrackView.m in Sources */,
 				9B0D52EA1DF8244B005C9893 /* MBProgressHUD.m in Sources */,
+				9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */,
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
