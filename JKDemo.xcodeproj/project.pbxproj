@@ -63,6 +63,8 @@
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A61DFE885700B92A8A /* DrawerViewController.m */; };
+		9B72F1AA1DFECBB200B92A8A /* JKFPSCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */; };
+		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,10 @@
 		9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCGraintCircleLayer.m; sourceTree = "<group>"; };
 		9B72F1A51DFE885700B92A8A /* DrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawerViewController.h; path = Classes/ViewControllers/RootVc/DrawerViewController.h; sourceTree = "<group>"; };
 		9B72F1A61DFE885700B92A8A /* DrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawerViewController.m; path = Classes/ViewControllers/RootVc/DrawerViewController.m; sourceTree = "<group>"; };
+		9B72F1A81DFECBB200B92A8A /* JKFPSCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKFPSCount.h; path = Classes/Public/JKFPSCount.h; sourceTree = "<group>"; };
+		9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKFPSCount.m; path = Classes/Public/JKFPSCount.m; sourceTree = "<group>"; };
+		9B72F1AB1DFED0E700B92A8A /* JKAssitPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKAssitPointView.h; path = Classes/Views/Common/JKAssitPointView.h; sourceTree = "<group>"; };
+		9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAssitPointView.m; path = Classes/Views/Common/JKAssitPointView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,6 +508,8 @@
 				9B0D53391DF904E2005C9893 /* JKTableViewCell.m */,
 				9B0D53511DF98A4C005C9893 /* DMNumberPickerView.h */,
 				9B0D53521DF98A4C005C9893 /* DMNumberPickerView.m */,
+				9B72F1AB1DFED0E700B92A8A /* JKAssitPointView.h */,
+				9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -522,6 +530,8 @@
 				9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */,
 				9B0D54391DFA7EE8005C9893 /* JKReadWriteLock.h */,
 				9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */,
+				9B72F1A81DFECBB200B92A8A /* JKFPSCount.h */,
+				9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -681,6 +691,7 @@
 				9B0D53361DF8F90E005C9893 /* JKDemoViewController.m in Sources */,
 				9B0D51B01DF6E3F0005C9893 /* JKBaseViewController.m in Sources */,
 				9B0D52ED1DF8244B005C9893 /* SDWebImageCompat.m in Sources */,
+				9B72F1AA1DFECBB200B92A8A /* JKFPSCount.m in Sources */,
 				9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */,
 				9B0D52F81DF8244B005C9893 /* UIView+WebCacheOperation.m in Sources */,
 				9B0D52F41DF8244B005C9893 /* UIImage+GIF.m in Sources */,
@@ -713,6 +724,7 @@
 				9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */,
 				9B0D53171DF83A61005C9893 /* JKTabBarController.m in Sources */,
 				9B0D52F11DF8244B005C9893 /* SDWebImageManager.m in Sources */,
+				9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */,
 				9B0D52EE1DF8244B005C9893 /* SDWebImageDecoder.m in Sources */,
 				9B0D52EC1DF8244B005C9893 /* SDImageCache.m in Sources */,
 				9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */,
