@@ -132,6 +132,14 @@
 #pragma mark - get all picture
 - (void)getImgs {
     BACK(^{
+        if ([PHPhotoLibrary authorizationStatus] != PHAuthorizationStatusAuthorized) {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    [self getImgs];
+                }
+            }];
+            return;
+        }
         if (!NSClassFromString(@"PHFetchResult")) {
             return;
         }

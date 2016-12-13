@@ -60,6 +60,24 @@
     self.startTime = endTime;
 }
 
+//计算方式
+//_link = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
+//[_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+//
+//- (void)tick:(CADisplayLink *)link {
+//    if (_lastTime == 0) {
+//        _lastTime = link.timestamp;
+//        return;
+//    }
+//    _count++;
+//    NSTimeInterval delta = link.timestamp - _lastTime;
+//    if (delta < 1) return;
+//    _lastTime = link.timestamp;
+//    float fps = _count / delta;
+//    _count = 0;
+//}
+
+#pragma mark - Interface
 - (void)start {
     if (_displayLink) {
         JLog(@"JKFPSCount has start.");
