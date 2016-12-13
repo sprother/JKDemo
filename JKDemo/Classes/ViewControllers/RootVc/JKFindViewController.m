@@ -25,7 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hidesBottomBarWhenPushed = NO;
     [self.view addSubview:self.numberPickerView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.hidesBottomBarWhenPushed = NO;
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - NumberPickerView

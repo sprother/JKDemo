@@ -71,7 +71,7 @@
 
 //    //修改TabBarb的背景色的第二种方法
 //    UIView *backView = [[UIView alloc] initWithFrame:self.rootTabBarController.tabBar.bounds];
-//    backView.backgroundColor = [UIColor blackColor];
+//    backView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
 //    [self.rootTabBarController.tabBar insertSubview:backView atIndex:0];
 //    self.rootTabBarController.tabBar.opaque = YES;
     

@@ -23,6 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.hidesBottomBarWhenPushed = NO;
+    [super viewDidDisappear:animated];
 }
 
 @end

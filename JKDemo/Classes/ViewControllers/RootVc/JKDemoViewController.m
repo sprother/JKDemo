@@ -12,6 +12,7 @@
 #import "ImageCollectViewController.h"
 #import "JKAnimationViewController.h"
 #import "DMPullToRefreshControl.h"
+#import "PeriListViewController.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -44,8 +45,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.hidesBottomBarWhenPushed = NO;
     [self buildDataSource];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -83,7 +88,7 @@
         [_tableView setDataSource:self];
         [_tableView setBackgroundColor:DEFAULT_BACKGROUND_COLOR];
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-//        [_tableView setSeparatorColor:UIColorFromHex(0xE0E0E0)];
+        //[_tableView setSeparatorColor:UIColorFromHex(0xE0E0E0)];
         [_tableView setSeparatorInset:UIEdgeInsetsMake(0, DEFAULT_PADDING_LEFT, 0, 0)];
         [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -139,6 +144,9 @@
     //该方法响应列表中行的点击事件
     NSString *rowName = self.dataSource[indexPath.section][indexPath.row];
     if ([rowName isEqualToString:ROW_NAME_SCAN_BLE]) {
+        PeriListViewController *vc = [[PeriListViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_SCAN_MFI]) {
     } else if ([rowName isEqualToString:ROW_NAME_CALC]) {
     } else if ([rowName isEqualToString:ROW_NAME_ANIMATION]) {

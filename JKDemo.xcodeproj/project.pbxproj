@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61471E0004F1004392B4 /* PeripheralViewController.m */; };
 		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
@@ -66,6 +67,8 @@
 		9B72F1AA1DFECBB200B92A8A /* JKFPSCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */; };
 		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
 		9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */; };
+		9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */; };
+		9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B0A61461E0004F1004392B4 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralViewController.h; path = Classes/ViewControllers/BLE/PeripheralViewController.h; sourceTree = "<group>"; };
+		9B0A61471E0004F1004392B4 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralViewController.m; path = Classes/ViewControllers/BLE/PeripheralViewController.m; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
@@ -194,6 +199,10 @@
 		9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAssitPointView.m; path = Classes/Views/Common/JKAssitPointView.m; sourceTree = "<group>"; };
 		9B72F1AE1DFF99AC00B92A8A /* MainThreadWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainThreadWatchdog.h; path = Classes/Public/MainThreadWatchdog.h; sourceTree = "<group>"; };
 		9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainThreadWatchdog.m; path = Classes/Public/MainThreadWatchdog.m; sourceTree = "<group>"; };
+		9B72F1B81DFFF36300B92A8A /* DMBLECentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMBLECentralManager.h; path = Classes/Manager/BLE/DMBLECentralManager.h; sourceTree = "<group>"; };
+		9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBLECentralManager.m; path = Classes/Manager/BLE/DMBLECentralManager.m; sourceTree = "<group>"; };
+		9B72F1BB1DFFF38500B92A8A /* PeriListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeriListViewController.h; path = Classes/ViewControllers/BLE/PeriListViewController.h; sourceTree = "<group>"; };
+		9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeriListViewController.m; path = Classes/ViewControllers/BLE/PeriListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,11 +280,12 @@
 		9B0D51941DF6DA2F005C9893 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9B0D53621DFA4F7F005C9893 /* Public */,
 				9B0D52F91DF82B78005C9893 /* Additions */,
 				9B0D51951DF6DA36005C9893 /* Application */,
 				9B0D51AB1DF6E267005C9893 /* Consts */,
+				9B72F1B61DFFF2AD00B92A8A /* Manager */,
 				9B0D51A31DF6DD13005C9893 /* Models */,
+				9B0D53621DFA4F7F005C9893 /* Public */,
 				9B0D51A11DF6DCFD005C9893 /* ViewControllers */,
 				9B0D51A21DF6DD0D005C9893 /* Views */,
 			);
@@ -315,6 +325,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B72F1B21DFFF25000B92A8A /* BLE */,
 				9B0D543C1DFA8B34005C9893 /* Animations */,
 				9B0D534D1DF93EF8005C9893 /* Photos */,
 				9B0D51AD1DF6E3C5005C9893 /* Common */,
@@ -577,6 +588,34 @@
 			path = Classes/Views/RefreshControl;
 			sourceTree = "<group>";
 		};
+		9B72F1B21DFFF25000B92A8A /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				9B72F1BB1DFFF38500B92A8A /* PeriListViewController.h */,
+				9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */,
+				9B0A61461E0004F1004392B4 /* PeripheralViewController.h */,
+				9B0A61471E0004F1004392B4 /* PeripheralViewController.m */,
+			);
+			name = BLE;
+			sourceTree = "<group>";
+		};
+		9B72F1B61DFFF2AD00B92A8A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9B72F1B71DFFF32C00B92A8A /* BLE */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		9B72F1B71DFFF32C00B92A8A /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				9B72F1B81DFFF36300B92A8A /* DMBLECentralManager.h */,
+				9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */,
+			);
+			name = BLE;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -690,6 +729,7 @@
 			files = (
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0D52F61DF8244B005C9893 /* UIImageView+HighlightedWebCache.m in Sources */,
+				9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */,
 				9B0D52F51DF8244B005C9893 /* UIImage+MultiFormat.m in Sources */,
 				9B0D52F01DF8244B005C9893 /* SDWebImageDownloaderOperation.m in Sources */,
 				9B0D52FC1DF82B94005C9893 /* MBProgressHUD+Tencent.m in Sources */,
@@ -710,6 +750,7 @@
 				9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */,
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
+				9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
@@ -720,6 +761,7 @@
 				9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */,
 				9B0D543F1DFA8B7E005C9893 /* JKAnimationViewController.m in Sources */,
 				9B0D53401DF936DC005C9893 /* JKFirstViewController.m in Sources */,
+				9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */,
 				9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */,
 				9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */,
 				9B0D52FF1DF82DDC005C9893 /* UIView+Tencent.m in Sources */,
