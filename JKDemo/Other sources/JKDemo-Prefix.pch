@@ -16,6 +16,4 @@
 #import "JKViewConsts.h"
 #import "TencentAdditions.h"
 
-#import "NSThread+Qstack.h"
-
 #endif

@@ -9,6 +9,12 @@
 #import "JKAppDelegate.h"
 #import "JKAppDelegate+MainUI.h"
 
+#if defined(DEBUG)
+#import "NSThread+Qstack.h"
+#import "MainThreadWatchdog.h"
+#endif
+
+
 @interface JKAppDelegate ()
 
 @end
@@ -98,7 +104,15 @@
 }
 
 - (void)configModules {
+#if defined(DEBUG)
     [NSThread saveMethodDict];
+    // Watchdog
+    [[MainThreadWatchdog sharedWatchdog] startWithHandler:^{
+        JLog(@"好像有点卡...");
+    }];
+#endif
+    
+
 }
 
 #pragma mark - Service Push

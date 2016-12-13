@@ -65,6 +65,7 @@
 		9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A61DFE885700B92A8A /* DrawerViewController.m */; };
 		9B72F1AA1DFECBB200B92A8A /* JKFPSCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */; };
 		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
+		9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKFPSCount.m; path = Classes/Public/JKFPSCount.m; sourceTree = "<group>"; };
 		9B72F1AB1DFED0E700B92A8A /* JKAssitPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKAssitPointView.h; path = Classes/Views/Common/JKAssitPointView.h; sourceTree = "<group>"; };
 		9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAssitPointView.m; path = Classes/Views/Common/JKAssitPointView.m; sourceTree = "<group>"; };
+		9B72F1AE1DFF99AC00B92A8A /* MainThreadWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainThreadWatchdog.h; path = Classes/Public/MainThreadWatchdog.h; sourceTree = "<group>"; };
+		9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainThreadWatchdog.m; path = Classes/Public/MainThreadWatchdog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +535,8 @@
 				9B0D543A1DFA7EE8005C9893 /* JKReadWriteLock.m */,
 				9B72F1A81DFECBB200B92A8A /* JKFPSCount.h */,
 				9B72F1A91DFECBB200B92A8A /* JKFPSCount.m */,
+				9B72F1AE1DFF99AC00B92A8A /* MainThreadWatchdog.h */,
+				9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -712,6 +717,7 @@
 				9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */,
 				9B0D52F31DF8244B005C9893 /* UIButton+WebCache.m in Sources */,
 				9B0D533A1DF904E2005C9893 /* JKTableViewCell.m in Sources */,
+				9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */,
 				9B0D543F1DFA8B7E005C9893 /* JKAnimationViewController.m in Sources */,
 				9B0D53401DF936DC005C9893 /* JKFirstViewController.m in Sources */,
 				9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */,
