@@ -23,6 +23,26 @@
     self.hidesBottomBarWhenPushed = YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    JLog(@"%@ viewWillAppear", NSStringFromClass([self class]));
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    JLog(@"%@ viewDidAppear", NSStringFromClass([self class]));
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    JLog(@"%@ viewWillDisappear", NSStringFromClass([self class]));
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    JLog(@"%@ viewDidDisappear", NSStringFromClass([self class]));
+    [super viewDidDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 

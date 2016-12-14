@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61471E0004F1004392B4 /* PeripheralViewController.m */; };
+		9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61561E00EA97004392B4 /* DMPeripheral.m */; };
 		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
@@ -84,6 +85,8 @@
 /* Begin PBXFileReference section */
 		9B0A61461E0004F1004392B4 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralViewController.h; path = Classes/ViewControllers/BLE/PeripheralViewController.h; sourceTree = "<group>"; };
 		9B0A61471E0004F1004392B4 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralViewController.m; path = Classes/ViewControllers/BLE/PeripheralViewController.m; sourceTree = "<group>"; };
+		9B0A61551E00EA97004392B4 /* DMPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPeripheral.h; path = Classes/Models/BLE/DMPeripheral.h; sourceTree = "<group>"; };
+		9B0A61561E00EA97004392B4 /* DMPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPeripheral.m; path = Classes/Models/BLE/DMPeripheral.m; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
@@ -223,6 +226,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B0A61541E00EA5E004392B4 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				9B0A61551E00EA97004392B4 /* DMPeripheral.h */,
+				9B0A61561E00EA97004392B4 /* DMPeripheral.m */,
+			);
+			name = BLE;
+			sourceTree = "<group>";
+		};
 		9B0D51621DF6D94E005C9893 = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +361,7 @@
 		9B0D51A31DF6DD13005C9893 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B0A61541E00EA5E004392B4 /* BLE */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -765,6 +778,7 @@
 				9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */,
 				9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */,
 				9B0D52FF1DF82DDC005C9893 /* UIView+Tencent.m in Sources */,
+				9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */,
 				9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */,
 				9B0D52EB1DF8244B005C9893 /* NSData+ImageContentType.m in Sources */,
 				9B0D51AA1DF6E0FF005C9893 /* JKLoginViewController.m in Sources */,

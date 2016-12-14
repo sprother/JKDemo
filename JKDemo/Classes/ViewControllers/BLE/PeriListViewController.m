@@ -32,13 +32,23 @@
     [self.view addSubview:self.tableView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(periListUpdateNotification:) name:JKPeriListUpdateNotification object:nil];
-    [[DMBLECentralManager sharedManager] startScan];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[DMBLECentralManager sharedManager] startScan];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[DMBLECentralManager sharedManager] stopScan];
+    [super viewDidDisappear:animated];
 }
 
 - (UITableView *)tableView {
@@ -96,24 +106,23 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    NSDictionary *dict = [DMBLECentralManager sharedManager].periArray[indexPath.row];
-    CBPeripheral *peri = dict[JKBLEKEYPeripheral];
+    DMPeripheral *dmPeripheral = [DMBLECentralManager sharedManager].periArray[indexPath.row];
+    CBPeripheral *peri = dmPeripheral.peripheral;
     NSUUID *tmpUUID = peri.identifier;
-    NSDictionary <NSString *, id> *advertisementData = dict[JKBLEKEYAdvertiseData];
+    NSDictionary <NSString *, id> *advertisementData = dmPeripheral.advertisementData;
+    
     NSString *name = peri.name ? peri.name : @"Unnamed";
     cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", name, advertisementData[@"kCBAdvDataManufacturerData"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", tmpUUID.UUIDString, dict[JKBLEKEYPeripheralRSSI]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", tmpUUID.UUIDString, dmPeripheral.RSSI];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary *dict = [DMBLECentralManager sharedManager].periArray[indexPath.row];
-    CBPeripheral *peri = dict[JKBLEKEYPeripheral];
-    
+    DMPeripheral *dmPeripheral = [DMBLECentralManager sharedManager].periArray[indexPath.row];
     PeripheralViewController *periVC = [[PeripheralViewController alloc] init];
-    periVC.peripheral = peri;
+    periVC.dmPeripheral = dmPeripheral;
     [self.navigationController pushViewController:periVC animated:YES];
 }
 

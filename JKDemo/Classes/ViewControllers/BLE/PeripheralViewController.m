@@ -7,8 +7,9 @@
 //
 
 #import "PeripheralViewController.h"
+#import "DMBLECentralManager.h"
 
-@interface PeripheralViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface PeripheralViewController ()<UITableViewDataSource, UITableViewDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @property (nonatomic, strong) UITableView          *tableView;
 
@@ -18,8 +19,8 @@
 
 - (void)dealloc {
     [MBProgressHUD tc_hideDefaultIndicator];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[DMBLECentralManager sharedManager] cancelPeripheralConnection];
+    [[DMBLECentralManager sharedManager] cancelPeripheralConnection:self.dmPeripheral.peripheral];
+    [DMBLECentralManager sharedManager].delegate = nil;
 }
 
 - (void)loadView {
@@ -28,13 +29,12 @@
     self.title                = @"BLE信息";
     [self.view addSubview:self.tableView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(peripheralUpdateNotification:) name:JKPeripheralUpdateNotification object:nil];
-    [[DMBLECentralManager sharedManager] connectPeripheral:self.peripheral];
+    [DMBLECentralManager sharedManager].delegate = self;
+    [[DMBLECentralManager sharedManager] connectPeripheral:self.dmPeripheral.peripheral];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [MBProgressHUD tc_showDefaultIndicatorWithText:@"加载中"];
 }
 
@@ -64,13 +64,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[DMBLECentralManager sharedManager].periInfo count];
+    return [self.dmPeripheral.peripheral.services count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSDictionary *dict = [DMBLECentralManager sharedManager].periInfo[section];
-    NSArray *characteristicArray = dict[JKBLEKEYCharacteristics];
-    return [characteristicArray count];
+    return [self.dmPeripheral.peripheral.services[section].characteristics count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,8 +76,7 @@
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSDictionary *dict = [DMBLECentralManager sharedManager].periInfo[section];
-    CBService *tmpService = dict[JKBLEKEYService];
+    CBService *tmpService = self.dmPeripheral.peripheral.services[section];
     return tmpService.UUID.UUIDString;
 }
 
@@ -91,9 +88,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    NSDictionary *dict = [DMBLECentralManager sharedManager].periInfo[indexPath.section];
-    NSArray *characteristicArray = dict[JKBLEKEYCharacteristics];
-    CBCharacteristic *chara = characteristicArray[indexPath.row];
+
+    CBCharacteristic *chara = self.dmPeripheral.peripheral.services[indexPath.section].characteristics[indexPath.row];
     NSString *name = chara.UUID.UUIDString;
     NSString *property = nil;
     if (chara.properties == CBCharacteristicPropertyRead) {
@@ -117,12 +113,72 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Connect
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {//无需响应
+}
 
-#pragma mark - notify
-- (void)peripheralUpdateNotification:(NSNotification *)notification {
-    JLog(@"get Notification with url %@", [notification object]);
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
+    self.dmPeripheral.peripheralDelegate = self;
+    [self.dmPeripheral discoverServices];
+}
+
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
     [MBProgressHUD tc_hideDefaultIndicator];
+    [MBProgressHUD tc_showBottomIndicatorMessage:@"Connect Fail"];
+}
+
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
+    [MBProgressHUD tc_hideDefaultIndicator];
+    [MBProgressHUD tc_showBottomIndicatorMessage:@"Disconnect"];
+}
+
+
+#pragma mark - CBPeripheralDelegate
+- (void)peripheralDidUpdateName:(CBPeripheral *)peripheral {
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didModifyServices:(NSArray<CBService *> *)invalidatedServices {
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(nullable NSError *)error {
+}
+
+#pragma mark 发现服务后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error {
+    for (CBService *service in peripheral.services) {
+        JLog(@"3.0 discoverCharacteristics of Service found with UUID: %@, service %@ .", service.UUID, service);
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
     [self.tableView reloadData];
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverIncludedServicesForService:(CBService *)service error:(nullable NSError *)error {
+    [self.tableView reloadData];
+}
+
+#pragma mark 发现特性后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(nullable NSError *)error {
+}
+
+#pragma mark 读特性/订阅成功后特性发生任何改变 的回调
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+}
+
+#pragma mark 写特性后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+}
+
+#pragma mark 订阅特性后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForDescriptor:(CBDescriptor *)descriptor error:(nullable NSError *)error {
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForDescriptor:(CBDescriptor *)descriptor error:(nullable NSError *)error {
 }
 
 @end

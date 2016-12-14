@@ -7,10 +7,10 @@
 //
 
 #import "JKBaseViewController.h"
-#import "DMBLECentralManager.h"
+#import "DMPeripheral.h"
 
 @interface PeripheralViewController : JKBaseViewController
 
-@property (nonatomic, strong) CBPeripheral *peripheral;
+@property (nonatomic, strong) DMPeripheral *dmPeripheral;
 
 @end

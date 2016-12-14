@@ -7,25 +7,20 @@
 //
 
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "DMPeripheral.h"
 
-#define JKPeriListUpdateNotification    @"JKPeriListUpdateNotification"
-#define JKPeripheralUpdateNotification  @"JKPeripheralUpdateNotification"
-
-#define JKBLEKEYPeripheral              @"JKBLEKEYPeripheral"
-#define JKBLEKEYAdvertiseData           @"JKBLEKEYAdvertiseData"
-#define JKBLEKEYPeripheralRSSI          @"JKBLEKEYPeripheralRSSI"
-#define JKBLEKEYService                 @"JKBLEKEYService"
-#define JKBLEKEYCharacteristics         @"JKBLEKEYCharacteristics"
+#define JKPeriListUpdateNotification @"JKPeriListUpdateNotification"
 
 @interface DMBLECentralManager : NSObject
-+ (instancetype)sharedManager;
 
-@property (atomic, strong) NSArray<NSDictionary *>  *periArray;
-@property (atomic, copy) NSArray<NSDictionary *>    *periInfo;
+@property (atomic, strong) NSArray<DMPeripheral *>       *periArray;
+@property (nonatomic, weak) id<CBCentralManagerDelegate> delegate;
+
++ (instancetype)sharedManager;
 
 - (void)startScan;
 - (void)stopScan;
 - (void)connectPeripheral:(CBPeripheral *)peripheral;
-- (void)cancelPeripheralConnection;
+- (void)cancelPeripheralConnection:(CBPeripheral *)peripheral;
 
 @end
