@@ -35,7 +35,7 @@
     return self;
 }
 
-#pragma mark - scan
+#pragma mark - scan(Non-bleQueue)
 - (void)startScan {
     if ([self.centralManager isScanning]) {
         JLog(@"GATT is being scanning.");
@@ -50,20 +50,24 @@
     }
 }
 
-#pragma mark - Interface
+#pragma mark - Interface(Non-bleQueue)
 - (void)connectPeripheral:(CBPeripheral *)peripheral {
     if (self.centralManager && peripheral.state == CBPeripheralStateDisconnected) {
-        [self.centralManager connectPeripheral:peripheral options:nil];
+        dispatch_async(self.bleQueue, ^{
+            [self.centralManager connectPeripheral:peripheral options:nil];
+        });
     }
 }
 
 - (void)cancelPeripheralConnection:(CBPeripheral *)peripheral {
     if (self.centralManager && peripheral.state == CBPeripheralStateConnected) {
-        [self.centralManager cancelPeripheralConnection:peripheral];
+        dispatch_async(self.bleQueue, ^{
+            [self.centralManager cancelPeripheralConnection:peripheral];
+        });
     }
 }
 
-#pragma mark - CBCentralManagerDelegate
+#pragma mark - CBCentralManagerDelegate(bleQueue)
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     switch (central.state) {
     case CBCentralManagerStatePoweredOn: {
@@ -112,32 +116,40 @@
 
     MAIN(^{
         [[NSNotificationCenter defaultCenter] postNotificationName:JKPeriListUpdateNotification object:nil];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didDiscoverPeripheral:advertisementData:RSSI:)]) {
+            [self.delegate centralManager:central didDiscoverPeripheral:peripheral advertisementData:advertisementData RSSI:RSSI];
+        }
     });
-    if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didDiscoverPeripheral:advertisementData:RSSI:)]) {
-        [self.delegate centralManager:central didDiscoverPeripheral:peripheral advertisementData:advertisementData RSSI:RSSI];
-    }
 }
 
-#pragma mark - Connect
+#pragma mark - Connect(bleQueue)
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     JLog(@"didConnectPeripheral: %@", peripheral);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didConnectPeripheral:)]) {
-        [self.delegate centralManager:central didConnectPeripheral:peripheral];
-    }
+    MAIN(^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didConnectPeripheral:)]) {
+            [self.delegate centralManager:central didConnectPeripheral:peripheral];
+        }
+    });
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
     JLog(@"didFailToConnectPeripheral: %@  error: %@", peripheral, error);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didFailToConnectPeripheral:error:)]) {
-        [self.delegate centralManager:central didFailToConnectPeripheral:peripheral error:error];
-    }
+    MAIN(^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didFailToConnectPeripheral:error:)]) {
+            [self.delegate centralManager:central didFailToConnectPeripheral:peripheral error:error];
+        }
+    });
+
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
     JLog(@"didDisconnectPeripheral: %@  error: %@", peripheral, error);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didDisconnectPeripheral:error:)]) {
-        [self.delegate centralManager:central didDisconnectPeripheral:peripheral error:error];
-    }
+    MAIN(^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(centralManager:didDisconnectPeripheral:error:)]) {
+            [self.delegate centralManager:central didDisconnectPeripheral:peripheral error:error];
+        }
+    });
+
 }
 
 #pragma mark - centralManager
@@ -151,10 +163,12 @@
 
 #pragma mark - bleQueue
 - (dispatch_queue_t)bleQueue {
-    if (_bleQueue == nil) {
-        _bleQueue = dispatch_queue_create("com.tencent.dm.bleQueue", DISPATCH_QUEUE_SERIAL);
+    @synchronized (self) {
+        if (_bleQueue == nil) {
+            _bleQueue = dispatch_queue_create("com.tencent.dm.bleQueue", DISPATCH_QUEUE_SERIAL);
+        }
+        return _bleQueue;
     }
-    return _bleQueue;
 }
 
 @end

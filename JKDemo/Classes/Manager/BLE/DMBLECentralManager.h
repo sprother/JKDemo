@@ -15,6 +15,7 @@
 
 @property (atomic, strong) NSArray<DMPeripheral *>       *periArray;
 @property (nonatomic, weak) id<CBCentralManagerDelegate> delegate;
+@property (nonatomic, strong, readonly) dispatch_queue_t bleQueue;
 
 + (instancetype)sharedManager;
 

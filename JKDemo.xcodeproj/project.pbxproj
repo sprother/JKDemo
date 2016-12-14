@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61471E0004F1004392B4 /* PeripheralViewController.m */; };
 		9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61561E00EA97004392B4 /* DMPeripheral.m */; };
+		9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61591E014105004392B4 /* DMWristBandManager.m */; };
 		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
@@ -87,6 +88,8 @@
 		9B0A61471E0004F1004392B4 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralViewController.m; path = Classes/ViewControllers/BLE/PeripheralViewController.m; sourceTree = "<group>"; };
 		9B0A61551E00EA97004392B4 /* DMPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPeripheral.h; path = Classes/Models/BLE/DMPeripheral.h; sourceTree = "<group>"; };
 		9B0A61561E00EA97004392B4 /* DMPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPeripheral.m; path = Classes/Models/BLE/DMPeripheral.m; sourceTree = "<group>"; };
+		9B0A61581E014105004392B4 /* DMWristBandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandManager.h; path = Classes/Manager/BLE/DMWristBandManager.h; sourceTree = "<group>"; };
+		9B0A61591E014105004392B4 /* DMWristBandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandManager.m; path = Classes/Manager/BLE/DMWristBandManager.m; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 			children = (
 				9B72F1B81DFFF36300B92A8A /* DMBLECentralManager.h */,
 				9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */,
+				9B0A61581E014105004392B4 /* DMWristBandManager.h */,
+				9B0A61591E014105004392B4 /* DMWristBandManager.m */,
 			);
 			name = BLE;
 			sourceTree = "<group>";
@@ -768,6 +773,7 @@
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
 				9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */,
+				9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */,
 				9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */,
 				9B0D52F31DF8244B005C9893 /* UIButton+WebCache.m in Sources */,
 				9B0D533A1DF904E2005C9893 /* JKTableViewCell.m in Sources */,

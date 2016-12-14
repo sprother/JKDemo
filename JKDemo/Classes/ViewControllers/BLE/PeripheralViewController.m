@@ -102,9 +102,9 @@
         property = @"Notifiable";
     }
     else {
-        property = [NSString stringWithFormat:@"%ld", chara.properties];
+        property = [NSString stringWithFormat:@"%ld", (unsigned long)chara.properties];
     }
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld (isNotifying:%@)", chara.properties, chara.isNotifying ? @"YES" : @"NO"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld (isNotifying:%@)", (unsigned long)chara.properties, chara.isNotifying ? @"YES" : @"NO"];
     cell.textLabel.text = name;
     return cell;
 }
@@ -153,11 +153,12 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverIncludedServicesForService:(CBService *)service error:(nullable NSError *)error {
-    [self.tableView reloadData];
 }
 
 #pragma mark 发现特性后的回调
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(nullable NSError *)error {
+    [self.tableView reloadData];
+    [MBProgressHUD tc_hideDefaultIndicator];
 }
 
 #pragma mark 读特性/订阅成功后特性发生任何改变 的回调

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
+typedef void (^DMPeripheralReadResultHandler)(NSData *, NSError *);
+typedef void (^DMPeripheralWriteResultHandler)(NSError *);
+
 @interface DMPeripheral : NSObject
 
 @property (nonatomic, strong) CBPeripheral               *peripheral;
@@ -20,5 +23,8 @@
 
 - (void)discoverServices;
 - (void)discoverCharacteristicsForService:(CBService *)service;
+
+- (void)readValueForCharacteristicWithUUID:(NSString *)uuid ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralReadResultHandler)callback;
+- (void)writeValue:(NSData *)data ForCharacteristicWithUUID:(NSString *)uuid ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback;
 
 @end
