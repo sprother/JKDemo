@@ -158,7 +158,7 @@
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {
-        [[JKAppDelegate shareInstance] showLoginViewAnimated:YES];
+        [[JKAppDelegate shareInstance] showLoginViewAnimated:NO];
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
     } else {
     }

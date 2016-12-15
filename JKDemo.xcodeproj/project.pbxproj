@@ -10,6 +10,8 @@
 		9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61471E0004F1004392B4 /* PeripheralViewController.m */; };
 		9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61561E00EA97004392B4 /* DMPeripheral.m */; };
 		9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61591E014105004392B4 /* DMWristBandManager.m */; };
+		9B0A615E1E023C17004392B4 /* JKSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A615D1E023C17004392B4 /* JKSearchResultController.m */; };
+		9B0A61611E02452F004392B4 /* JKSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61601E02452F004392B4 /* JKSearchController.m */; };
 		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
@@ -90,6 +92,10 @@
 		9B0A61561E00EA97004392B4 /* DMPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPeripheral.m; path = Classes/Models/BLE/DMPeripheral.m; sourceTree = "<group>"; };
 		9B0A61581E014105004392B4 /* DMWristBandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandManager.h; path = Classes/Manager/BLE/DMWristBandManager.h; sourceTree = "<group>"; };
 		9B0A61591E014105004392B4 /* DMWristBandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandManager.m; path = Classes/Manager/BLE/DMWristBandManager.m; sourceTree = "<group>"; };
+		9B0A615C1E023C17004392B4 /* JKSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchResultController.h; path = Classes/ViewControllers/Search/JKSearchResultController.h; sourceTree = "<group>"; };
+		9B0A615D1E023C17004392B4 /* JKSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchResultController.m; path = Classes/ViewControllers/Search/JKSearchResultController.m; sourceTree = "<group>"; };
+		9B0A615F1E02452F004392B4 /* JKSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchController.h; path = Classes/ViewControllers/Search/JKSearchController.h; sourceTree = "<group>"; };
+		9B0A61601E02452F004392B4 /* JKSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchController.m; path = Classes/ViewControllers/Search/JKSearchController.m; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
@@ -238,6 +244,17 @@
 			name = BLE;
 			sourceTree = "<group>";
 		};
+		9B0A615B1E023BDF004392B4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9B0A615C1E023C17004392B4 /* JKSearchResultController.h */,
+				9B0A615D1E023C17004392B4 /* JKSearchResultController.m */,
+				9B0A615F1E02452F004392B4 /* JKSearchController.h */,
+				9B0A61601E02452F004392B4 /* JKSearchController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		9B0D51621DF6D94E005C9893 = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +357,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B0A615B1E023BDF004392B4 /* Search */,
 				9B72F1B21DFFF25000B92A8A /* BLE */,
 				9B0D543C1DFA8B34005C9893 /* Animations */,
 				9B0D534D1DF93EF8005C9893 /* Photos */,
@@ -755,8 +773,10 @@
 				9B0D51B01DF6E3F0005C9893 /* JKBaseViewController.m in Sources */,
 				9B0D52ED1DF8244B005C9893 /* SDWebImageCompat.m in Sources */,
 				9B72F1AA1DFECBB200B92A8A /* JKFPSCount.m in Sources */,
+				9B0A615E1E023C17004392B4 /* JKSearchResultController.m in Sources */,
 				9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */,
 				9B0D52F81DF8244B005C9893 /* UIView+WebCacheOperation.m in Sources */,
+				9B0A61611E02452F004392B4 /* JKSearchController.m in Sources */,
 				9B0D52F41DF8244B005C9893 /* UIImage+GIF.m in Sources */,
 				9B0D52F21DF8244B005C9893 /* SDWebImagePrefetcher.m in Sources */,
 				9B0D53651DFA4F9D005C9893 /* NSThread+Qstack.m in Sources */,

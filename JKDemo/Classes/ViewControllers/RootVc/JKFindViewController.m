@@ -7,10 +7,14 @@
 //
 
 #import "JKFindViewController.h"
+#import "JKSearchResultController.h"
+#import "JKSearchController.h"
 #import "DMNumberPickerView.h"
 
-@interface JKFindViewController ()
+@interface JKFindViewController () <UISearchBarDelegate>
 
+@property (nonatomic, strong) JKSearchController *searchController;
+@property (nonatomic, strong) JKSearchResultController   *searchResult;
 @property (nonatomic, strong) DMNumberPickerView *numberPickerView;
 
 @end
@@ -21,17 +25,57 @@
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     self.title = @"发现";
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBarTintColor:UIColorFromHex(0x303030)];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.hidesBottomBarWhenPushed = NO;
-    [self.view addSubview:self.numberPickerView];
+    [self.view addSubview:self.searchController.searchBar];
+    //[self.view addSubview:self.numberPickerView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     self.hidesBottomBarWhenPushed = NO;
     [super viewDidDisappear:animated];
+}
+
+#pragma mark - Getter -
+- (JKSearchController *)searchController
+{
+    if (_searchController == nil) {
+        _searchController = [[JKSearchController alloc] initWithSearchResultsController:self.searchResult];
+        [_searchController setSearchResultsUpdater:self.searchResult];
+        [_searchController.searchBar setPlaceholder:@"输入数字"];
+        [_searchController.searchBar setDelegate:self];
+    }
+    return _searchController;
+}
+
+- (UIViewController *)searchResult
+{
+    if (_searchResult == nil) {
+        _searchResult = [[JKSearchResultController alloc] init];
+    }
+    return _searchResult;
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.navigationController.navigationBar.translucent = YES;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 #pragma mark - NumberPickerView
@@ -42,7 +86,7 @@
                                                              maxValue:300];
         _numberPickerView.backgroundColor = UIColorFromHex(0x24212d);
         _numberPickerView.delegate = nil;
-        _numberPickerView.tcTop    = 10;
+        _numberPickerView.tcTop    = self.searchController.searchBar.tcBottom + 10;
     }
     return _numberPickerView;
 }
