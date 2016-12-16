@@ -77,7 +77,7 @@
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     CBService *tmpService = self.dmPeripheral.peripheral.services[section];
-    return tmpService.UUID.UUIDString;
+    return [NSString stringWithFormat:@"%@ (%@)", tmpService.UUID, tmpService.UUID.UUIDString];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,7 +90,7 @@
     }
 
     CBCharacteristic *chara = self.dmPeripheral.peripheral.services[indexPath.section].characteristics[indexPath.row];
-    NSString *name = chara.UUID.UUIDString;
+    NSString *name = [NSString stringWithFormat:@"%@ (%@)", chara.UUID, chara.UUID.UUIDString];
     NSString *property = nil;
     if (chara.properties == CBCharacteristicPropertyRead) {
         property = @"Readable";

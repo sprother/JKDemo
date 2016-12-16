@@ -21,6 +21,7 @@
 #define ROW_NAME_ANIMATION  @"动画"
 #define ROW_NAME_PHOTOS     @"相册"
 
+#define ROW_NAME_SPLASH     @"闪屏引导"
 #define ROW_NAME_LOGOUT     @"退出登录"
 #define ROW_NAME_GEN_NOTIFY @"产生ANCS通知"
 
@@ -79,7 +80,7 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_CALC, ROW_NAME_ANIMATION, ROW_NAME_PHOTOS, nil];
     [mDataSource addObject:sectionDataSource];
 
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY,
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY,
                          ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE,
                          nil];
     [mDataSource addObject:sectionDataSource];
@@ -167,6 +168,8 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_LOGOUT]) {
         [[JKAppDelegate shareInstance] showLoginViewAnimated:NO];
+    } else if ([rowName isEqualToString:ROW_NAME_SPLASH]) {
+        [[JKAppDelegate shareInstance] showSplashViewAnimated:NO];
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
     } else {
     }

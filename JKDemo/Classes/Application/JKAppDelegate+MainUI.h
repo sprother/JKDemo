@@ -12,5 +12,6 @@
 
 - (void)showLoginViewAnimated:(BOOL)animated;
 - (void)showMainViewAnimated:(BOOL)animated;
+- (void)showSplashViewAnimated:(BOOL)animated;
 
 @end

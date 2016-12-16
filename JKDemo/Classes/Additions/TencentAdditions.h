@@ -10,6 +10,7 @@
 #define TencentAdditions_h
 
 #import "MBProgressHUD+Tencent.h"
+#import "UIButton+Tencent.h"
 #import "UILabel+Tencent.h"
 #import "UIImage+Tencent.h"
 #import "UINavigationController+Tencent.h"

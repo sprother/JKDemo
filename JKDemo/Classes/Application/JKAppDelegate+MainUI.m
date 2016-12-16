@@ -12,6 +12,7 @@
 #import "JKDemoViewController.h"
 #import "JKFindViewController.h"
 #import "JKMoreViewController.h"
+#import "JKSplashViewController.h"
 
 @implementation JKAppDelegate (MainUI)
 
@@ -25,6 +26,12 @@
 - (void)showMainViewAnimated:(BOOL)animated {
     [self createRootTabBarController];
     [self setRootViewController:self.drawerViewController animated:animated];
+}
+
+- (void)showSplashViewAnimated:(BOOL)animated {
+    JKSplashViewController *splashViewController = [[JKSplashViewController alloc] init];
+    
+    [self setRootViewController:splashViewController animated:animated];
 }
 
 #pragma mark - setRoot
@@ -68,6 +75,7 @@
     self.rootTabBarController.title = @"TabBarVC";
 
     self.rootTabBarController.viewControllers = [NSArray arrayWithObjects:firstNav, secondNav, thirdNav, fourthNav, nil];
+    [self.rootTabBarController setSelectedIndex:1];
 
 //    //修改TabBarb的背景色的第二种方法
 //    UIView *backView = [[UIView alloc] initWithFrame:self.rootTabBarController.tabBar.bounds];

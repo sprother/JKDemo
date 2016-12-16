@@ -55,7 +55,7 @@
         flowLayout.minimumInteritemSpacing = 4;//这个必须设置，否则默认值为10，导致布局不一致  //item之间的距离
         flowLayout.minimumLineSpacing      = 4;
 
-        _collectionView            = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT-DEFAULT_NAVIGATION_BAR_HEIGHT) collectionViewLayout:flowLayout];
+        _collectionView            = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT) collectionViewLayout:flowLayout];
         _collectionView.dataSource = self;
         _collectionView.delegate   = self;
         [_collectionView setBackgroundColor:[UIColor clearColor]];

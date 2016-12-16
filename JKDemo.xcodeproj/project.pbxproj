@@ -12,6 +12,8 @@
 		9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61591E014105004392B4 /* DMWristBandManager.m */; };
 		9B0A615E1E023C17004392B4 /* JKSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A615D1E023C17004392B4 /* JKSearchResultController.m */; };
 		9B0A61611E02452F004392B4 /* JKSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61601E02452F004392B4 /* JKSearchController.m */; };
+		9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A618A1E03E036004392B4 /* JKSplashViewController.m */; };
+		9B0A618E1E03E661004392B4 /* UIButton+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A618D1E03E661004392B4 /* UIButton+Tencent.m */; };
 		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
@@ -96,6 +98,10 @@
 		9B0A615D1E023C17004392B4 /* JKSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchResultController.m; path = Classes/ViewControllers/Search/JKSearchResultController.m; sourceTree = "<group>"; };
 		9B0A615F1E02452F004392B4 /* JKSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSearchController.h; path = Classes/ViewControllers/Search/JKSearchController.h; sourceTree = "<group>"; };
 		9B0A61601E02452F004392B4 /* JKSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSearchController.m; path = Classes/ViewControllers/Search/JKSearchController.m; sourceTree = "<group>"; };
+		9B0A61891E03E036004392B4 /* JKSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKSplashViewController.h; path = Classes/ViewControllers/Splash/JKSplashViewController.h; sourceTree = "<group>"; };
+		9B0A618A1E03E036004392B4 /* JKSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKSplashViewController.m; path = Classes/ViewControllers/Splash/JKSplashViewController.m; sourceTree = "<group>"; };
+		9B0A618C1E03E661004392B4 /* UIButton+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Tencent.h"; path = "Classes/Additions/UIButton+Tencent.h"; sourceTree = "<group>"; };
+		9B0A618D1E03E661004392B4 /* UIButton+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Tencent.m"; path = "Classes/Additions/UIButton+Tencent.m"; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
@@ -416,6 +422,8 @@
 		9B0D51A61DF6DF30005C9893 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				9B0A61891E03E036004392B4 /* JKSplashViewController.h */,
+				9B0A618A1E03E036004392B4 /* JKSplashViewController.m */,
 			);
 			name = Splash;
 			sourceTree = "<group>";
@@ -523,6 +531,8 @@
 				9B0D533C1DF90650005C9893 /* UIImage+Tencent.m */,
 				9B0D53541DF98BD9005C9893 /* UILabel+Tencent.h */,
 				9B0D53551DF98BD9005C9893 /* UILabel+Tencent.m */,
+				9B0A618C1E03E661004392B4 /* UIButton+Tencent.h */,
+				9B0A618D1E03E661004392B4 /* UIButton+Tencent.m */,
 				9B0D534A1DF93C1E005C9893 /* UINavigationController+Tencent.h */,
 				9B0D534B1DF93C1E005C9893 /* UINavigationController+Tencent.m */,
 				9B0D52FD1DF82DDC005C9893 /* UIView+Tencent.h */,
@@ -765,6 +775,7 @@
 			files = (
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0D52F61DF8244B005C9893 /* UIImageView+HighlightedWebCache.m in Sources */,
+				9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */,
 				9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */,
 				9B0D52F51DF8244B005C9893 /* UIImage+MultiFormat.m in Sources */,
 				9B0D52F01DF8244B005C9893 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -785,6 +796,7 @@
 				9B0D53111DF837BA005C9893 /* JKAppDelegate+MainUI.m in Sources */,
 				9B0D54431DFAA384005C9893 /* JKRunTrackView.m in Sources */,
 				9B0D52EA1DF8244B005C9893 /* MBProgressHUD.m in Sources */,
+				9B0A618E1E03E661004392B4 /* UIButton+Tencent.m in Sources */,
 				9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */,
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
