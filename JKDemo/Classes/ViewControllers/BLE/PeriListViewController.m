@@ -60,8 +60,8 @@
         [_tableView setBackgroundColor:DEFAULT_BACKGROUND_COLOR];
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         [_tableView setSeparatorInset:UIEdgeInsetsMake(0, DEFAULT_PADDING_LEFT, 0, 0)];
-        [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [_tableView setContentInset:UIEdgeInsetsMake(DEFAULT_NAVIGATION_BAR_HEIGHT, 0, 0, 0)];
+        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(DEFAULT_NAVIGATION_BAR_HEIGHT, 0, 0, 0)];
     }
     
     return _tableView;

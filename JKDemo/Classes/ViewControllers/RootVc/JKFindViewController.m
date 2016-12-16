@@ -25,9 +25,9 @@
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     self.title = @"发现";
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setBarTintColor:UIColorFromHex(0x303030)];
-    self.navigationController.navigationBar.translucent = NO;
+    UIImage *image = [UIImage tc_imageWithColor:UIColorFromHex(0x303030) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewDidLoad {

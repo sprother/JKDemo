@@ -86,16 +86,23 @@
 }
 
 - (void)configNavigationBar {
-    UIImage *image = [UIImage tc_imageWithColor:UIColorFromHex(0x303030) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
-    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];//会占位，影响UISearchController，但是可以设置成透明
-//    [[UINavigationBar appearance] setBarTintColor:UIColorFromHex(0x303030)];//不会占位，但不能设置成透明
-//    self.navigationController.navigationBar.translucent = NO;//需要设置translucent为NO，否则因为半透明颜色会变
+//    //方法一，会占位(变透明后不占位)，影响UISearchController/UITableView等
+//    UIImage *image = [UIImage tc_imageWithColor:UIColorFromHex(0x303030) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+//    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+//    //方法二，不会占位，但不能设置成透明
+//    [[UINavigationBar appearance] setBarTintColor:UIColorFromHex(0x303030)];
+//    [UINavigationBar appearance].translucent = NO;//需要设置translucent为NO，否则因为半透明颜色会变
+    //方法三，透明颜色，不会占位，(能设置成透明)
+    UIImage *image = [UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x303030, 254) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromHex(0xFFFFFF), NSFontAttributeName: DEFAULT_FONT(20)}];
     
     [[UINavigationBar appearance] setShadowImage:[UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x000000, 0) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, 1)]];
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)configTabBar {

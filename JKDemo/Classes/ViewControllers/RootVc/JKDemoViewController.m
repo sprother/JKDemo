@@ -24,12 +24,17 @@
 #define ROW_NAME_LOGOUT     @"退出登录"
 #define ROW_NAME_GEN_NOTIFY @"产生ANCS通知"
 
+#define ROW_NAME_NONE       @"其他"
+
 @interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView       *tableView;
 @property (nonatomic, copy) NSArray <NSArray *> *dataSource;
 
 @property (nonatomic, strong) DMPullToRefreshControl *refreshControl;
+
+@property (nonatomic, assign) BOOL isNavInvisible;
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @end
 
@@ -39,7 +44,7 @@
     self.view                 = [[UIView alloc] initWithFrame:APPLICATION_BOUNDS];
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     self.title                = @"工具";
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
 }
 
@@ -55,6 +60,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     self.hidesBottomBarWhenPushed = NO;
+    [self resetNavColor];
     [super viewDidDisappear:animated];
 }
 
@@ -73,7 +79,9 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_CALC, ROW_NAME_ANIMATION, ROW_NAME_PHOTOS, nil];
     [mDataSource addObject:sectionDataSource];
 
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY,
+                         ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE,
+                         nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -90,8 +98,8 @@
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         //[_tableView setSeparatorColor:UIColorFromHex(0xE0E0E0)];
         [_tableView setSeparatorInset:UIEdgeInsetsMake(0, DEFAULT_PADDING_LEFT, 0, 0)];
-        [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [_tableView setContentInset:UIEdgeInsetsMake(DEFAULT_NAVIGATION_BAR_HEIGHT, 0, 0, 0)];
+        [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(DEFAULT_NAVIGATION_BAR_HEIGHT, 0, 0, 0)];
         
         [_tableView addSubview:self.refreshControl];
     }
@@ -232,16 +240,36 @@
     return _refreshControl;
 }
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    CGFloat spaceHeight = DEFAULT_TABLE_VIEW_HEADER_HEIGHT + 24;
-//    CGFloat offset = scrollView.contentOffset.y;
-//    if (offset > -spaceHeight) {
-//        self.refreshControl.tcTop = -24;
-//        return;
-//    }
-//    self.refreshControl.tcTop = -24 + (offset + spaceHeight);
-//    self.tableView.contentInset = UIEdgeInsetsMake(39, 0, 0, 0);
-//}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.y + DEFAULT_NAVIGATION_BAR_HEIGHT;
+    if(offset > 0 && offset < DEFAULT_NAVIGATION_BAR_HEIGHT) {
+        UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbFloatAlpha(0x303030, 1.0-offset/DEFAULT_NAVIGATION_BAR_HEIGHT) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+        [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        self.isNavInvisible = YES;
+        return;
+    }
+    if (offset >= DEFAULT_NAVIGATION_BAR_HEIGHT) {
+        if (self.isNavInvisible) {
+            return;
+        }
+        UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x303030, 0) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+        [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        self.isNavInvisible = YES;
+    }
+    if (!self.isNavInvisible) {
+        return;
+    }
+    [self resetNavColor];
+}
+
+- (void)resetNavColor {
+    UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x303030, 254) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
+    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.isNavInvisible = NO;
+}
 
 @end
