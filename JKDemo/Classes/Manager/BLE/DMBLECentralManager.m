@@ -40,7 +40,8 @@
     if ([self.centralManager isScanning]) {
         JLog(@"GATT is being scanning.");
     } else {
-        [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@(NO)}];
+//        [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@(NO)}];
+        [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"0000180A-0000-1000-8000-00805F9B34FB"]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@(NO)}];
     }
 }
 
@@ -107,8 +108,10 @@
     if ([self.periArray containsObject:dmPeripheral]) {
         return;
     }
-    JLog(@"didDiscoverPeripheral %@", peripheral);
-
+//    if (![peripheral.name containsString:@"Pace"]) {
+//        return;
+//    }
+    JLog(@"didDiscoverPeripheral %@, (%@)", peripheral, advertisementData);
     NSMutableArray *mTmpPeriArray = [NSMutableArray arrayWithArray:self.periArray];
     [mTmpPeriArray addObject:dmPeripheral];
     [mTmpPeriArray sortedArrayUsingSelector:@selector(compare:)];

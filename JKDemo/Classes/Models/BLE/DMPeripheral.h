@@ -25,6 +25,6 @@ typedef void (^DMPeripheralWriteResultHandler)(NSError *);
 - (void)discoverCharacteristicsForService:(CBService *)service;
 
 - (void)readValueForCharacteristicWithUUID:(NSString *)uuid ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralReadResultHandler)callback;
-- (void)writeValue:(NSData *)data ForCharacteristicWithUUID:(NSString *)uuid ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback;
+- (void)writeValue:(NSData *)data type:(CBCharacteristicWriteType)type ForCharacteristicWithUUID:(NSString *)uuid ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback;
 
 @end

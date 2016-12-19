@@ -9,6 +9,8 @@
 #import "DMPeripheral.h"
 #import "DMBLECentralManager.h"
 
+#define DMCharacteristicReadWriteTimeout 4
+
 #define DMBLEReadDefaultCallback ^(NSData *data, NSError *error){}
 #define DMBLEWriteDefaultCallback ^(NSError *error){}
 
@@ -70,9 +72,9 @@
     });
 }
 
-- (void)writeValue:(NSData *)data ForCharacteristicWithUUID:(NSString *)cUUID ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback {
+- (void)writeValue:(NSData *)data type:(CBCharacteristicWriteType)type ForCharacteristicWithUUID:(NSString *)cUUID ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback {
     dispatch_async(self.bleQueue, ^{
-        [self writeValueAction:data ForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:callback];
+        [self writeValueAction:data type:type ForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:callback];
     });
 }
 
@@ -111,10 +113,6 @@
     [self.peripheral readValueForCharacteristic:chara];
 }
 
-- (void)writeValueAction:(NSData *)data ForCharacteristicWithUUID:(NSString *)cUUID ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback {
-    [self writeValueAction:data type:CBCharacteristicWriteWithResponse ForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:callback];
-}
-
 - (void)writeValueAction:(NSData *)data type:(CBCharacteristicWriteType)type ForCharacteristicWithUUID:(NSString *)cUUID ofServiceWithUUID:(NSString *)sUUID callback:(DMPeripheralWriteResultHandler)callback {
     CBCharacteristic *chara = [self findCharacteristicWithUUID:cUUID ofServiceUUID:sUUID];
     if (chara == nil) {
@@ -132,17 +130,33 @@
     if (callback == nil) {
         callback = DMBLEWriteDefaultCallback;
     }
-    self.writeHandles[chara.UUID] = callback;
-    [self writeTimeoutWithUUID:chara.UUID callback:callback];
+    if (type == CBCharacteristicWriteWithResponse) {
+        self.writeHandles[chara.UUID] = callback;
+        [self writeTimeoutWithUUID:chara.UUID callback:callback];
+    }
+    else {
+        MAIN(^{
+            callback(nil);
+        });
+    }
     [self.peripheral writeValue:data forCharacteristic:chara type:type];
 }
 
 - (CBCharacteristic *)findCharacteristicWithUUID:(NSString *)cUUID ofServiceUUID:(NSString *)sUUID {
-    return nil;//TODO
+    for (CBService *service in self.peripheral.services) {
+        if ([sUUID isEqualToString:service.UUID.UUIDString]) {
+            for (CBCharacteristic *chara in service.characteristics) {
+                if ([cUUID isEqualToString:chara.UUID.UUIDString]) {
+                    return chara;
+                }
+            }
+        }
+    }
+    return nil;
 }
 
 - (void)readTimeoutWithUUID:(CBUUID *)UUID callback:(DMPeripheralReadResultHandler)callback {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), self.bleQueue, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DMCharacteristicReadWriteTimeout * NSEC_PER_SEC)), self.bleQueue, ^{
         if (self.readHandles[UUID] == nil) {
             return;
         }
@@ -157,7 +171,7 @@
 }
 
 - (void)writeTimeoutWithUUID:(CBUUID *)UUID callback:(DMPeripheralWriteResultHandler)callback {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), self.bleQueue, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DMCharacteristicReadWriteTimeout * NSEC_PER_SEC)), self.bleQueue, ^{
         if (self.writeHandles[UUID] == nil) {
             return;
         }

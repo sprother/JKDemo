@@ -91,26 +91,64 @@
 
     CBCharacteristic *chara = self.dmPeripheral.peripheral.services[indexPath.section].characteristics[indexPath.row];
     NSString *name = [NSString stringWithFormat:@"%@ (%@)", chara.UUID, chara.UUID.UUIDString];
-    NSString *property = nil;
-    if (chara.properties == CBCharacteristicPropertyRead) {
-        property = @"Readable";
+    NSString *property = [NSString stringWithFormat:@"(%ld)", chara.properties];
+    if (chara.properties & CBCharacteristicPropertyRead) {
+        property = [NSString stringWithFormat:@"%@%@;", property, @"Readable"];
     }
-    else if (chara.properties == CBCharacteristicPropertyWrite) {
-        property = @"Writeable";
+    if (chara.properties & CBCharacteristicPropertyWrite) {
+        property = [NSString stringWithFormat:@"%@%@;", property, @"Writeable"];
     }
-    else if (chara.properties == CBCharacteristicPropertyNotify) {
-        property = @"Notifiable";
+    if (chara.properties & CBCharacteristicPropertyNotify) {
+        property = [NSString stringWithFormat:@"%@%@;", property, @"Notifiable"];
     }
-    else {
-        property = [NSString stringWithFormat:@"%ld", (unsigned long)chara.properties];
+    if (chara.properties & CBCharacteristicPropertyWriteWithoutResponse) {
+        property = [NSString stringWithFormat:@"%@%@;", property, @"WriteableWithoutResp"];
     }
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld (isNotifying:%@)", (unsigned long)chara.properties, chara.isNotifying ? @"YES" : @"NO"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (isNotifying:%@)", property, chara.isNotifying ? @"YES" : @"NO"];
     cell.textLabel.text = name;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *cUUID = @"2A29";
+    NSString *sUUID = @"180A";
+    [self.dmPeripheral readValueForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:^(NSData *data, NSError *error) {
+        if (error) {
+            JLog(@"error:%@", error);
+            return;
+        }
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        JLog(@"%@_%@:%@", sUUID, cUUID, str);
+    }];
+    cUUID = @"2A27";
+    [self.dmPeripheral readValueForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:^(NSData *data, NSError *error) {
+        if (error) {
+            JLog(@"error:%@", error);
+            return;
+        }
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        JLog(@"%@_%@:%@", sUUID, cUUID, str);
+    }];
+    cUUID = @"2A28";
+    [self.dmPeripheral readValueForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:^(NSData *data, NSError *error) {
+        if (error) {
+            JLog(@"error:%@", error);
+            return;
+        }
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        JLog(@"%@_%@:%@", sUUID, cUUID, str);
+    }];
+    sUUID = @"180F";
+    cUUID = @"2A19";
+    [self.dmPeripheral readValueForCharacteristicWithUUID:cUUID ofServiceWithUUID:sUUID callback:^(NSData *data, NSError *error) {
+        if (error) {
+            JLog(@"error:%@", error);
+            return;
+        }
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        JLog(@"%@_%@:%@", sUUID, cUUID, str);
+    }];
 }
 
 #pragma mark - Connect
