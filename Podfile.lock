@@ -1,0 +1,71 @@
+PODS:
+  - AFNetworking (2.6.3.2):
+    - AFNetworking/NSURLConnection (= 2.6.3.2)
+    - AFNetworking/NSURLSession (= 2.6.3.2)
+    - AFNetworking/Reachability (= 2.6.3.2)
+    - AFNetworking/Security (= 2.6.3.2)
+    - AFNetworking/Serialization (= 2.6.3.2)
+    - AFNetworking/UIKit (= 2.6.3.2)
+  - AFNetworking/NSURLConnection (2.6.3.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3.2)
+  - AFNetworking/Security (2.6.3.2)
+  - AFNetworking/Serialization (2.6.3.2)
+  - AFNetworking/UIKit (2.6.3.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - FLEX (2.1.2)
+  - MBProgressHUD (0.9.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - AFNetworking (from `http://git.code.oa.com/WearIos_ThirdSdk/AFNetworking.git`, tag `2.6.3.2`)
+  - FLEX (from `http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git`, tag `2.1.2`)
+  - MBProgressHUD (from `http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git`, tag `0.9.1`)
+  - SDWebImage (from `http://git.code.oa.com/WearIos_ThirdSdk/SDWebImage.git`, tag `3.8.1`)
+
+EXTERNAL SOURCES:
+  AFNetworking:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/AFNetworking.git
+    :tag: 2.6.3.2
+  FLEX:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git
+    :tag: 2.1.2
+  MBProgressHUD:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git
+    :tag: 0.9.1
+  SDWebImage:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/SDWebImage.git
+    :tag: 3.8.1
+
+CHECKOUT OPTIONS:
+  AFNetworking:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/AFNetworking.git
+    :tag: 2.6.3.2
+  FLEX:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git
+    :tag: 2.1.2
+  MBProgressHUD:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git
+    :tag: 0.9.1
+  SDWebImage:
+    :git: http://git.code.oa.com/WearIos_ThirdSdk/SDWebImage.git
+    :tag: 3.8.1
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e47305bba9af991eb0bde957b669a1e7aa97d71
+  FLEX: 26d2b65c3863b528b2fa3dad292aeaaf6e8ece9c
+  MBProgressHUD: c34da5f231d7c38b8bc9d2cb08f81509d0bea7b0
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 51d5cd07b3252fee2b0b495d49879f4b4763d781
+
+COCOAPODS: 1.0.0

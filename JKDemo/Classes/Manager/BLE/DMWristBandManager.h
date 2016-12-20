@@ -55,6 +55,6 @@ typedef void (^DMWristBandReadRSCDateResultHandler)(NSDate *date, NSError *error
 - (void)writeRSCDateWithType:(NSDate *)date withCallback:(DMPeripheralWriteResultHandler)callback;
 - (void)readRSCDateWithCallback:(DMWristBandReadRSCDateResultHandler)callback;
 //读取RSC信息-测量
-- (void)writeRSCDateWithType:(NSDate *)date withCallback:(DMPeripheralWriteResultHandler)callback;
-- (void)readRSCDateWithCallback:(DMWristBandReadRSCDateResultHandler)callback;
+//- (void)writeRSCDateWithType:(NSDate *)date withCallback:(DMPeripheralWriteResultHandler)callback;
+//- (void)readRSCDateWithCallback:(DMWristBandReadRSCDateResultHandler)callback;
 @end
