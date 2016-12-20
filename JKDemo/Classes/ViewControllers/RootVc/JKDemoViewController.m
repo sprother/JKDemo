@@ -13,6 +13,7 @@
 #import "JKAnimationViewController.h"
 #import "DMPullToRefreshControl.h"
 #import "PeriListViewController.h"
+#import <FLEX/FLEXManager.h>
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -24,6 +25,7 @@
 #define ROW_NAME_SPLASH     @"闪屏引导"
 #define ROW_NAME_LOGOUT     @"退出登录"
 #define ROW_NAME_GEN_NOTIFY @"产生ANCS通知"
+#define ROW_NAME_FLEX       @"FLEX"
 
 #define ROW_NAME_NONE       @"其他"
 
@@ -80,9 +82,10 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_CALC, ROW_NAME_ANIMATION, ROW_NAME_PHOTOS, nil];
     [mDataSource addObject:sectionDataSource];
 
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY,
-                         ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE,
-                         nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
+    [mDataSource addObject:sectionDataSource];
+    
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -171,6 +174,12 @@
     } else if ([rowName isEqualToString:ROW_NAME_SPLASH]) {
         [[JKAppDelegate shareInstance] showSplashViewAnimated:NO];
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
+    } else if ([rowName isEqualToString:ROW_NAME_FLEX]) {
+        if ([FLEXManager sharedManager].isHidden) {
+            [[FLEXManager sharedManager] showExplorer];
+        } else {
+            [[FLEXManager sharedManager] hideExplorer];
+        }
     } else {
     }
 }
