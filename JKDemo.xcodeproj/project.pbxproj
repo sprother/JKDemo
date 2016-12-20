@@ -75,6 +75,9 @@
 		9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */; };
 		9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */; };
 		9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */; };
+		9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */; };
+		9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */; };
+		9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +224,12 @@
 		9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBLECentralManager.m; path = Classes/Manager/BLE/DMBLECentralManager.m; sourceTree = "<group>"; };
 		9B72F1BB1DFFF38500B92A8A /* PeriListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeriListViewController.h; path = Classes/ViewControllers/BLE/PeriListViewController.h; sourceTree = "<group>"; };
 		9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeriListViewController.m; path = Classes/ViewControllers/BLE/PeriListViewController.m; sourceTree = "<group>"; };
+		9BE2E30E1E08D66E00FF8BE9 /* DMWristBandUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandUserData.h; path = Classes/Models/BLE/DMWristBandUserData.h; sourceTree = "<group>"; };
+		9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandUserData.m; path = Classes/Models/BLE/DMWristBandUserData.m; sourceTree = "<group>"; };
+		9BE2E3111E090CB300FF8BE9 /* NSDate+WristBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WristBand.h"; path = "Classes/Models/BLE/NSDate+WristBand.h"; sourceTree = "<group>"; };
+		9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+WristBand.m"; path = "Classes/Models/BLE/NSDate+WristBand.m"; sourceTree = "<group>"; };
+		9BE2E3141E09191100FF8BE9 /* DMWristBandMeasureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandMeasureData.h; path = Classes/Models/BLE/DMWristBandMeasureData.h; sourceTree = "<group>"; };
+		9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandMeasureData.m; path = Classes/Models/BLE/DMWristBandMeasureData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +255,12 @@
 			children = (
 				9B0A61551E00EA97004392B4 /* DMPeripheral.h */,
 				9B0A61561E00EA97004392B4 /* DMPeripheral.m */,
+				9BE2E3141E09191100FF8BE9 /* DMWristBandMeasureData.h */,
+				9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */,
+				9BE2E30E1E08D66E00FF8BE9 /* DMWristBandUserData.h */,
+				9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */,
+				9BE2E3111E090CB300FF8BE9 /* NSDate+WristBand.h */,
+				9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */,
 			);
 			name = BLE;
 			sourceTree = "<group>";
@@ -773,6 +788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */,
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0D52F61DF8244B005C9893 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */,
@@ -801,10 +817,12 @@
 				9B0D52EF1DF8244B005C9893 /* SDWebImageDownloader.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
 				9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */,
+				9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
 				9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */,
+				9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */,
 				9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */,
 				9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */,
 				9B0D52F31DF8244B005C9893 /* UIButton+WebCache.m in Sources */,

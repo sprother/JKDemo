@@ -89,6 +89,114 @@
     self.dmPeripheral = nil;
 }
 
+#pragma mark - interface
+- (void)writeAlertLevelWithType:(DMAlertLevelType)type withCallback:(DMPeripheralWriteResultHandler)callback {
+    uint8_t uiType = type;
+    NSData *sendDataTmp = [NSData dataWithBytes:&uiType length:sizeof(uint8_t)];
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMAlertLevel];
+    [self.dmPeripheral writeValue:sendDataTmp type:CBCharacteristicWriteWithoutResponse ForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:callback];
+}
+
+#pragma mark 读取信号强度
+- (void)readTxPowerLevelWithCallback:(DMWristBandReadTxPowerLevelResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMTxPowerLevel];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(0, error);
+            return;
+        }
+        int8_t getBytes[1];
+        [data getBytes:getBytes range:NSMakeRange(0, 1)];
+        int8_t level = getBytes[0];
+        callback(level, nil);
+    }];
+}
+
+#pragma mark 读取手环电量
+- (void)readBatteryLevelWithCallback:(DMWristBandReadBatteryLevelResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMBatteryLevel];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(0, error);
+            return;
+        }
+        uint8_t getBytes[1];
+        [data getBytes:getBytes range:NSMakeRange(0, 1)];
+        uint8_t level = getBytes[0];
+        callback(level, nil);
+    }];
+}
+
+#pragma mark 读取手环的信息
+- (void)readManufacturerNameForDeviceInfoWithCallback:(DMWristBandReadDeviceInfoResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMManufacture];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        NSString *info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        callback(info, nil);
+    }];
+}
+
+- (void)readHardwareRevisionForDeviceInfoWithCallback:(DMWristBandReadDeviceInfoResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMHardwareRevision];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        NSString *info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        callback(info, nil);
+    }];
+}
+
+- (void)readSoftwareRevisionForDeviceInfoWithCallback:(DMWristBandReadDeviceInfoResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMSoftwareRevision];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        NSString *info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        callback(info, nil);
+    }];
+}
+
+#pragma mark 读取RSC信息-UserData
+- (void)writeRSCUserDataWithType:(DMWristBandUserData *)userData withCallback:(DMPeripheralWriteResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMRSCUserData];
+    [self.dmPeripheral writeValue:[userData toData] type:CBCharacteristicWriteWithResponse ForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:callback];
+}
+
+- (void)readRSCUserDataWithCallback:(DMWristBandReadRSCUserDataResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMRSCUserData];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        callback([DMWristBandUserData fromData:data], nil);
+    }];
+}
+
+#pragma mark 读取RSC信息-Date
+- (void)writeRSCDateWithType:(NSDate *)date withCallback:(DMPeripheralWriteResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMRSCTimeSync];
+    [self.dmPeripheral writeValue:[date toData] type:CBCharacteristicWriteWithResponse ForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:callback];
+}
+
+- (void)readRSCDateWithCallback:(DMWristBandReadRSCDateResultHandler)callback {
+    NSDictionary *charaInfoDict = self.bandCharacteristicDict[DMRSCTimeSync];
+    [self.dmPeripheral readValueForCharacteristicWithUUID:charaInfoDict[DMCharacteristicUUIDKey] ofServiceWithUUID:charaInfoDict[DMServiceUUIDKey] callback:^(NSData *data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        callback([NSDate fromData:data], nil);
+    }];
+}
 
 #pragma mark - CBCentralManagerDelegate
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {//无需响应
@@ -140,6 +248,19 @@
 
 #pragma mark 读特性/订阅成功后特性发生任何改变 的回调
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+    if (characteristic == nil || characteristic.value == nil) {
+        return;
+    }
+    if ([self.bandCharacteristicDict[DMBatteryLevel][DMCharacteristicUUIDKey] isEqualToString:characteristic.UUID.UUIDString]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(bandDidUpdateBatteryLevel:)]) {
+            uint8_t getBytes[1];
+            [characteristic.value getBytes:getBytes range:NSMakeRange(0, 1)];
+            uint8_t level = getBytes[0];
+            [self.delegate bandDidUpdateBatteryLevel:level];
+        }
+        return;
+    }
+    
 }
 
 #pragma mark 写特性后的回调
