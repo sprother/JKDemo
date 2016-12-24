@@ -26,11 +26,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     JLog(@"%@ viewWillAppear", NSStringFromClass([self class]));
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     JLog(@"%@ viewDidAppear", NSStringFromClass([self class]));
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

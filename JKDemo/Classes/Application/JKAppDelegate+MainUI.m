@@ -26,6 +26,7 @@
 - (void)showMainViewAnimated:(BOOL)animated {
     [self createRootTabBarController];
     [self setRootViewController:self.drawerViewController animated:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)showSplashViewAnimated:(BOOL)animated {

@@ -11,6 +11,7 @@
 #import "JKEllipseView.h"
 #import "JKEllipseLineView.h"
 #import "DMScanCircleView.h"
+#import "JKRunBall.h"
 
 @interface JKAnimationViewController () 
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) JKEllipseView  *ellipseView;
 @property (nonatomic, strong) JKEllipseLineView  *ellipseLineView;
 @property (nonatomic, strong) DMScanCircleView  *circleView;
+@property (nonatomic, strong) JKRunBall         *runballView;
 
 @end
 
@@ -38,7 +40,9 @@
     
 //    [self.view addSubview:self.ellipseLineView];
     
-    [self.view addSubview:self.circleView];
+//    [self.view addSubview:self.circleView];
+    
+    [self.view addSubview:self.runballView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,6 +79,20 @@
         _circleView.tcCenterX = self.view.tcCenterX;
     }
     return _circleView;
+}
+
+#define JKAnimationRunballCap 10
+- (JKRunBall *)runballView {
+    if (_runballView == nil) {
+        _runballView = [[JKRunBall alloc] initWithFrame:CGRectMake(0+JKAnimationRunballCap, DEFAULT_NAVIGATION_BAR_HEIGHT+JKAnimationRunballCap, APPLICATION_SCREEN_WIDTH-JKAnimationRunballCap*2, APPLICATION_SCREEN_HEIGHT-DEFAULT_NAVIGATION_BAR_HEIGHT-JKAnimationRunballCap*2)];
+        [_runballView startFallAnimation];
+    }
+    return _runballView;
+}
+
+#pragma mark - animation
+- (void)startDropAnimation {
+    
 }
 
 @end

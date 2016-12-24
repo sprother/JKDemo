@@ -10,4 +10,6 @@
 
 @interface JKEllipseView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame color:(UIColor *)color;
+
 @end

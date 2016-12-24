@@ -53,6 +53,7 @@
 		9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54451DFAA97C005C9893 /* JKEllipseView.m */; };
 		9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */; };
 		9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */; };
+		9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */; };
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A61DFE885700B92A8A /* DrawerViewController.m */; };
@@ -166,6 +167,8 @@
 		9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKEllipseLineView.m; path = Classes/Views/Animation/JKEllipseLineView.m; sourceTree = "<group>"; };
 		9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMScanCircleView.h; path = Classes/Views/Animation/DMScanCircleView.h; sourceTree = "<group>"; };
 		9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMScanCircleView.m; path = Classes/Views/Animation/DMScanCircleView.m; sourceTree = "<group>"; };
+		9B46A0BB1E0D4E6B00318777 /* JKRunBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKRunBall.h; path = Classes/Views/Animation/JKRunBall.h; sourceTree = "<group>"; };
+		9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKRunBall.m; path = Classes/Views/Animation/JKRunBall.m; sourceTree = "<group>"; };
 		9B72F19F1DFE517C00B92A8A /* DMPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPullToRefreshControl.h; sourceTree = "<group>"; };
 		9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPullToRefreshControl.m; sourceTree = "<group>"; };
 		9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCGraintCircleLayer.h; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 				9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */,
 				9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */,
 				9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */,
+				9B46A0BB1E0D4E6B00318777 /* JKRunBall.h */,
+				9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */,
 			);
 			name = Animations;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */,
+				9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */,
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */,
 				9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */,
