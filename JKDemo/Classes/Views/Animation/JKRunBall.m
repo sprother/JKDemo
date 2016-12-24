@@ -12,11 +12,11 @@
 
 @interface JKRunBall () <CAAnimationDelegate>
 
-@property (nonatomic, strong) JKEllipseView  *ballView;
-@property (nonatomic, assign) CGFloat        boundHeith;
+@property (nonatomic, strong) JKEllipseView *ballView;
+@property (nonatomic, assign) CGFloat       boundHeith;
 
-@property (nonatomic, strong) JKEllipseView  *ballViewBezier;
-@property (nonatomic, assign) CGFloat        boundHeithBezier;
+@property (nonatomic, strong) JKEllipseView *ballViewBezier;
+@property (nonatomic, assign) CGFloat       boundHeithBezier;
 
 @end
 
@@ -36,7 +36,7 @@
 - (CAShapeLayer *)rectLayer {
     CAShapeLayer     *solidLine = [CAShapeLayer layer];
     CGMutablePathRef solidPath  = CGPathCreateMutable();
-    
+
     solidLine.lineWidth   = 2.0f;
     solidLine.strokeColor = [UIColor blackColor].CGColor;
     solidLine.fillColor   = [UIColor clearColor].CGColor;
@@ -50,18 +50,16 @@
 
 - (JKEllipseView *)ballView {
     if (_ballView == nil) {
-        _ballView = [[JKEllipseView alloc] initWithFrame:CGRectMake(0, 0, 2*JKRunBallRadiu, 2*JKRunBallRadiu) color:RANDOM_COLOR];
-        _ballView.tcCenterX = self.tcCenterX;
-        _ballView.tcCenterY = self.tcCenterY;
+        _ballView           = [[JKEllipseView alloc] initWithFrame:CGRectMake(0, 0, 2*JKRunBallRadiu, 2*JKRunBallRadiu) color:RANDOM_COLOR];
+        _ballView.tcCenterX = self.tcWidth/2.0;
     }
     return _ballView;
 }
 
 - (JKEllipseView *)ballViewBezier {
     if (_ballViewBezier == nil) {
-        _ballViewBezier = [[JKEllipseView alloc] initWithFrame:CGRectMake(0, 0, 2*JKRunBallRadiu, 2*JKRunBallRadiu) color:RANDOM_COLOR];
+        _ballViewBezier           = [[JKEllipseView alloc] initWithFrame:CGRectMake(0, 0, 2*JKRunBallRadiu, 2*JKRunBallRadiu) color:RANDOM_COLOR];
         _ballViewBezier.tcCenterX = self.tcWidth/4;
-        _ballViewBezier.tcCenterY = self.tcCenterY;
     }
     return _ballViewBezier;
 }
@@ -69,6 +67,10 @@
 #pragma mark - 自由落体回弹效果
 #define JKRunBallFallSpeed       1.0
 #define JKRunBallFallBoundFactor 0.7
+- (void)stopFallAnimation {
+    [self.ballView.layer removeAllAnimations];
+    [self.ballViewBezier.layer removeAllAnimations];
+}
 
 - (void)startFallAnimation {
     self.boundHeith = self.tcHeight-JKRunBallRadiu;
@@ -81,11 +83,12 @@
 
 - (CAKeyframeAnimation *)positionAnimationFromZeroToPoint:(CGFloat)point2 {//第一次下降
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+
     positionAnimation.duration            = JKRunBallFallSpeed/self.tcHeight*fabs(point2);
     positionAnimation.removedOnCompletion = NO;
     positionAnimation.fillMode            = kCAFillModeForwards;
     positionAnimation.delegate            = self;
-    positionAnimation.values              = [self animationFallValueFromPoint:CGPointMake(self.tcCenterX, 0) toPoint:CGPointMake(self.tcCenterX, point2) accelerate:YES];
+    positionAnimation.values              = [self animationFallValueFromPoint:CGPointMake(self.tcWidth/2.0, 0) toPoint:CGPointMake(self.tcWidth/2.0, point2) accelerate:YES];
     positionAnimation.autoreverses        = NO;
     return positionAnimation;
 }
@@ -97,24 +100,24 @@
     positionAnimation.removedOnCompletion = NO;
     positionAnimation.fillMode            = kCAFillModeForwards;
     positionAnimation.delegate            = self;
-    positionAnimation.values              = [self animationFallValueFromPoint:CGPointMake(self.tcCenterX, point1) toPoint:CGPointMake(self.tcCenterX, point2) accelerate:NO];
+    positionAnimation.values              = [self animationFallValueFromPoint:CGPointMake(self.tcWidth/2.0, point1) toPoint:CGPointMake(self.tcWidth/2.0, point2) accelerate:NO];
     positionAnimation.autoreverses        = YES;
     return positionAnimation;
 }
 
 - (NSArray *)animationFallValueFromPoint:(CGPoint)point1 toPoint:(CGPoint)point2 accelerate:(BOOL)accelerate {
-    int pointCount = 30;
-    CGFloat deltaX = (point2.x - point1.x);
-    CGFloat deltaY = (point2.y - point1.y);
-    NSMutableArray *mArray = [NSMutableArray new];
+    int            pointCount = 30;
+    CGFloat        deltaX     = (point2.x - point1.x);
+    CGFloat        deltaY     = (point2.y - point1.y);
+    NSMutableArray *mArray    = [NSMutableArray new];
+
     for (int i = 0; i < pointCount+1; i++) {
         CGFloat iRate;
         NSValue *point;
         if (accelerate) {
             iRate = 1.0*i/pointCount;
             point = [NSValue valueWithCGPoint:CGPointMake(point1.x+deltaX*iRate, point1.y+deltaY*(iRate*iRate))];//Point1 + Delta * X^2
-        }
-        else {
+        } else {
             iRate = 1.0*i/pointCount;
             point = [NSValue valueWithCGPoint:CGPointMake(point1.x+deltaX*iRate, point1.y+deltaY*(1-(1-iRate)*(1-iRate)))];//Point1 + Delta * (1 - (1-X)^2)
         }
@@ -133,15 +136,16 @@
 
 - (CAKeyframeAnimation *)positionAnimationByBezierFromZeroToPoint:(CGFloat)point2 {
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    
+
     UIBezierPath *strokePath = [UIBezierPath bezierPath];
+
     [strokePath moveToPoint:CGPointMake(self.tcWidth/4, 0)];
     [strokePath addLineToPoint:CGPointMake(self.tcWidth/4, point2)];
-    
+
     positionAnimation.path                = strokePath.CGPath;
     positionAnimation.duration            = JKRunBallFallSpeed/self.tcHeight*fabs(point2);
     positionAnimation.removedOnCompletion = NO;
-    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithControlPoints:0.5 :0 :1.0 :1.0];
+    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithControlPoints:0.5:0:1.0:1.0];
     positionAnimation.fillMode            = kCAFillModeForwards;
     positionAnimation.autoreverses        = NO;
     positionAnimation.repeatCount         = 0;
@@ -151,15 +155,16 @@
 
 - (CAKeyframeAnimation *)positionAnimationByBezierFromPoint:(CGFloat)point1 toPoint:(CGFloat)point2 {
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    
+
     UIBezierPath *strokePath = [UIBezierPath bezierPath];
+
     [strokePath moveToPoint:CGPointMake(self.tcWidth/4, point1)];
     [strokePath addLineToPoint:CGPointMake(self.tcWidth/4, point2)];
-    
+
     positionAnimation.path                = strokePath.CGPath;
     positionAnimation.duration            = JKRunBallFallSpeed*2/self.tcHeight*fabs(point2-point1);
     positionAnimation.removedOnCompletion = NO;
-    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithControlPoints:0 :0 :0.5 :1.0];
+    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithControlPoints:0:0:0.5:1.0];
     positionAnimation.fillMode            = kCAFillModeForwards;
     positionAnimation.autoreverses        = YES;
     positionAnimation.repeatCount         = 0;
@@ -213,4 +218,5 @@
         return;
     }
 }
+
 @end

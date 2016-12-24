@@ -11,5 +11,6 @@
 @interface JKRunBall : UIView
 
 - (void)startFallAnimation;
+- (void)stopFallAnimation;
 
 @end

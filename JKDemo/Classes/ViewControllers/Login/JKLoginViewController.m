@@ -40,6 +40,7 @@
     textfield1.clearButtonMode = UITextFieldViewModeWhileEditing;//编辑时会出现个修改x(删除)
     //[textfield1 addTarget:self action:nil forControlEvents:UIControlEventEditingDidEndOnExit];
     textfield1.placeholder = @"账号";
+    //textfield1.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"输入手机号码" attributes:@{NSForegroundColorAttributeName: UIColorFromRgbFloatAlpha(0xffffff, 0.5)}];
     textfield1.keyboardType = UIKeyboardTypeNumberPad;//键盘样式，输入数字
     textfield1.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.view addSubview:textfield1];
