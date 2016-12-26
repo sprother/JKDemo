@@ -13,6 +13,7 @@
 #import "DMScanCircleView.h"
 #import "JKRunBall.h"
 #import "JKCirclingBall.h"
+#import "JKPlayBall.h"
 
 @interface JKAnimationViewController () 
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) DMScanCircleView  *circleView;
 @property (nonatomic, strong) JKRunBall         *runballView;
 @property (nonatomic, strong) JKCirclingBall    *circlingballView;
+@property (nonatomic, strong) JKPlayBall        *playballView;
 
 @end
 
@@ -44,9 +46,11 @@
     
 //    [self.view addSubview:self.circleView];
     
-    [self.view addSubview:self.runballView];
-    
+//    [self.view addSubview:self.runballView];
+//    
     [self.view addSubview:self.circlingballView];
+    
+    [self.view addSubview:self.playballView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -100,6 +104,14 @@
         [_circlingballView startCirclingAnimation];
     }
     return _circlingballView;
+}
+
+- (JKPlayBall *)playballView {
+    if (_playballView == nil) {
+        _playballView = [[JKPlayBall alloc] initWithFrame:CGRectMake(0+JKAnimationRunballCap, DEFAULT_NAVIGATION_BAR_HEIGHT+JKAnimationRunballCap, APPLICATION_SCREEN_WIDTH-JKAnimationRunballCap*2, APPLICATION_SCREEN_HEIGHT-DEFAULT_NAVIGATION_BAR_HEIGHT-JKAnimationRunballCap*2)];
+        [_playballView startAnimation];
+    }
+    return _playballView;
 }
 
 #pragma mark - animation
