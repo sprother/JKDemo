@@ -174,6 +174,7 @@
     } else if ([rowName isEqualToString:ROW_NAME_SPLASH]) {
         [[JKAppDelegate shareInstance] showSplashViewAnimated:NO];
     } else if ([rowName isEqualToString:ROW_NAME_GEN_NOTIFY]) {
+        [self genNotify:@"你有一条没有用的新消息。"];
     } else if ([rowName isEqualToString:ROW_NAME_FLEX]) {
         if ([FLEXManager sharedManager].isHidden) {
             [[FLEXManager sharedManager] showExplorer];
@@ -233,6 +234,33 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
+
+#pragma mark - Loacal Notify
+- (void)genNotify:(NSString *)info {
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([application currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+
+    UILocalNotification *notification=[[UILocalNotification alloc] init];
+    if (notification != nil) {
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:4]; //触发通知的时间
+        notification.repeatInterval = 0; //循环次数，kCFCalendarUnitWeekday一周一次
+        
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.alertBody = info;
+        notification.hasAction = NO; //是否显示额外的按钮，为no时alertAction消失
+        
+        //下面设置本地通知发送的消息，这个消息可以接受
+        NSDictionary* infoDic = [NSDictionary dictionaryWithObject:@"value" forKey:@"key"];
+        notification.userInfo = infoDic;
+        //发送通知
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+}
+
 
 #pragma mark - hideNavigation
 //- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{

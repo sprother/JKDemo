@@ -61,6 +61,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     JLog(@"程序进入前台");
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     if (self.bgTask != UIBackgroundTaskInvalid) {
         [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
         self.bgTask = UIBackgroundTaskInvalid;
@@ -77,6 +78,16 @@
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     JLog(@"程序收到内存警告");
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification {
+    //这里处理通知消息，在前台直接处理，在后台则点击到前台后执行这里；做相应提示或者跳转
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"收到本地的通知" message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+    NSDictionary* dic = [[NSDictionary alloc] init];
+    
+    dic = notification.userInfo;
+    JLog(@"application收到本地消息 user info = %@",[dic objectForKey:@"key"]);
 }
 
 #pragma mark - UI

@@ -159,6 +159,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.tcBottom = self.view.tcHeight;
         [_viewEnd addSubview:self.button];
+        [_viewEnd addSubview:label];
     }
     return _viewEnd;
 }
