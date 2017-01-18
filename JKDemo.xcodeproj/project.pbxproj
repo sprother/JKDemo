@@ -56,6 +56,8 @@
 		9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */; };
 		9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BF1E0E4BD300318777 /* JKCirclingBall.m */; };
 		9B46A0DD1E1124EE00318777 /* JKPlayBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0DC1E1124EE00318777 /* JKPlayBall.m */; };
+		9B6BCE091E2E11DA006E49AA /* JKVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BCE081E2E11DA006E49AA /* JKVideoViewController.m */; };
+		9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */; };
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A61DFE885700B92A8A /* DrawerViewController.m */; };
@@ -175,6 +177,10 @@
 		9B46A0BF1E0E4BD300318777 /* JKCirclingBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCirclingBall.m; path = Classes/Views/Animation/JKCirclingBall.m; sourceTree = "<group>"; };
 		9B46A0DB1E1124EE00318777 /* JKPlayBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPlayBall.h; path = Classes/Views/Animation/JKPlayBall.h; sourceTree = "<group>"; };
 		9B46A0DC1E1124EE00318777 /* JKPlayBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPlayBall.m; path = Classes/Views/Animation/JKPlayBall.m; sourceTree = "<group>"; };
+		9B6BCE071E2E11DA006E49AA /* JKVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKVideoViewController.h; path = Classes/ViewControllers/Video/JKVideoViewController.h; sourceTree = "<group>"; };
+		9B6BCE081E2E11DA006E49AA /* JKVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKVideoViewController.m; path = Classes/ViewControllers/Video/JKVideoViewController.m; sourceTree = "<group>"; };
+		9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKVideoView.m; sourceTree = "<group>"; };
+		9B6BCE0C1E2E146D006E49AA /* JKVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKVideoView.h; sourceTree = "<group>"; };
 		9B72F19F1DFE517C00B92A8A /* DMPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPullToRefreshControl.h; sourceTree = "<group>"; };
 		9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPullToRefreshControl.m; sourceTree = "<group>"; };
 		9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCGraintCircleLayer.h; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B6BCE061E2E1183006E49AA /* Video */,
 				9B0A615B1E023BDF004392B4 /* Search */,
 				9B72F1B21DFFF25000B92A8A /* BLE */,
 				9B0D543C1DFA8B34005C9893 /* Animations */,
@@ -371,6 +378,7 @@
 		9B0D51A21DF6DD0D005C9893 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B6BCE0A1E2E146D006E49AA /* Video */,
 				9B0D54401DFAA33B005C9893 /* Animations */,
 				9B0D53371DF904B6005C9893 /* Common */,
 				9B72F19E1DFE517C00B92A8A /* RefreshControl */,
@@ -563,6 +571,25 @@
 				9B46A0DC1E1124EE00318777 /* JKPlayBall.m */,
 			);
 			name = Animations;
+			sourceTree = "<group>";
+		};
+		9B6BCE061E2E1183006E49AA /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BCE071E2E11DA006E49AA /* JKVideoViewController.h */,
+				9B6BCE081E2E11DA006E49AA /* JKVideoViewController.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		9B6BCE0A1E2E146D006E49AA /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9B6BCE0C1E2E146D006E49AA /* JKVideoView.h */,
+				9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */,
+			);
+			name = Video;
+			path = Classes/Views/Video;
 			sourceTree = "<group>";
 		};
 		9B72F19E1DFE517C00B92A8A /* RefreshControl */ = {
@@ -810,9 +837,11 @@
 				9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */,
 				9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */,
 				9B0D51AA1DF6E0FF005C9893 /* JKLoginViewController.m in Sources */,
+				9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */,
 				9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */,
 				9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */,
 				9B0D53171DF83A61005C9893 /* JKTabBarController.m in Sources */,
+				9B6BCE091E2E11DA006E49AA /* JKVideoViewController.m in Sources */,
 				9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */,
 				9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */,
 				9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */,

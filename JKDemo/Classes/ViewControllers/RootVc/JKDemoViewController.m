@@ -11,6 +11,7 @@
 #import "JKTableViewCell.h"
 #import "ImageCollectViewController.h"
 #import "JKAnimationViewController.h"
+#import "JKVideoViewController.h"
 #import "DMPullToRefreshControl.h"
 #import "PeriListViewController.h"
 #import <FLEX/FLEXManager.h>
@@ -27,6 +28,7 @@
 #define ROW_NAME_GEN_NOTIFY @"产生ANCS通知"
 #define ROW_NAME_FLEX       @"FLEX"
 
+#define ROW_NAME_VIDEO      @"视频"
 #define ROW_NAME_NONE       @"其他"
 
 @interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -85,7 +87,7 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -181,6 +183,10 @@
         } else {
             [[FLEXManager sharedManager] hideExplorer];
         }
+    } else if ([rowName isEqualToString:ROW_NAME_VIDEO]) {
+        JKVideoViewController *vc = [[JKVideoViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
     }
 }
