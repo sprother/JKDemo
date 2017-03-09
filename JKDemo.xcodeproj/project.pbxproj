@@ -66,6 +66,7 @@
 		9B72F1B01DFF99AC00B92A8A /* MainThreadWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AF1DFF99AC00B92A8A /* MainThreadWatchdog.m */; };
 		9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */; };
 		9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */; };
+		9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */; };
 		9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */; };
 		9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */; };
 		9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */; };
@@ -73,6 +74,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		9B0D51851DF6D94F005C9893 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B0D51631DF6D94E005C9893 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B0D516A1DF6D94F005C9893;
+			remoteInfo = JKDemo;
+		};
+		9B73FB4E1E713EB7003F05FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9B0D51631DF6D94E005C9893 /* Project object */;
 			proxyType = 1;
@@ -197,6 +205,9 @@
 		9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBLECentralManager.m; path = Classes/Manager/BLE/DMBLECentralManager.m; sourceTree = "<group>"; };
 		9B72F1BB1DFFF38500B92A8A /* PeriListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeriListViewController.h; path = Classes/ViewControllers/BLE/PeriListViewController.h; sourceTree = "<group>"; };
 		9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeriListViewController.m; path = Classes/ViewControllers/BLE/PeriListViewController.m; sourceTree = "<group>"; };
+		9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoUITests.m; sourceTree = "<group>"; };
+		9B73FB4D1E713EB7003F05FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BE2E30E1E08D66E00FF8BE9 /* DMWristBandUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandUserData.h; path = Classes/Models/BLE/DMWristBandUserData.h; sourceTree = "<group>"; };
 		9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandUserData.m; path = Classes/Models/BLE/DMWristBandUserData.m; sourceTree = "<group>"; };
 		9BE2E3111E090CB300FF8BE9 /* NSDate+WristBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WristBand.h"; path = "Classes/Models/BLE/NSDate+WristBand.h"; sourceTree = "<group>"; };
@@ -215,6 +226,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9B0D51811DF6D94F005C9893 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B73FB461E713EB7003F05FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0D516D1DF6D94F005C9893 /* JKDemo */,
+				9B73FB4A1E713EB7003F05FE /* JKDemoUITests */,
 				9B0D51931DF6D972005C9893 /* Frameworks */,
 				9B0D51871DF6D94F005C9893 /* JKDemoTests */,
 				9B0D516C1DF6D94F005C9893 /* Products */,
@@ -275,6 +294,7 @@
 			children = (
 				9B0D516B1DF6D94F005C9893 /* JKDemo.app */,
 				9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */,
+				9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -634,6 +654,15 @@
 			name = BLE;
 			sourceTree = "<group>";
 		};
+		9B73FB4A1E713EB7003F05FE /* JKDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */,
+				9B73FB4D1E713EB7003F05FE /* Info.plist */,
+			);
+			path = JKDemoUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -675,6 +704,24 @@
 			productReference = 9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9B73FB481E713EB7003F05FE /* JKDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B73FB501E713EB7003F05FE /* Build configuration list for PBXNativeTarget "JKDemoUITests" */;
+			buildPhases = (
+				9B73FB451E713EB7003F05FE /* Sources */,
+				9B73FB461E713EB7003F05FE /* Frameworks */,
+				9B73FB471E713EB7003F05FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B73FB4F1E713EB7003F05FE /* PBXTargetDependency */,
+			);
+			name = JKDemoUITests;
+			productName = JKDemoUITests;
+			productReference = 9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -686,13 +733,18 @@
 				TargetAttributes = {
 					9B0D516A1DF6D94F005C9893 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 2AY539L74W;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = JBS4AWYMFX;
+						ProvisioningStyle = Manual;
 					};
 					9B0D51831DF6D94F005C9893 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 2AY539L74W;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						TestTargetID = 9B0D516A1DF6D94F005C9893;
+					};
+					9B73FB481E713EB7003F05FE = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JBS4AWYMFX;
+						ProvisioningStyle = Manual;
 						TestTargetID = 9B0D516A1DF6D94F005C9893;
 					};
 				};
@@ -712,6 +764,7 @@
 			targets = (
 				9B0D516A1DF6D94F005C9893 /* JKDemo */,
 				9B0D51831DF6D94F005C9893 /* JKDemoTests */,
+				9B73FB481E713EB7003F05FE /* JKDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -735,6 +788,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9B0D51821DF6D94F005C9893 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B73FB471E713EB7003F05FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -857,6 +917,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B73FB451E713EB7003F05FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -864,6 +932,11 @@
 			isa = PBXTargetDependency;
 			target = 9B0D516A1DF6D94F005C9893 /* JKDemo */;
 			targetProxy = 9B0D51851DF6D94F005C9893 /* PBXContainerItemProxy */;
+		};
+		9B73FB4F1E713EB7003F05FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B0D516A1DF6D94F005C9893 /* JKDemo */;
+			targetProxy = 9B73FB4E1E713EB7003F05FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -964,13 +1037,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 2AY539L74W;
+				DEVELOPMENT_TEAM = JBS4AWYMFX;
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
+				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
 			};
 			name = Debug;
 		};
@@ -980,13 +1055,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 2AY539L74W;
+				DEVELOPMENT_TEAM = JBS4AWYMFX;
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
+				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
 			};
 			name = Release;
 		};
@@ -994,7 +1071,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2AY539L74W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemoTests;
@@ -1007,12 +1084,42 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2AY539L74W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JKDemo.app/JKDemo";
+			};
+			name = Release;
+		};
+		9B73FB511E713EB7003F05FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				INFOPLIST_FILE = JKDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.picker.JKDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
+				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
+				TEST_TARGET_NAME = JKDemo;
+			};
+			name = Debug;
+		};
+		9B73FB521E713EB7003F05FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				INFOPLIST_FILE = JKDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.picker.JKDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
+				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
+				TEST_TARGET_NAME = JKDemo;
 			};
 			name = Release;
 		};
@@ -1045,6 +1152,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9B73FB501E713EB7003F05FE /* Build configuration list for PBXNativeTarget "JKDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B73FB511E713EB7003F05FE /* Debug */,
+				9B73FB521E713EB7003F05FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -87,8 +87,19 @@
             break;
         }
     } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        NSTimeInterval timeInterval = [self availableDuration];// 计算缓冲进度
+        NSLog(@"loadedTimeRanges:%f",timeInterval/self.videoLength);
     } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
     }
+}
+
+- (NSTimeInterval)availableDuration {
+    NSArray *loadedTimeRanges = [self.item loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    float startSeconds = CMTimeGetSeconds(timeRange.start);
+    float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval result = startSeconds + durationSeconds;// 计算缓冲总进度
+    return result;
 }
 
 #pragma mark - Notification
