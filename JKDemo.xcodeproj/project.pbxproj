@@ -67,6 +67,14 @@
 		9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */; };
 		9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */; };
 		9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */; };
+		9B73FBDD1E72810B003F05FE /* IOHIDEvent+KIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBD21E72810A003F05FE /* IOHIDEvent+KIF.m */; };
+		9B73FBDE1E72810B003F05FE /* UIApplication-KIFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBD41E72810A003F05FE /* UIApplication-KIFAdditions.m */; };
+		9B73FBDF1E72810B003F05FE /* UIEvent+KIFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBD61E72810B003F05FE /* UIEvent+KIFAdditions.m */; };
+		9B73FBE01E72810B003F05FE /* UITouch-KIFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBD81E72810B003F05FE /* UITouch-KIFAdditions.m */; };
+		9B73FBE11E72810B003F05FE /* UIView-KIFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBDA1E72810B003F05FE /* UIView-KIFAdditions.m */; };
+		9B73FBE21E72810B003F05FE /* UIWindow-KIFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBDC1E72810B003F05FE /* UIWindow-KIFAdditions.m */; };
+		9B73FBE51E728137003F05FE /* PTFakeMetaTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FBE41E728137003F05FE /* PTFakeMetaTouch.m */; };
+		9B73FBF71E7294F0003F05FE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B73FBF61E7294F0003F05FE /* IOKit.framework */; };
 		9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */; };
 		9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */; };
 		9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */; };
@@ -208,6 +216,23 @@
 		9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoUITests.m; sourceTree = "<group>"; };
 		9B73FB4D1E713EB7003F05FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B73FBD11E72810A003F05FE /* IOHIDEvent+KIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOHIDEvent+KIF.h"; sourceTree = "<group>"; };
+		9B73FBD21E72810A003F05FE /* IOHIDEvent+KIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IOHIDEvent+KIF.m"; sourceTree = "<group>"; };
+		9B73FBD31E72810A003F05FE /* UIApplication-KIFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication-KIFAdditions.h"; sourceTree = "<group>"; };
+		9B73FBD41E72810A003F05FE /* UIApplication-KIFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication-KIFAdditions.m"; sourceTree = "<group>"; };
+		9B73FBD51E72810B003F05FE /* UIEvent+KIFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIEvent+KIFAdditions.h"; sourceTree = "<group>"; };
+		9B73FBD61E72810B003F05FE /* UIEvent+KIFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIEvent+KIFAdditions.m"; sourceTree = "<group>"; };
+		9B73FBD71E72810B003F05FE /* UITouch-KIFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITouch-KIFAdditions.h"; sourceTree = "<group>"; };
+		9B73FBD81E72810B003F05FE /* UITouch-KIFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITouch-KIFAdditions.m"; sourceTree = "<group>"; };
+		9B73FBD91E72810B003F05FE /* UIView-KIFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView-KIFAdditions.h"; sourceTree = "<group>"; };
+		9B73FBDA1E72810B003F05FE /* UIView-KIFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-KIFAdditions.m"; sourceTree = "<group>"; };
+		9B73FBDB1E72810B003F05FE /* UIWindow-KIFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow-KIFAdditions.h"; sourceTree = "<group>"; };
+		9B73FBDC1E72810B003F05FE /* UIWindow-KIFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow-KIFAdditions.m"; sourceTree = "<group>"; };
+		9B73FBE31E728137003F05FE /* PTFakeMetaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTFakeMetaTouch.h; path = Classes/Public/PTFakeMetaTouch.h; sourceTree = "<group>"; };
+		9B73FBE41E728137003F05FE /* PTFakeMetaTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTFakeMetaTouch.m; path = Classes/Public/PTFakeMetaTouch.m; sourceTree = "<group>"; };
+		9B73FBE61E7281E0003F05FE /* FixCategoryBug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixCategoryBug.h; sourceTree = "<group>"; };
+		9B73FBE71E728234003F05FE /* LoadableCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
+		9B73FBF61E7294F0003F05FE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = "JKDemo/Other sources/IOKit.framework"; sourceTree = "<group>"; };
 		9BE2E30E1E08D66E00FF8BE9 /* DMWristBandUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandUserData.h; path = Classes/Models/BLE/DMWristBandUserData.h; sourceTree = "<group>"; };
 		9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandUserData.m; path = Classes/Models/BLE/DMWristBandUserData.m; sourceTree = "<group>"; };
 		9BE2E3111E090CB300FF8BE9 /* NSDate+WristBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WristBand.h"; path = "Classes/Models/BLE/NSDate+WristBand.h"; sourceTree = "<group>"; };
@@ -222,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AA9C8E1A3C61F05F433C749 /* libPods-JKDemo.a in Frameworks */,
+				9B73FBF71E7294F0003F05FE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +355,7 @@
 		9B0D51931DF6D972005C9893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B73FBF61E7294F0003F05FE /* IOKit.framework */,
 				397CF007D149EEDBBCFC6177 /* libPods-JKDemo.a */,
 			);
 			name = Frameworks;
@@ -491,6 +518,7 @@
 		9B0D52F91DF82B78005C9893 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				9B73FB931E728097003F05FE /* kif */,
 				9B0D52FA1DF82B94005C9893 /* MBProgressHUD+Tencent.h */,
 				9B0D52FB1DF82B94005C9893 /* MBProgressHUD+Tencent.m */,
 				9B0D53001DF82DE8005C9893 /* TencentAdditions.h */,
@@ -551,6 +579,8 @@
 		9B0D53621DFA4F7F005C9893 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				9B73FBE31E728137003F05FE /* PTFakeMetaTouch.h */,
+				9B73FBE41E728137003F05FE /* PTFakeMetaTouch.m */,
 				9B0D53631DFA4F9D005C9893 /* NSThread+Qstack.h */,
 				9B0D53641DFA4F9D005C9893 /* NSThread+Qstack.m */,
 				9B0D54391DFA7EE8005C9893 /* JKReadWriteLock.h */,
@@ -661,6 +691,28 @@
 				9B73FB4D1E713EB7003F05FE /* Info.plist */,
 			);
 			path = JKDemoUITests;
+			sourceTree = "<group>";
+		};
+		9B73FB931E728097003F05FE /* kif */ = {
+			isa = PBXGroup;
+			children = (
+				9B73FBE71E728234003F05FE /* LoadableCategory.h */,
+				9B73FBE61E7281E0003F05FE /* FixCategoryBug.h */,
+				9B73FBD11E72810A003F05FE /* IOHIDEvent+KIF.h */,
+				9B73FBD21E72810A003F05FE /* IOHIDEvent+KIF.m */,
+				9B73FBD31E72810A003F05FE /* UIApplication-KIFAdditions.h */,
+				9B73FBD41E72810A003F05FE /* UIApplication-KIFAdditions.m */,
+				9B73FBD51E72810B003F05FE /* UIEvent+KIFAdditions.h */,
+				9B73FBD61E72810B003F05FE /* UIEvent+KIFAdditions.m */,
+				9B73FBD71E72810B003F05FE /* UITouch-KIFAdditions.h */,
+				9B73FBD81E72810B003F05FE /* UITouch-KIFAdditions.m */,
+				9B73FBD91E72810B003F05FE /* UIView-KIFAdditions.h */,
+				9B73FBDA1E72810B003F05FE /* UIView-KIFAdditions.m */,
+				9B73FBDB1E72810B003F05FE /* UIWindow-KIFAdditions.h */,
+				9B73FBDC1E72810B003F05FE /* UIWindow-KIFAdditions.m */,
+			);
+			name = kif;
+			path = Classes/Additions/kif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -860,6 +912,7 @@
 				9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */,
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */,
+				9B73FBDF1E72810B003F05FE /* UIEvent+KIFAdditions.m in Sources */,
 				9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */,
 				9B0D52FC1DF82B94005C9893 /* MBProgressHUD+Tencent.m in Sources */,
 				9B0D53361DF8F90E005C9893 /* JKDemoViewController.m in Sources */,
@@ -881,8 +934,11 @@
 				9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
+				9B73FBE01E72810B003F05FE /* UITouch-KIFAdditions.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
 				9B0D53501DF93F18005C9893 /* ImageCollectViewController.m in Sources */,
+				9B73FBDE1E72810B003F05FE /* UIApplication-KIFAdditions.m in Sources */,
+				9B73FBE51E728137003F05FE /* PTFakeMetaTouch.m in Sources */,
 				9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */,
 				9B0A615A1E014105004392B4 /* DMWristBandManager.m in Sources */,
 				9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */,
@@ -895,6 +951,7 @@
 				9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */,
 				9B0D52FF1DF82DDC005C9893 /* UIView+Tencent.m in Sources */,
 				9B0A61571E00EA97004392B4 /* DMPeripheral.m in Sources */,
+				9B73FBDD1E72810B003F05FE /* IOHIDEvent+KIF.m in Sources */,
 				9B0D53491DF93AF3005C9893 /* UIViewController+Tencent.m in Sources */,
 				9B0D51AA1DF6E0FF005C9893 /* JKLoginViewController.m in Sources */,
 				9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */,
@@ -904,7 +961,9 @@
 				9B6BCE091E2E11DA006E49AA /* JKVideoViewController.m in Sources */,
 				9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */,
 				9B0D543B1DFA7EE8005C9893 /* JKReadWriteLock.m in Sources */,
+				9B73FBE11E72810B003F05FE /* UIView-KIFAdditions.m in Sources */,
 				9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */,
+				9B73FBE21E72810B003F05FE /* UIWindow-KIFAdditions.m in Sources */,
 				9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1038,10 +1097,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/JKDemo/Other\\ sources",
+				);
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
@@ -1056,10 +1121,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/JKDemo/Other\\ sources",
+				);
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
@@ -1160,6 +1231,7 @@
 				9B73FB521E713EB7003F05FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

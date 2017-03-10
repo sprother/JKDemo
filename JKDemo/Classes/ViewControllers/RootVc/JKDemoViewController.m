@@ -15,6 +15,7 @@
 #import "DMPullToRefreshControl.h"
 #import "PeriListViewController.h"
 #import <FLEX/FLEXManager.h>
+#import "PTFakeMetaTouch.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -29,6 +30,7 @@
 #define ROW_NAME_FLEX       @"FLEX"
 
 #define ROW_NAME_VIDEO      @"视频"
+#define ROW_NAME_TOUCH      @"模拟点击"
 #define ROW_NAME_NONE       @"其他"
 
 @interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -87,7 +89,7 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_TOUCH, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -187,6 +189,8 @@
         JKVideoViewController *vc = [[JKVideoViewController alloc] init];
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+    } else if ([rowName isEqualToString:ROW_NAME_TOUCH]) {
+        [self testTouch];
     } else {
     }
 }
@@ -316,6 +320,20 @@
     [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.isNavInvisible = NO;
+}
+
+#pragma mark - test touch
+- (void)testTouch {
+    JLog(@"testTouch=====");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        JLog(@"touch=====");
+        [self touchPoint:CGPointMake(120, 200)];
+    });
+}
+
+- (void)touchPoint:(CGPoint)point {
+    NSInteger pointId = [PTFakeMetaTouch fakeTouchId:[PTFakeMetaTouch getAvailablePointId] AtPoint:point withTouchPhase:UITouchPhaseBegan];
+    [PTFakeMetaTouch fakeTouchId:pointId AtPoint:point withTouchPhase:UITouchPhaseEnded];
 }
 
 @end
