@@ -29,6 +29,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9B0D51831DF6D94F005C9893"
+               BuildableName = "JKDemoTests.xctest"
+               BlueprintName = "JKDemoTests"
+               ReferencedContainer = "container:JKDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
