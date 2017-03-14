@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FLEX (2.1.2)
+  - JKSay (1.0.1)
   - MBProgressHUD (0.9.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -29,6 +30,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (from `http://git.code.oa.com/WearIos_ThirdSdk/AFNetworking.git`, tag `2.6.3.2`)
   - FLEX (from `http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git`, tag `2.1.2`)
+  - JKSay (from `https://github.com/easingboy/JKSay.git`, tag `1.0.1`)
   - MBProgressHUD (from `http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git`, tag `0.9.1`)
   - SDWebImage (from `http://git.code.oa.com/WearIos_ThirdSdk/SDWebImage.git`, tag `3.8.1`)
 
@@ -39,6 +41,9 @@ EXTERNAL SOURCES:
   FLEX:
     :git: http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git
     :tag: 2.1.2
+  JKSay:
+    :git: https://github.com/easingboy/JKSay.git
+    :tag: 1.0.1
   MBProgressHUD:
     :git: http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git
     :tag: 0.9.1
@@ -53,6 +58,9 @@ CHECKOUT OPTIONS:
   FLEX:
     :git: http://git.code.oa.com/WearIos_ThirdSdk/FLEX.git
     :tag: 2.1.2
+  JKSay:
+    :git: https://github.com/easingboy/JKSay.git
+    :tag: 1.0.1
   MBProgressHUD:
     :git: http://git.code.oa.com/WearIos_ThirdSdk/MBProgressHUD.git
     :tag: 0.9.1
@@ -63,9 +71,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e47305bba9af991eb0bde957b669a1e7aa97d71
   FLEX: 26d2b65c3863b528b2fa3dad292aeaaf6e8ece9c
+  JKSay: b19b979b73c90229d7d478031475c034880d0638
   MBProgressHUD: c34da5f231d7c38b8bc9d2cb08f81509d0bea7b0
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 51d5cd07b3252fee2b0b495d49879f4b4763d781
+PODFILE CHECKSUM: b40669af29655983b727280f81776f57ca6fc909
 
 COCOAPODS: 1.0.0

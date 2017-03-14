@@ -8,6 +8,7 @@
 
 #import "JKAppDelegate.h"
 #import "JKAppDelegate+MainUI.h"
+#import <JKSayHi.h>
 
 #if defined(DEBUG)
 #import "NSThread+Qstack.h"
@@ -28,6 +29,7 @@
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     JLog(@"程序开始, launchOptions=%@", launchOptions);
+    [[[JKSayHi alloc] init] speek];
     self.window                 = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = UIColorFromHex(0xffffff);
     [self.window makeKeyAndVisible];
