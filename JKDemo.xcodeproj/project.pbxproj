@@ -67,6 +67,10 @@
 		9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1B91DFFF36300B92A8A /* DMBLECentralManager.m */; };
 		9B72F1BD1DFFF38500B92A8A /* PeriListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1BC1DFFF38500B92A8A /* PeriListViewController.m */; };
 		9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */; };
+		9BA521D01E7FAD4600184FBC /* NSString+IMSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA521CF1E7FAD4600184FBC /* NSString+IMSDK.m */; };
+		9BA521D71E7FC5B400184FBC /* IMSDKUIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA521D21E7FC5B300184FBC /* IMSDKUIClient.m */; };
+		9BA521D81E7FC5B400184FBC /* IMSDKUIHTTPAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA521D41E7FC5B300184FBC /* IMSDKUIHTTPAgent.m */; };
+		9BA521D91E7FC5B400184FBC /* IMSDKUISession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA521D61E7FC5B300184FBC /* IMSDKUISession.m */; };
 		9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */; };
 		9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3121E090CB300FF8BE9 /* NSDate+WristBand.m */; };
 		9BE2E3161E09191100FF8BE9 /* DMWristBandMeasureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2E3151E09191100FF8BE9 /* DMWristBandMeasureData.m */; };
@@ -208,6 +212,14 @@
 		9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoUITests.m; sourceTree = "<group>"; };
 		9B73FB4D1E713EB7003F05FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA521CE1E7FAD4600184FBC /* NSString+IMSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IMSDK.h"; path = "Classes/Additions/NSString+IMSDK.h"; sourceTree = "<group>"; };
+		9BA521CF1E7FAD4600184FBC /* NSString+IMSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IMSDK.m"; path = "Classes/Additions/NSString+IMSDK.m"; sourceTree = "<group>"; };
+		9BA521D11E7FC5B300184FBC /* IMSDKUIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSDKUIClient.h; path = Classes/Manager/HTTP/IMSDKUIClient.h; sourceTree = "<group>"; };
+		9BA521D21E7FC5B300184FBC /* IMSDKUIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMSDKUIClient.m; path = Classes/Manager/HTTP/IMSDKUIClient.m; sourceTree = "<group>"; };
+		9BA521D31E7FC5B300184FBC /* IMSDKUIHTTPAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSDKUIHTTPAgent.h; path = Classes/Manager/HTTP/IMSDKUIHTTPAgent.h; sourceTree = "<group>"; };
+		9BA521D41E7FC5B300184FBC /* IMSDKUIHTTPAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMSDKUIHTTPAgent.m; path = Classes/Manager/HTTP/IMSDKUIHTTPAgent.m; sourceTree = "<group>"; };
+		9BA521D51E7FC5B300184FBC /* IMSDKUISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSDKUISession.h; path = Classes/Manager/HTTP/IMSDKUISession.h; sourceTree = "<group>"; };
+		9BA521D61E7FC5B300184FBC /* IMSDKUISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMSDKUISession.m; path = Classes/Manager/HTTP/IMSDKUISession.m; sourceTree = "<group>"; };
 		9BE2E30E1E08D66E00FF8BE9 /* DMWristBandUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMWristBandUserData.h; path = Classes/Models/BLE/DMWristBandUserData.h; sourceTree = "<group>"; };
 		9BE2E30F1E08D66E00FF8BE9 /* DMWristBandUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMWristBandUserData.m; path = Classes/Models/BLE/DMWristBandUserData.m; sourceTree = "<group>"; };
 		9BE2E3111E090CB300FF8BE9 /* NSDate+WristBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WristBand.h"; path = "Classes/Models/BLE/NSDate+WristBand.h"; sourceTree = "<group>"; };
@@ -506,6 +518,8 @@
 				9B0D52FE1DF82DDC005C9893 /* UIView+Tencent.m */,
 				9B0D53471DF93AF3005C9893 /* UIViewController+Tencent.h */,
 				9B0D53481DF93AF3005C9893 /* UIViewController+Tencent.m */,
+				9BA521CE1E7FAD4600184FBC /* NSString+IMSDK.h */,
+				9BA521CF1E7FAD4600184FBC /* NSString+IMSDK.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -593,6 +607,19 @@
 			name = Animations;
 			sourceTree = "<group>";
 		};
+		9B431F851E7A794200489ECF /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				9BA521D31E7FC5B300184FBC /* IMSDKUIHTTPAgent.h */,
+				9BA521D41E7FC5B300184FBC /* IMSDKUIHTTPAgent.m */,
+				9BA521D11E7FC5B300184FBC /* IMSDKUIClient.h */,
+				9BA521D21E7FC5B300184FBC /* IMSDKUIClient.m */,
+				9BA521D51E7FC5B300184FBC /* IMSDKUISession.h */,
+				9BA521D61E7FC5B300184FBC /* IMSDKUISession.m */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
 		9B6BCE061E2E1183006E49AA /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +665,7 @@
 		9B72F1B61DFFF2AD00B92A8A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9B431F851E7A794200489ECF /* HTTP */,
 				9B72F1B71DFFF32C00B92A8A /* BLE */,
 			);
 			name = Manager;
@@ -859,6 +887,7 @@
 				9BE2E3131E090CB300FF8BE9 /* NSDate+WristBand.m in Sources */,
 				9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */,
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
+				9BA521D81E7FC5B400184FBC /* IMSDKUIHTTPAgent.m in Sources */,
 				9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */,
 				9B72F1BA1DFFF36300B92A8A /* DMBLECentralManager.m in Sources */,
 				9B0D52FC1DF82B94005C9893 /* MBProgressHUD+Tencent.m in Sources */,
@@ -878,7 +907,9 @@
 				9B72F1A71DFE885700B92A8A /* DrawerViewController.m in Sources */,
 				9B0D53431DF9373F005C9893 /* JKFindViewController.m in Sources */,
 				9B0A61481E0004F1004392B4 /* PeripheralViewController.m in Sources */,
+				9BA521D91E7FC5B400184FBC /* IMSDKUISession.m in Sources */,
 				9BE2E3101E08D66E00FF8BE9 /* DMWristBandUserData.m in Sources */,
+				9BA521D71E7FC5B400184FBC /* IMSDKUIClient.m in Sources */,
 				9B0D533D1DF90650005C9893 /* UIImage+Tencent.m in Sources */,
 				9B0D53141DF83900005C9893 /* JKBaseNavigationViewController.m in Sources */,
 				9B0D534C1DF93C1E005C9893 /* UINavigationController+Tencent.m in Sources */,
@@ -900,6 +931,7 @@
 				9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */,
 				9B0D53561DF98BD9005C9893 /* UILabel+Tencent.m in Sources */,
 				9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */,
+				9BA521D01E7FAD4600184FBC /* NSString+IMSDK.m in Sources */,
 				9B0D53171DF83A61005C9893 /* JKTabBarController.m in Sources */,
 				9B6BCE091E2E11DA006E49AA /* JKVideoViewController.m in Sources */,
 				9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */,
@@ -1160,6 +1192,7 @@
 				9B73FB521E713EB7003F05FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

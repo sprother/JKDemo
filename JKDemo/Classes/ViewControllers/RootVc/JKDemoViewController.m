@@ -15,6 +15,7 @@
 #import "DMPullToRefreshControl.h"
 #import "PeriListViewController.h"
 #import <FLEX/FLEXManager.h>
+#import "IMSDKUIClient.h"
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -29,7 +30,10 @@
 #define ROW_NAME_FLEX       @"FLEX"
 
 #define ROW_NAME_VIDEO      @"视频"
+#define ROW_NAME_NET        @"访问网络"
 #define ROW_NAME_NONE       @"其他"
+
+int UICmdIndex = 0;
 
 @interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -87,7 +91,7 @@
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -187,7 +191,44 @@
         JKVideoViewController *vc = [[JKVideoViewController alloc] init];
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+    } else if ([rowName isEqualToString:ROW_NAME_NET]) {
+        [self uicontrol];
     } else {
+    }
+}
+
+- (void)uicontrol {
+    UICmdIndex++;
+    if (UICmdIndex == 1) {
+        [[[IMSDKUIClient alloc] init] fetchSessionWithCallback:^(IMSDKUISession *session, NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+        return;
+    }
+    if (UICmdIndex == 2) {
+        [[[IMSDKUIClient alloc] init] createSessionWithBundleId:@"com.tencent.xin" withCallback:^(IMSDKUISession *session, NSError *error) {
+            NSLog(@"error %@", error);
+            [session tapElementByXpath:@"//XCUIElementTypeButton[@name='登录']" withCallback:^(BOOL success, NSError *error) {
+                NSLog(@"error %@", error);
+            }];
+        }];
+        return;
+    }
+    if (UICmdIndex == 3) {
+        [[[IMSDKUIClient alloc] init] clickHomeWithCallback:^(BOOL success, NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+        UICmdIndex = 0;
+        return;
+    }
+    if (UICmdIndex == 4) {
+        return;
+    }
+    if (UICmdIndex == 5) {
+        return;
+    }
+    if (UICmdIndex == 6) {
+        return;
     }
 }
 
