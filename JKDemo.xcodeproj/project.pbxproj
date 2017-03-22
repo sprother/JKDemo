@@ -15,7 +15,6 @@
 		9B0A61611E02452F004392B4 /* JKSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A61601E02452F004392B4 /* JKSearchController.m */; };
 		9B0A618B1E03E036004392B4 /* JKSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A618A1E03E036004392B4 /* JKSplashViewController.m */; };
 		9B0A618E1E03E661004392B4 /* UIButton+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A618D1E03E661004392B4 /* UIButton+Tencent.m */; };
-		9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51881DF6D94F005C9893 /* JKDemoTests.m */; };
 		9B0D519A1DF6DC81005C9893 /* JKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */; };
 		9B0D519E1DF6DC92005C9893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D519C1DF6DC92005C9893 /* main.m */; };
 		9B0D51A01DF6DC9F005C9893 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0D519F1DF6DC9F005C9893 /* Images.xcassets */; };
@@ -56,6 +55,7 @@
 		9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */; };
 		9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BF1E0E4BD300318777 /* JKCirclingBall.m */; };
 		9B46A0DD1E1124EE00318777 /* JKPlayBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0DC1E1124EE00318777 /* JKPlayBall.m */; };
+		9B6459571E82975400D1ABD7 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6459561E82975400D1ABD7 /* JKDemoTests.m */; };
 		9B6BCE091E2E11DA006E49AA /* JKVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BCE081E2E11DA006E49AA /* JKVideoViewController.m */; };
 		9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */; };
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
@@ -77,7 +77,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9B0D51851DF6D94F005C9893 /* PBXContainerItemProxy */ = {
+		9B6459591E82975400D1ABD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9B0D51631DF6D94E005C9893 /* Project object */;
 			proxyType = 1;
@@ -112,9 +112,6 @@
 		9B0A618C1E03E661004392B4 /* UIButton+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Tencent.h"; path = "Classes/Additions/UIButton+Tencent.h"; sourceTree = "<group>"; };
 		9B0A618D1E03E661004392B4 /* UIButton+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Tencent.m"; path = "Classes/Additions/UIButton+Tencent.m"; sourceTree = "<group>"; };
 		9B0D516B1DF6D94F005C9893 /* JKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B0D51881DF6D94F005C9893 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
-		9B0D518A1DF6D94F005C9893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0D51981DF6DC81005C9893 /* JKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKAppDelegate.h; path = Classes/Application/JKAppDelegate.h; sourceTree = "<group>"; };
 		9B0D51991DF6DC81005C9893 /* JKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKAppDelegate.m; path = Classes/Application/JKAppDelegate.m; sourceTree = "<group>"; };
 		9B0D519C1DF6DC92005C9893 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Other sources/main.m"; sourceTree = "<group>"; };
@@ -189,6 +186,9 @@
 		9B46A0BF1E0E4BD300318777 /* JKCirclingBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKCirclingBall.m; path = Classes/Views/Animation/JKCirclingBall.m; sourceTree = "<group>"; };
 		9B46A0DB1E1124EE00318777 /* JKPlayBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPlayBall.h; path = Classes/Views/Animation/JKPlayBall.h; sourceTree = "<group>"; };
 		9B46A0DC1E1124EE00318777 /* JKPlayBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPlayBall.m; path = Classes/Views/Animation/JKPlayBall.m; sourceTree = "<group>"; };
+		9B6459541E82975400D1ABD7 /* JKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6459561E82975400D1ABD7 /* JKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoTests.m; sourceTree = "<group>"; };
+		9B6459581E82975400D1ABD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6BCE071E2E11DA006E49AA /* JKVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKVideoViewController.h; path = Classes/ViewControllers/Video/JKVideoViewController.h; sourceTree = "<group>"; };
 		9B6BCE081E2E11DA006E49AA /* JKVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKVideoViewController.m; path = Classes/ViewControllers/Video/JKVideoViewController.m; sourceTree = "<group>"; };
 		9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKVideoView.m; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B0D51811DF6D94F005C9893 /* Frameworks */ = {
+		9B6459511E82975400D1ABD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,8 +294,8 @@
 			children = (
 				9B0D516D1DF6D94F005C9893 /* JKDemo */,
 				9B73FB4A1E713EB7003F05FE /* JKDemoUITests */,
+				9B6459551E82975400D1ABD7 /* JKDemoTests */,
 				9B0D51931DF6D972005C9893 /* Frameworks */,
-				9B0D51871DF6D94F005C9893 /* JKDemoTests */,
 				9B0D516C1DF6D94F005C9893 /* Products */,
 				795950EFF3EBD6C6CDC179DE /* Pods */,
 			);
@@ -305,8 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				9B0D516B1DF6D94F005C9893 /* JKDemo.app */,
-				9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */,
 				9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */,
+				9B6459541E82975400D1ABD7 /* JKDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,15 +327,6 @@
 			children = (
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9B0D51871DF6D94F005C9893 /* JKDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				9B0D51881DF6D94F005C9893 /* JKDemoTests.m */,
-				9B0D518A1DF6D94F005C9893 /* Info.plist */,
-			);
-			path = JKDemoTests;
 			sourceTree = "<group>";
 		};
 		9B0D51931DF6D972005C9893 /* Frameworks */ = {
@@ -620,6 +611,15 @@
 			name = HTTP;
 			sourceTree = "<group>";
 		};
+		9B6459551E82975400D1ABD7 /* JKDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B6459561E82975400D1ABD7 /* JKDemoTests.m */,
+				9B6459581E82975400D1ABD7 /* Info.plist */,
+			);
+			path = JKDemoTests;
+			sourceTree = "<group>";
+		};
 		9B6BCE061E2E1183006E49AA /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,22 +714,22 @@
 			productReference = 9B0D516B1DF6D94F005C9893 /* JKDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B0D51831DF6D94F005C9893 /* JKDemoTests */ = {
+		9B6459531E82975400D1ABD7 /* JKDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B0D51901DF6D94F005C9893 /* Build configuration list for PBXNativeTarget "JKDemoTests" */;
+			buildConfigurationList = 9B64595B1E82975400D1ABD7 /* Build configuration list for PBXNativeTarget "JKDemoTests" */;
 			buildPhases = (
-				9B0D51801DF6D94F005C9893 /* Sources */,
-				9B0D51811DF6D94F005C9893 /* Frameworks */,
-				9B0D51821DF6D94F005C9893 /* Resources */,
+				9B6459501E82975400D1ABD7 /* Sources */,
+				9B6459511E82975400D1ABD7 /* Frameworks */,
+				9B6459521E82975400D1ABD7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9B0D51861DF6D94F005C9893 /* PBXTargetDependency */,
+				9B64595A1E82975400D1ABD7 /* PBXTargetDependency */,
 			);
 			name = JKDemoTests;
 			productName = JKDemoTests;
-			productReference = 9B0D51841DF6D94F005C9893 /* JKDemoTests.xctest */;
+			productReference = 9B6459541E82975400D1ABD7 /* JKDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		9B73FB481E713EB7003F05FE /* JKDemoUITests */ = {
@@ -761,12 +761,13 @@
 				TargetAttributes = {
 					9B0D516A1DF6D94F005C9893 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = JBS4AWYMFX;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 24HMXU7MLN;
+						ProvisioningStyle = Automatic;
 					};
-					9B0D51831DF6D94F005C9893 = {
-						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Manual;
+					9B6459531E82975400D1ABD7 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 24HMXU7MLN;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 9B0D516A1DF6D94F005C9893;
 					};
 					9B73FB481E713EB7003F05FE = {
@@ -791,8 +792,8 @@
 			projectRoot = "";
 			targets = (
 				9B0D516A1DF6D94F005C9893 /* JKDemo */,
-				9B0D51831DF6D94F005C9893 /* JKDemoTests */,
 				9B73FB481E713EB7003F05FE /* JKDemoUITests */,
+				9B6459531E82975400D1ABD7 /* JKDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -815,7 +816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B0D51821DF6D94F005C9893 /* Resources */ = {
+		9B6459521E82975400D1ABD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -941,11 +942,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B0D51801DF6D94F005C9893 /* Sources */ = {
+		9B6459501E82975400D1ABD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B0D51891DF6D94F005C9893 /* JKDemoTests.m in Sources */,
+				9B6459571E82975400D1ABD7 /* JKDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,10 +961,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9B0D51861DF6D94F005C9893 /* PBXTargetDependency */ = {
+		9B64595A1E82975400D1ABD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9B0D516A1DF6D94F005C9893 /* JKDemo */;
-			targetProxy = 9B0D51851DF6D94F005C9893 /* PBXContainerItemProxy */;
+			targetProxy = 9B6459591E82975400D1ABD7 /* PBXContainerItemProxy */;
 		};
 		9B73FB4F1E713EB7003F05FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1069,15 +1070,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 24HMXU7MLN;
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
-				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1087,39 +1089,42 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 24HMXU7MLN;
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1645b0a3-1ff8-4c14-a9ba-57acd6d77cc5";
-				PROVISIONING_PROFILE_SPECIFIER = IMSDK_AllCommon;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
-		9B0D51911DF6D94F005C9893 /* Debug */ = {
+		9B64595C1E82975400D1ABD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 24HMXU7MLN;
 				INFOPLIST_FILE = JKDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JKDemo.app/JKDemo";
 			};
 			name = Debug;
 		};
-		9B0D51921DF6D94F005C9893 /* Release */ = {
+		9B64595D1E82975400D1ABD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 24HMXU7MLN;
 				INFOPLIST_FILE = JKDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.JKDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.imsdk.JKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JKDemo.app/JKDemo";
 			};
@@ -1176,14 +1181,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B0D51901DF6D94F005C9893 /* Build configuration list for PBXNativeTarget "JKDemoTests" */ = {
+		9B64595B1E82975400D1ABD7 /* Build configuration list for PBXNativeTarget "JKDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B0D51911DF6D94F005C9893 /* Debug */,
-				9B0D51921DF6D94F005C9893 /* Release */,
+				9B64595C1E82975400D1ABD7 /* Debug */,
+				9B64595D1E82975400D1ABD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		9B73FB501E713EB7003F05FE /* Build configuration list for PBXNativeTarget "JKDemoUITests" */ = {
 			isa = XCConfigurationList;
