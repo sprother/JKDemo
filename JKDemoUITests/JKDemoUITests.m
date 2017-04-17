@@ -39,6 +39,16 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app launch];
     
+    NSLog(@"===Waiting 60s");
+    XCTestExpectation *waitExpectation = [self expectationWithDescription:@"Waiting"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [waitExpectation fulfill];
+    });
+    [self waitForExpectationsWithTimeout:61 handler:^(NSError *error){
+        NSLog(@"waitForExpectationsWithTimeout error:(%@)", error);
+    }];
+
+    
     //点击tableView的动画cell
     [app.tables.staticTexts[@"动画"] tap];
     [app.navigationBars[@"动画"].buttons[@"工具"] tap];
@@ -58,6 +68,22 @@
     
     //点击登录按钮
     [app.buttons[@"Login"] tap];
+    
+    //QQ
+    //app = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:@"com.tencent.mqq"];
+    [app launch];
+    
+    textField = app.textFields[@"QQ号, 或 手机号, 或 邮箱"];
+    [textField tap];
+    [textField typeText:@"123"];
+    
+    textField = app.secureTextFields[@"密码"];
+    [textField tap];
+    [textField typeText:@"asdfghjkhkj"];
+    [app.buttons[@"登录按钮"] tap];
+    
+    [app terminate];
+
 }
 
 @end
