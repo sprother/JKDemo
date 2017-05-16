@@ -15,4 +15,6 @@
 + (NSString *)jsonStringWithString:(NSString *)string;
 + (NSString *)jsonStringWithObject:(id) object;
 
+- (BOOL)isValidEmail;
+
 @end

@@ -10,6 +10,9 @@
 #import "JKAppDelegate+MainUI.h"
 #import <JKSayHi.h>
 
+#import "NSString+IMSDK.h"
+#import "NSDictionary+Tencent.h"
+
 #if defined(DEBUG)
 #import "NSThread+Qstack.h"
 #import "MainThreadWatchdog.h"
@@ -36,6 +39,7 @@
     [self configModules];
     [self configCommonUI];
     [self showMainViewAnimated:NO];
+    [self testFunction];
     return YES;
 }
 
@@ -155,5 +159,31 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     JLog(@"程序接收到Remote Notification.");
 }
+
+#pragma mark - testFunction
+- (void)testFunction {
+    NSString *str = @"123@qq.com";
+    JLog(@"==testFunction==%@ is %@valid Email.", str, [str isValidEmail]? @"" : @"not ");
+    
+    NSDictionary *dict = @{@"通用功能":@[@"是否登录",@"渠道是否安装／是否支持",@"注销登录",@"得到登录信息",@"检查和登录",@"快速登录",@"得到绑定信息",@"自动登录"],
+                           @"Facebook":@[@"登录",@"绑定"],
+                           @"WeChat":@[@"登录",@"绑定"],
+                           @"GameCenter":@[@"登录",@"绑定",@"loadFriends",@"reportScore",@"loadLeaderboard",@"showLeaderboard",@"reportAchivement",@"loadArchivement",@"showArchivement"],
+                           @"Guest":@[@"登录",@"绑定"],
+                           @"Link":@[@"登录",@"快速登录",@"查询连接状态",@"删除帐户",@"Connect SNS",@"Restore SNS",@"Connect&Restore GameCenter"],
+                           @"Garena":@[@"登录Garena Gas",@"登录Garena BeeTalk",@"登录Garena Guest",@"登录Facebook",@"Garena Guest 绑定 Garena Gas",@"Garena Guest 绑定 Facebook",@"获取mshop URL", @"打开mshop"],
+                           @"VK":@[@"登录",@"绑定"],
+                           @"Toy":@[@"Toy登入",@"Toy extend",@"Toy Bind"],
+                           @"Efun":@[@"Efun登入",@"EfunExtend"],
+                           @"Kakao":@[@"登录",@"绑定",@"获取kakao个人信息",@"获取个人游戏信息",@"修改用户数据",@"查询是否kakao-story",@"发story",@"获取未加入游戏好友",@"获取加入游戏的好友",@"获取聊天群",@"解绑"],
+                           @"新鉴权模式":@[@"auth",@"conncet Facebook",@"connect GameCenter", @"reconnect",@"restore",@"recover from Facebook", @"recover from GameCenter",@"getMigrateCode",@"migrate",@"getMigrateInfo",@"disconnect Facebook",@"disconnect GameCenter", @"deleteDeviceAccount",@"deleteAllAccount",@"getAuthResult",@"getConnectInfo",@"Signout FB",@"Signout GC", @"SendCode", @"BindConnect", @"BindRecover"],
+                           @"Stove":@[@"initialize",@"Login",@"logout",@"CheckAndLogin",@"launchUI_1",@"launchUI_2",@"launchUI_3",@"get config",@"set push yes",@"set push no",@"get push"],
+                           @"Netmarble":@[@"initialize",@"showTerms",@"Login",@"Connect Kakao",@"Disconnect Kakao", @"unRegisterKakao", @"resetsession",@"requestMyProfile",@"getFriends",@"inviteFriends",@"sendMeassge",@"postStory",@"sendMessage With image",@"设置消息屏蔽"]};
+    NSString *jsonString = [dict toJsonString];
+    JLog(@"==testFunction==dict toJsonString:%@", jsonString);
+    NSDictionary *dict2 = [NSDictionary fromString:jsonString];
+    JLog(@"==testFunction==dict fromString is:%@", dict2);//默认的description是输出Unicode编码
+}
+
 
 @end

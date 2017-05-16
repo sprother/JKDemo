@@ -74,6 +74,7 @@
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
 		9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */; };
+		9BAE7DAC1ECAF64E00429155 /* NSDictionary+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE7DAB1ECAF64E00429155 /* NSDictionary+Tencent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +227,8 @@
 		9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoUITests.m; sourceTree = "<group>"; };
 		9B73FB4D1E713EB7003F05FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BAE7DAA1ECAF64E00429155 /* NSDictionary+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Tencent.h"; sourceTree = "<group>"; };
+		9BAE7DAB1ECAF64E00429155 /* NSDictionary+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Tencent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +503,8 @@
 			children = (
 				9B4B1B561EA4AECA007CBF33 /* MBProgressHUD+Tencent.h */,
 				9B4B1B571EA4AECA007CBF33 /* MBProgressHUD+Tencent.m */,
+				9BAE7DAA1ECAF64E00429155 /* NSDictionary+Tencent.h */,
+				9BAE7DAB1ECAF64E00429155 /* NSDictionary+Tencent.m */,
 				9B4B1B581EA4AECA007CBF33 /* NSString+IMSDK.h */,
 				9B4B1B591EA4AECA007CBF33 /* NSString+IMSDK.m */,
 				9B4B1B5A1EA4AECA007CBF33 /* TencentAdditions.h */,
@@ -934,6 +939,7 @@
 				9B4B1B9C1EA4B0B1007CBF33 /* MainThreadWatchdog.m in Sources */,
 				9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */,
 				9B4B1BAA1EA4B13D007CBF33 /* JKBaseNavigationViewController.m in Sources */,
+				9BAE7DAC1ECAF64E00429155 /* NSDictionary+Tencent.m in Sources */,
 				9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */,
 				9B4B1B841EA4AFA2007CBF33 /* DMBLECentralManager.m in Sources */,
 				9B4B1B8E1EA4B026007CBF33 /* DMPeripheral.m in Sources */,
