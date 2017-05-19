@@ -162,9 +162,11 @@
 
 #pragma mark - testFunction
 - (void)testFunction {
+    //测试邮件合法验证
     NSString *str = @"123@qq.com";
     JLog(@"==testFunction==%@ is %@valid Email.", str, [str isValidEmail]? @"" : @"not ");
     
+    //测试字典与json字符串互转
     NSDictionary *dict = @{@"通用功能":@[@"是否登录",@"渠道是否安装／是否支持",@"注销登录",@"得到登录信息",@"检查和登录",@"快速登录",@"得到绑定信息",@"自动登录"],
                            @"Facebook":@[@"登录",@"绑定"],
                            @"WeChat":@[@"登录",@"绑定"],
@@ -183,6 +185,14 @@
     JLog(@"==testFunction==dict toJsonString:%@", jsonString);
     NSDictionary *dict2 = [NSDictionary fromString:jsonString];
     JLog(@"==testFunction==dict fromString is:%@", dict2);//默认的description是输出Unicode编码
+    
+    //test消息转发
+    JKAppDelegate *dele = (JKAppDelegate *)str;
+    [dele configCommonUI];
+    
+    Class deleClass = NSClassFromString(@"NSString");
+    [deleClass shareInstance];
+
 }
 
 
