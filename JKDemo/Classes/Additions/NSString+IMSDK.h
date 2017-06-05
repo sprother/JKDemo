@@ -16,5 +16,7 @@
 + (NSString *)jsonStringWithObject:(id) object;
 
 - (BOOL)isValidEmail;
+- (BOOL)isValidCode;
+- (NSDictionary *)parseURLParams;
 
 @end

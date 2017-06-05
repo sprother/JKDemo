@@ -16,21 +16,66 @@
 @end
 
 @implementation DMBLECentralManager
+static DMBLECentralManager *_instance = nil;
 
+//================================================
+//+ (instancetype)sharedManager {
+//    JLog(@"sharedManager");
+//    return [[self alloc] init];
+//}
+//
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone {
+//    JLog(@"allocWithZone");
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        if (_instance == nil) {
+//            _instance = [super allocWithZone:zone];
+//            //如何初始化变量？
+//        }
+//    });
+//    return _instance;
+//}
+//
+//- (id)copyWithZone:(NSZone *)zone {
+//    JLog(@"copyWithZone");
+//    return _instance;
+//}
+//
+//- (id)mutablecopyWithZone:(NSZone *)zone {
+//    JLog(@"mutablecopyWithZone");
+//    return _instance;
+//}
+
+//================================================
 + (instancetype)sharedManager {
-    static DMBLECentralManager *_instance = nil;
-    static dispatch_once_t     onceToken;
-
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[DMBLECentralManager alloc] init];
+        JLog(@"onceToken");
+        _instance = [[super allocWithZone:NULL] initSingleton];
     });
     return _instance;
 }
 
-- (instancetype)init {
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    JLog(@"allocWithZone");
+    return [DMBLECentralManager sharedManager];
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    JLog(@"copyWithZone");
+    return [DMBLECentralManager sharedManager];
+}
+
+- (id)mutablecopyWithZone:(NSZone *)zone {
+    JLog(@"mutablecopyWithZone");
+    return [DMBLECentralManager sharedManager];
+}
+
+- (instancetype)initSingleton {
     self = [super init];
     if (self) {
         self.periArray = [NSArray new];
+        JLog(@"init");
     }
     return self;
 }

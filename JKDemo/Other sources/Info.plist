@@ -49,5 +49,62 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>qqjk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>qqjk</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>wxjk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxjk</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>iMessagejk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>iMessagejk</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>whatsappjk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>whatsappjk</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>jkdemo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>jkdemo</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

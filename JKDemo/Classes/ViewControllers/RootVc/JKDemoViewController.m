@@ -16,6 +16,7 @@
 #import "PeriListViewController.h"
 #import <FLEX/FLEXManager.h>
 #import "IMSDKUIClient.h"
+#import <MessageUI/MessageUI.h>
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -31,11 +32,13 @@
 
 #define ROW_NAME_VIDEO      @"视频"
 #define ROW_NAME_NET        @"访问网络"
+#define ROW_NAME_SHAREW     @"分享到whatsapp"
+#define ROW_NAME_SHAREM     @"分享到iMessage"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
 
-@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView       *tableView;
 @property (nonatomic, copy) NSArray <NSArray *> *dataSource;
@@ -44,6 +47,7 @@ int UICmdIndex = 0;
 
 @property (nonatomic, assign) BOOL isNavInvisible;
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
+@property (nonatomic, strong) UIDocumentInteractionController *documentInteractionController;
 
 @end
 
@@ -91,7 +95,7 @@ int UICmdIndex = 0;
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -193,8 +197,48 @@ int UICmdIndex = 0;
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([rowName isEqualToString:ROW_NAME_NET]) {
         [self uicontrol];
+    } else if ([rowName isEqualToString:ROW_NAME_SHAREW]) {
+        NSString *msg = @"HelloWorld! jkdemo://?name=jackyw&phone=13988888888";
+        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+        NSString *urlString = [NSString stringWithFormat:@"whatsapp://send?text=%@", msg];
+        NSURL *url = [NSURL URLWithString:urlString];
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
+        [self sendMessage];
     } else {
     }
+}
+
+- (void)sendMessage {
+    Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
+    //判断是否有短信功能
+    if (messageClass == nil) {
+        //有发送功能要做的事情
+        JLog(@"MFMessageComposeViewController is nil");
+        return;
+    }
+    if (![messageClass canSendText]) {
+        JLog(@"MFMessageComposeViewController can NOT SendText.");
+        return;
+    }
+    //实例化MFMessageComposeViewController,并设置委托
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    
+    //拼接并设置短信内容
+    NSString *messageContent = @"HelloWorld! jkdemo://?name=jackym&phone=13888888888";
+    messageController.body = messageContent;
+    //设置发送给谁
+    messageController.recipients = @[];
+    //推到发送试图控制器
+    [self presentViewController:messageController animated:YES completion:^{}];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    JLog(@"didFinishWithResult %ld.", (long)result);
 }
 
 - (void)uicontrol {

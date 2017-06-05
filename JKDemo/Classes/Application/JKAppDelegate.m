@@ -12,6 +12,7 @@
 
 #import "NSString+IMSDK.h"
 #import "NSDictionary+Tencent.h"
+#import "DMBLECentralManager.h"
 
 #if defined(DEBUG)
 #import "NSThread+Qstack.h"
@@ -96,6 +97,18 @@
     JLog(@"application收到本地消息 user info = %@",[dic objectForKey:@"key"]);
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    JLog(@"openURL:(%@) annotation:(%@)", url, annotation);
+    JLog(@"params:(%@)", [[url query] parseURLParams]);
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url options:(nonnull NSDictionary*)options {
+    JLog(@"openURL:(%@) options:(%@)", url, options);
+    JLog(@"params:(%@)", [[url query] parseURLParams]);
+    return YES;
+}
+
 #pragma mark - UI
 - (void)configCommonUI {
     [self configNavigationBar];
@@ -163,7 +176,7 @@
 #pragma mark - testFunction
 - (void)testFunction {
     //测试邮件合法验证
-    NSString *str = @"123@qq.com";
+    NSString *str = @"hellos%1-+df_h.he@q.-q.com";
     JLog(@"==testFunction==%@ is %@valid Email.", str, [str isValidEmail]? @"" : @"not ");
     
     //测试字典与json字符串互转
@@ -190,9 +203,23 @@
     JKAppDelegate *dele = (JKAppDelegate *)str;
     [dele configCommonUI];
     
-    Class deleClass = NSClassFromString(@"NSString");
-    [deleClass shareInstance];
-
+    NSString *code = @"a12561";
+    JLog(@"==testFunction==%@ is %@valid code.", code, [code isValidCode]? @"" : @"not ");
+    
+//    Class deleClass = NSClassFromString(@"NSString");
+//    [deleClass shareInstance];
+//    DMBLECentralManager *manger = nil;
+//    manger = [DMBLECentralManager sharedManager];
+//    JLog(@"[DMBLECentralManager sharedManager]1 :%@", manger);
+//    manger = [[DMBLECentralManager alloc] init];
+//    JLog(@"[[DMBLECentralManager alloc] init] :%@", manger);
+//    manger = [DMBLECentralManager new];
+//    JLog(@"[DMBLECentralManager sharedManager]2 :%@", manger);
+//
+//    NSString *errorMsg = @"error params(bindType), must be 1 or 2";
+//    NSError* _error = [NSError errorWithDomain:errorMsg code:-1 userInfo:@{ NSLocalizedDescriptionKey : errorMsg }];
+//    
+//    JLog(@"===%@===", _error.localizedDescription);
 }
 
 

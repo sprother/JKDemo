@@ -70,6 +70,26 @@
     return [emailTest evaluateWithObject:self];
 }
 
+- (BOOL)isValidCode {//六位数字
+    NSString    *codeRegex = @"[0-9]{6}";
+    NSPredicate *codePred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", codeRegex];
+    
+    return [codePred evaluateWithObject:self];
+}
+
+- (NSDictionary *)parseURLParams {
+    NSArray *pairs = [self componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        if (kv.count == 2) {
+            NSString *val =[[kv objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [params setObject:val forKey:[kv objectAtIndex:0]];
+        }
+    }
+    return [params copy];
+}
+
 #pragma mark - forward
 ////test消息转发
 //JKAppDelegate *dele = (JKAppDelegate *)str;
