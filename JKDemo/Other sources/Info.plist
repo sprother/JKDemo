@@ -51,7 +51,7 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>whatsapp</string>
+		<string>whatsapp1</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>

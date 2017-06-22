@@ -19,4 +19,7 @@
 - (BOOL)isValidCode;
 - (NSDictionary *)parseURLParams;
 
+- (NSString *)aes128_encrypt:(NSString *)key;
+- (NSString *)aes128_decrypt:(NSString *)key;
+
 @end

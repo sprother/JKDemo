@@ -203,8 +203,10 @@
     JKAppDelegate *dele = (JKAppDelegate *)str;
     [dele configCommonUI];
     
-    NSString *code = @"a12561";
-    JLog(@"==testFunction==%@ is %@valid code.", code, [code isValidCode]? @"" : @"not ");
+    NSString *aesStr = @"easingboy@qq.com";
+    NSString *aesEncode = [aesStr aes128_encrypt:@"a5c860746110df01"];
+    NSString *aesDecode = [aesEncode aes128_decrypt:@"a5c860746110df01"];
+    JLog(@"====%@ aes128_encrypt is %@, aes128_decrypt is %@.", aesStr, aesEncode, aesDecode);
     
 //    Class deleClass = NSClassFromString(@"NSString");
 //    [deleClass shareInstance];

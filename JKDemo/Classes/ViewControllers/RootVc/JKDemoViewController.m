@@ -202,9 +202,25 @@ int UICmdIndex = 0;
         msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
         NSString *urlString = [NSString stringWithFormat:@"whatsapp://send?text=%@", msg];
         NSURL *url = [NSURL URLWithString:urlString];
-        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-            [[UIApplication sharedApplication] openURL:url];
-        }
+//        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+//            [[UIApplication sharedApplication] openURL:url];
+//        }
+//        [[UIApplication sharedApplication] openURL:url];
+        
+        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+            JLog(@"===success %d", success);
+        }];
+        
+        
+//        NSString *savePath = [[NSBundle mainBundle] pathForResource:@"tabbar_icon_at@2x" ofType:@"png"];;
+//        
+//        UIDocumentInteractionController *controller = [UIDocumentInteractionController new];
+//        controller.name = @"hello";
+//        controller.UTI = @"public.plain-text";
+//        
+//        [controller presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+//        self.documentInteractionController = controller;
+        
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
     } else {
@@ -233,12 +249,27 @@ int UICmdIndex = 0;
     //设置发送给谁
     messageController.recipients = @[];
     //推到发送试图控制器
+    //UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     [self presentViewController:messageController animated:YES completion:^{}];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [controller dismissViewControllerAnimated:YES completion:nil];
-    JLog(@"didFinishWithResult %ld.", (long)result);
+    NSString *tipContent;
+    switch (result) {
+        case MessageComposeResultCancelled:
+            tipContent = @"发送短信已取消";
+            break;
+        case MessageComposeResultFailed:
+            tipContent = @"发送短信失败";
+            break;
+        case MessageComposeResultSent:
+            tipContent = @"发送成功";
+            break;
+        default:
+            break;
+    }
+    JLog(@"%@, didFinishWithResult %ld.", tipContent, (long)result);
 }
 
 - (void)uicontrol {
