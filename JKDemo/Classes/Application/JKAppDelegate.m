@@ -144,7 +144,7 @@
 
 - (void)configModules {
 #if defined(DEBUG)
-    [NSThread saveMethodDict];
+    //[NSThread saveMethodDict];
     // Watchdog
     [[MainThreadWatchdog sharedWatchdog] startWithHandler:^{
         JLog(@"好像有点卡...");
@@ -208,6 +208,15 @@
     NSString *aesDecode = [aesEncode aes128_decrypt:@"a5c860746110df01"];
     JLog(@"====%@ aes128_encrypt is %@, aes128_decrypt is %@.", aesStr, aesEncode, aesDecode);
     
+    NSString *password = @"a@1#1$1%1^1&1*2+3/4=5.6!7?8-9_2(6)7a-aa$zA1111!5@4#3$5%44^5&6*6(66)4v+66=v/v?v-v.v_v1Z222<11>11,11.11:11;11|1222[]";//@#$%^&*+/=!?-_()
+    //NSString *codeRegex = @"[a-zA-Z0-9!@#$%^&*()+=/?-_<>,.:;|]+";//!@#$%^&*()+=-_/?<>,.:;|
+      NSString *codeRegex = @"[a-zA-Z0-9!@#$%^&*()+=/?\\-_<>,.:;|]*";
+
+
+    NSPredicate *codePred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", codeRegex];
+    BOOL valid = [codePred evaluateWithObject:password];
+    JLog(@"%@ validcheck %@", password, valid?@"YES":@"NO");
+    
 //    Class deleClass = NSClassFromString(@"NSString");
 //    [deleClass shareInstance];
 //    DMBLECentralManager *manger = nil;
@@ -222,6 +231,10 @@
 //    NSError* _error = [NSError errorWithDomain:errorMsg code:-1 userInfo:@{ NSLocalizedDescriptionKey : errorMsg }];
 //    
 //    JLog(@"===%@===", _error.localizedDescription);
+    
+    double timestamp = CFAbsoluteTimeGetCurrent();
+    double timestamp2 = (int)[[NSDate date] timeIntervalSince1970];
+    
 }
 
 

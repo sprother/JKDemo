@@ -33,12 +33,14 @@
 #define ROW_NAME_VIDEO      @"视频"
 #define ROW_NAME_NET        @"访问网络"
 #define ROW_NAME_SHAREW     @"分享到whatsapp"
+#define ROW_NAME_SHAREL     @"分享到Line"
+#define ROW_NAME_SHAREE     @"分享到Email"
 #define ROW_NAME_SHAREM     @"分享到iMessage"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
 
-@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate>
+@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView       *tableView;
 @property (nonatomic, copy) NSArray <NSArray *> *dataSource;
@@ -95,7 +97,7 @@ int UICmdIndex = 0;
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -202,25 +204,36 @@ int UICmdIndex = 0;
         msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
         NSString *urlString = [NSString stringWithFormat:@"whatsapp://send?text=%@", msg];
         NSURL *url = [NSURL URLWithString:urlString];
-//        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-//            [[UIApplication sharedApplication] openURL:url];
-//        }
-//        [[UIApplication sharedApplication] openURL:url];
+        //        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        //            [[UIApplication sharedApplication] openURL:url];
+        //        }
+        //        [[UIApplication sharedApplication] openURL:url];
         
         [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
             JLog(@"===success %d", success);
         }];
         
         
-//        NSString *savePath = [[NSBundle mainBundle] pathForResource:@"tabbar_icon_at@2x" ofType:@"png"];;
-//        
-//        UIDocumentInteractionController *controller = [UIDocumentInteractionController new];
-//        controller.name = @"hello";
-//        controller.UTI = @"public.plain-text";
-//        
-//        [controller presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
-//        self.documentInteractionController = controller;
+        //        NSString *savePath = [[NSBundle mainBundle] pathForResource:@"tabbar_icon_at@2x" ofType:@"png"];;
+        //
+        //        UIDocumentInteractionController *controller = [UIDocumentInteractionController new];
+        //        controller.name = @"hello";
+        //        controller.UTI = @"public.plain-text";
+        //
+        //        [controller presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+        //        self.documentInteractionController = controller;
         
+    } else if ([rowName isEqualToString:ROW_NAME_SHAREL]) {
+        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
+        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+            JLog(@"===success %d", success);
+        }];
+    } else if ([rowName isEqualToString:ROW_NAME_SHAREE]) {
+        [self sendEmail];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
     } else {
@@ -253,6 +266,69 @@ int UICmdIndex = 0;
     [self presentViewController:messageController animated:YES completion:^{}];
 }
 
+- (void)sendEmail {
+    Class emailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    //判断是否有email功能
+    if (emailClass == nil) {
+        //有发送功能要做的事情
+        JLog(@"MFMailComposeViewController is nil");
+        return;
+    }
+    if (![emailClass canSendMail]) {
+        JLog(@"用户没有设置邮件账户");
+        return;
+    }
+    MFMailComposeViewController *mailPicker = [[MFMailComposeViewController alloc] init];
+    mailPicker.mailComposeDelegate = self;
+    
+    //设置主题
+    [mailPicker setSubject: @"eMail主题"];
+//    //添加收件人
+//    NSArray *toRecipients = [NSArray arrayWithObject: @"first@example.com"];
+//    [mailPicker setToRecipients: toRecipients];
+//    //添加抄送
+//    NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
+//    [mailPicker setCcRecipients:ccRecipients];
+//    //添加密送
+//    NSArray *bccRecipients = [NSArray arrayWithObjects:@"fourth@example.com", nil];
+//    [mailPicker setBccRecipients:bccRecipients];
+    
+//    // 添加一张图片
+//    UIImage *addPic = [UIImage imageNamed: @"Icon@2x.png"];
+//    NSData *imageData = UIImagePNGRepresentation(addPic);            // png
+//    //关于mimeType：http://www.iana.org/assignments/media-types/index.html
+//    [mailPicker addAttachmentData: imageData mimeType: @"" fileName: @"Icon.png"];
+//    
+//    //添加一个pdf附件
+//    NSString *file = [self fullBundlePathFromRelativePath:@"高质量C++编程指南.pdf"];
+//    NSData *pdf = [NSData dataWithContentsOfFile:file];
+//    [mailPicker addAttachmentData: pdf mimeType: @"" fileName: @"高质量C++编程指南.pdf"];
+    
+    NSString *emailBody = @"正文:HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
+    [mailPicker setMessageBody:emailBody isHTML:YES];
+    [self presentViewController:mailPicker animated:YES completion:^{JLog(@"email presentViewController");}];
+}
+
+//通过openUrl发邮件
+-(void)sendMailByOpenUrl {
+    NSMutableString *mailUrl = [[NSMutableString alloc]init];
+    //添加收件人
+    NSArray *toRecipients = [NSArray arrayWithObject: @"easingboy@qq.com"];
+    [mailUrl appendFormat:@"mailto:%@", [toRecipients componentsJoinedByString:@","]];//注意这里的mailto:
+//    //添加抄送
+//    NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
+//    [mailUrl appendFormat:@"?cc=%@", [ccRecipients componentsJoinedByString:@","]];
+//    //添加密送
+//    NSArray *bccRecipients = [NSArray arrayWithObjects:@"fourth@example.com", nil];
+//    [mailUrl appendFormat:@"&bcc=%@", [bccRecipients componentsJoinedByString:@","]];
+    //添加主题
+    [mailUrl appendString:@"?&subject=EmailTitle"];//注意这里的?
+    //添加邮件内容
+    [mailUrl appendString:@"&body=email_body!"];
+    NSString* email = [mailUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+}
+
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [controller dismissViewControllerAnimated:YES completion:nil];
     NSString *tipContent;
@@ -270,6 +346,30 @@ int UICmdIndex = 0;
             break;
     }
     JLog(@"%@, didFinishWithResult %ld.", tipContent, (long)result);
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
+    //关闭邮件发送窗口
+    [self dismissViewControllerAnimated:YES completion:^{JLog(@"email dismissViewController");}];
+    NSString *msg;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            msg = @"用户取消编辑邮件";
+            break;
+        case MFMailComposeResultSaved:
+            msg = @"用户成功保存邮件";
+            break;
+        case MFMailComposeResultSent:
+            msg = @"用户点击发送，将邮件放到队列中，还没发送";
+            break;
+        case MFMailComposeResultFailed:
+            msg = @"用户试图保存或者发送邮件失败";
+            break;
+        default:
+            msg = @"";
+            break;
+    }
+    JLog(@"%@", msg);
 }
 
 - (void)uicontrol {
