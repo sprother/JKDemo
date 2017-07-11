@@ -17,6 +17,7 @@
 #import <FLEX/FLEXManager.h>
 #import "IMSDKUIClient.h"
 #import <MessageUI/MessageUI.h>
+#import <Social/Social.h>
 
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
@@ -35,6 +36,7 @@
 #define ROW_NAME_SHAREW     @"分享到whatsapp"
 #define ROW_NAME_SHAREL     @"分享到Line"
 #define ROW_NAME_SHAREE     @"分享到Email"
+#define ROW_NAME_SHARET     @"分享到Twitter"
 #define ROW_NAME_SHAREM     @"分享到iMessage"
 #define ROW_NAME_NONE       @"其他"
 
@@ -97,7 +99,7 @@ int UICmdIndex = 0;
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -224,16 +226,48 @@ int UICmdIndex = 0;
         //        self.documentInteractionController = controller;
         
     } else if ([rowName isEqualToString:ROW_NAME_SHAREL]) {
-        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
-        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
-        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
-        NSURL *url = [NSURL URLWithString:urlString];
-        
-        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+//        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
+//        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+//        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
+//        NSURL *url = [NSURL URLWithString:urlString];
+//        
+//        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+//            JLog(@"===success %d", success);
+//        }];
+        //====单独分享一张图片
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];
+        [pasteboard setData:UIImageJPEGRepresentation(imageView.image, 0.9) forPasteboardType:@"public.png"];
+        NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name]];
+        [[UIApplication sharedApplication] openURL:url2 options:@{@"key":@"value"} completionHandler:^(BOOL success) {
             JLog(@"===success %d", success);
         }];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREE]) {
         [self sendEmail];
+    } else if ([rowName isEqualToString:ROW_NAME_SHARET]) {//Twitter
+        Class slClass = (NSClassFromString(@"SLComposeViewController"));
+        if (slClass == nil) {
+            //有发送功能要做的事情
+            JLog(@"SLComposeViewController is nil");
+            return;
+        }
+        SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        BOOL success = [composeVc setInitialText:@"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈"];//分享内容
+        BOOL imageSuccess = [composeVc addImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];//分享的图片
+        BOOL linkSuccess = [composeVc addURL:[NSURL URLWithString:@"www.qq.com/?name=jackyL&phone=13988888888"]];
+        //回调
+        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Twitter发送已取消");
+            }else{
+                NSLog(@"Twitter发送已完成");
+            }
+            [composeVc dismissViewControllerAnimated:YES completion:Nil];
+        };
+        composeVc.completionHandler = myBlock;
+        if(success && imageSuccess && linkSuccess) {
+            [self presentViewController:composeVc animated:YES completion:nil];
+        }
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
     } else {
