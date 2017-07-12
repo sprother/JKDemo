@@ -38,9 +38,16 @@
 #define ROW_NAME_SHAREE     @"分享到Email"
 #define ROW_NAME_SHARET     @"分享到Twitter"
 #define ROW_NAME_SHAREM     @"分享到iMessage"
+#define ROW_NAME_WIFI       @"跳转到WIFI设置"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
+
+typedef NS_ENUM (NSInteger, JKNavVisible) {
+    JKNavVisibleTransparent  = 0,//全透明
+    JKNavVisibleTranslucent  = 1,//半透明
+    JKNavVisibleFull         = 2//全可见
+};
 
 @interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
@@ -49,7 +56,7 @@ int UICmdIndex = 0;
 
 @property (nonatomic, strong) DMPullToRefreshControl *refreshControl;
 
-@property (nonatomic, assign) BOOL isNavInvisible;
+@property (nonatomic, assign) JKNavVisible isNavInvisible;
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 @property (nonatomic, strong) UIDocumentInteractionController *documentInteractionController;
 
@@ -68,6 +75,7 @@ int UICmdIndex = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.hidesBottomBarWhenPushed = NO;
+    self.isNavInvisible = JKNavVisibleFull;
     [self buildDataSource];
 }
 
@@ -99,7 +107,7 @@ int UICmdIndex = 0;
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -226,22 +234,22 @@ int UICmdIndex = 0;
         //        self.documentInteractionController = controller;
         
     } else if ([rowName isEqualToString:ROW_NAME_SHAREL]) {
-//        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
-//        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
-//        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
-//        NSURL *url = [NSURL URLWithString:urlString];
-//        
-//        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
-//            JLog(@"===success %d", success);
-//        }];
-        //====单独分享一张图片
-        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];
-        [pasteboard setData:UIImageJPEGRepresentation(imageView.image, 0.9) forPasteboardType:@"public.png"];
-        NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name]];
-        [[UIApplication sharedApplication] openURL:url2 options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
+        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
             JLog(@"===success %d", success);
         }];
+//        //====单独分享一张图片
+//        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];
+//        [pasteboard setData:UIImageJPEGRepresentation(imageView.image, 0.9) forPasteboardType:@"public.png"];
+//        NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name]];
+//        [[UIApplication sharedApplication] openURL:url2 options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+//            JLog(@"===success %d", success);
+//        }];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREE]) {
         [self sendEmail];
     } else if ([rowName isEqualToString:ROW_NAME_SHARET]) {//Twitter
@@ -251,7 +259,15 @@ int UICmdIndex = 0;
             JLog(@"SLComposeViewController is nil");
             return;
         }
+        if(![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){//主要看设置中有没有Twitter账号
+            NSLog(@"Twitter服务不可用.");
+            return;
+        }
         SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        if(composeVc == nil){
+            NSLog(@"Twitter服务不可用(未登录).");
+            return;
+        }
         BOOL success = [composeVc setInitialText:@"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈"];//分享内容
         BOOL imageSuccess = [composeVc addImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];//分享的图片
         BOOL linkSuccess = [composeVc addURL:[NSURL URLWithString:@"www.qq.com/?name=jackyL&phone=13988888888"]];
@@ -270,6 +286,13 @@ int UICmdIndex = 0;
         }
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
+    } else if ([rowName isEqualToString:ROW_NAME_WIFI]) {
+        NSString *urlString = [NSString stringWithFormat:@"App-Prefs:root=WIFI"];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+            JLog(@"===success %d", success);
+        }];
     } else {
     }
 }
@@ -539,23 +562,25 @@ int UICmdIndex = 0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.y + DEFAULT_NAVIGATION_BAR_HEIGHT;
-    if(offset > 0 && offset < DEFAULT_NAVIGATION_BAR_HEIGHT) {
+    if(offset > 0 && offset < DEFAULT_NAVIGATION_BAR_HEIGHT) {//[0~64]
         UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbFloatAlpha(0x303030, 1.0-offset/DEFAULT_NAVIGATION_BAR_HEIGHT) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
         [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        self.isNavInvisible = YES;
+        self.isNavInvisible = JKNavVisibleTranslucent;
         return;
     }
     if (offset >= DEFAULT_NAVIGATION_BAR_HEIGHT) {
-        if (self.isNavInvisible) {
+        if (self.isNavInvisible == JKNavVisibleTransparent) {
             return;
         }
         UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x303030, 0) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
         [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        self.isNavInvisible = YES;
+        self.isNavInvisible = JKNavVisibleTransparent;
+        return;
     }
-    if (!self.isNavInvisible) {
+    // offset < 0
+    if (self.isNavInvisible == JKNavVisibleFull) {
         return;
     }
     [self resetNavColor];
@@ -565,7 +590,7 @@ int UICmdIndex = 0;
     UIImage *bgImage = [UIImage tc_imageWithColor:UIColorFromRgbAlpha(0x303030, 254) size:CGSizeMake(APPLICATION_SCREEN_WIDTH, DEFAULT_NAVIGATION_BAR_HEIGHT)];
     [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    self.isNavInvisible = NO;
+    self.isNavInvisible = JKNavVisibleFull;
 }
 
 @end
