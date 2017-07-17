@@ -105,7 +105,11 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url options:(nonnull NSDictionary*)options {
     JLog(@"openURL:(%@) options:(%@)", url, options);
-    JLog(@"params:(%@)", [[url query] parseURLParams]);
+    JLog(@"scheme:%@", url.scheme);
+    JLog(@"host:%@", url.host);
+    JLog(@"port:%@", url.port);
+    JLog(@"path:%@", url.path);
+    JLog(@"query:%@", url.query);
     return YES;
 }
 
@@ -235,6 +239,13 @@
     double timestamp = CFAbsoluteTimeGetCurrent();
     double timestamp2 = (int)[[NSDate date] timeIntervalSince1970];
     
+    NSString *urlString = @"http://www.qq.com:80/news/recent?name=testName&roomId=1001";
+    NSURL *url = [NSURL URLWithString:urlString];
+    JLog(@"scheme:%@", url.scheme);
+    JLog(@"host:%@", url.host);
+    JLog(@"port:%@", url.port);
+    JLog(@"path:%@", url.path);
+    JLog(@"query:%@", url.query);
 }
 
 

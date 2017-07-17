@@ -234,22 +234,21 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
         //        self.documentInteractionController = controller;
         
     } else if ([rowName isEqualToString:ROW_NAME_SHAREL]) {
-        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
-        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
-        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
-        NSURL *url = [NSURL URLWithString:urlString];
-        
-        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
-            JLog(@"===success %d", success);
-        }];
-//        //====单独分享一张图片
-//        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-//        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];
-//        [pasteboard setData:UIImageJPEGRepresentation(imageView.image, 0.9) forPasteboardType:@"public.png"];
-//        NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name]];
-//        [[UIApplication sharedApplication] openURL:url2 options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+//        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
+//        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+//        NSString *urlString = [NSString stringWithFormat:@"line://msg/text/%@", msg];
+//        NSURL *url = [NSURL URLWithString:urlString];
+//        
+//        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
 //            JLog(@"===success %d", success);
 //        }];
+        //====单独分享一张图片
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setData:UIImageJPEGRepresentation([UIImage imageNamed:@"tabbar_icon_at_click@2x.png"], 1.0) forPasteboardType:@"public.png"];
+        NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name]];
+        [[UIApplication sharedApplication] openURL:url2 options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+            JLog(@"===success %d", success);
+        }];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREE]) {
         [self sendEmail];
     } else if ([rowName isEqualToString:ROW_NAME_SHARET]) {//Twitter
@@ -287,7 +286,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
     } else if ([rowName isEqualToString:ROW_NAME_WIFI]) {
-        NSString *urlString = [NSString stringWithFormat:@"App-Prefs:root=WIFI"];
+        NSString *urlString = [NSString stringWithFormat:@"App-Prefs:root=General&path=About"];
         NSURL *url = [NSURL URLWithString:urlString];
         
         [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
@@ -337,7 +336,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     }
     MFMailComposeViewController *mailPicker = [[MFMailComposeViewController alloc] init];
     mailPicker.mailComposeDelegate = self;
-    
+
     //设置主题
     [mailPicker setSubject: @"eMail主题"];
 //    //添加收件人
@@ -349,18 +348,18 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
 //    //添加密送
 //    NSArray *bccRecipients = [NSArray arrayWithObjects:@"fourth@example.com", nil];
 //    [mailPicker setBccRecipients:bccRecipients];
-    
+//
 //    // 添加一张图片
 //    UIImage *addPic = [UIImage imageNamed: @"Icon@2x.png"];
 //    NSData *imageData = UIImagePNGRepresentation(addPic);            // png
 //    //关于mimeType：http://www.iana.org/assignments/media-types/index.html
 //    [mailPicker addAttachmentData: imageData mimeType: @"" fileName: @"Icon.png"];
-//    
+//
 //    //添加一个pdf附件
 //    NSString *file = [self fullBundlePathFromRelativePath:@"高质量C++编程指南.pdf"];
 //    NSData *pdf = [NSData dataWithContentsOfFile:file];
 //    [mailPicker addAttachmentData: pdf mimeType: @"" fileName: @"高质量C++编程指南.pdf"];
-    
+
     NSString *emailBody = @"正文:HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
     [mailPicker setMessageBody:emailBody isHTML:YES];
     [self presentViewController:mailPicker animated:YES completion:^{JLog(@"email presentViewController");}];
@@ -370,7 +369,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
 -(void)sendMailByOpenUrl {
     NSMutableString *mailUrl = [[NSMutableString alloc]init];
     //添加收件人
-    NSArray *toRecipients = [NSArray arrayWithObject: @"easingboy@qq.com"];
+    NSArray *toRecipients = [NSArray arrayWithObject: @"test@qq.com"];
     [mailUrl appendFormat:@"mailto:%@", [toRecipients componentsJoinedByString:@","]];//注意这里的mailto:
 //    //添加抄送
 //    NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
