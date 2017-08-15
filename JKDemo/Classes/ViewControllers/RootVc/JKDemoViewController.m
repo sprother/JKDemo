@@ -49,7 +49,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     JKNavVisibleFull         = 2//全可见
 };
 
-@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface JKDemoViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, strong) UITableView       *tableView;
 @property (nonatomic, copy) NSArray <NSArray *> *dataSource;
@@ -210,28 +210,47 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     } else if ([rowName isEqualToString:ROW_NAME_NET]) {
         [self uicontrol];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREW]) {
-        NSString *msg = @"HelloWorld! jkdemo://?name=jackyw&phone=13988888888";
-        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
-        NSString *urlString = [NSString stringWithFormat:@"whatsapp://send?text=%@", msg];
-        NSURL *url = [NSURL URLWithString:urlString];
-        //        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        //            [[UIApplication sharedApplication] openURL:url];
-        //        }
-        //        [[UIApplication sharedApplication] openURL:url];
+//        NSString *msg = @"HelloWorld! jkdemo://?name=jackyw&phone=13988888888";
+//        msg = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)msg, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8));
+//        NSString *urlString = [NSString stringWithFormat:@"whatsapp://send?text=%@", msg];
+//        NSURL *url = [NSURL URLWithString:urlString];
+//        //        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+//        //            [[UIApplication sharedApplication] openURL:url];
+//        //        }
+//        //        [[UIApplication sharedApplication] openURL:url];
+//        
+//        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
+//            JLog(@"===success %d", success);
+//        }];
         
-        [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
-            JLog(@"===success %d", success);
-        }];
+        
+//                NSString *savePath = [[NSBundle mainBundle] pathForResource:@"tabbar_icon_at@2x" ofType:@"png"];;
+//        
+//                UIDocumentInteractionController *controller = [UIDocumentInteractionController interactionControllerWithURL:[NSURL URLWithString:savePath]];
+//                controller.name = @"hello";
+//                controller.UTI = @"net.whatsapp.image";
+//        //controller.delegate = self;
+//        
+//                [controller presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+//                self.documentInteractionController = controller;
         
         
-        //        NSString *savePath = [[NSBundle mainBundle] pathForResource:@"tabbar_icon_at@2x" ofType:@"png"];;
-        //
-        //        UIDocumentInteractionController *controller = [UIDocumentInteractionController new];
-        //        controller.name = @"hello";
-        //        controller.UTI = @"public.plain-text";
-        //
-        //        [controller presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
-        //        self.documentInteractionController = controller;
+        NSLog(@"isWhatsAppInstalled = %d", [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"whatsapp://app"]]);
+        UIImage *iconImage = [UIImage imageNamed:@"tabbar_icon_at"];
+        NSString *savePath  = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/whatsAppTmp.png"];
+        
+        [UIImageJPEGRepresentation(iconImage, 1.0) writeToFile:savePath atomically:YES];
+        
+        _documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:@"http://static.gamevip.qq.com/images/201506/20150625094950401.jpg"]];
+        _documentInteractionController.UTI = @"net.whatsapp.image";
+        _documentInteractionController.delegate = self;
+        [_documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.view animated: YES];
+        
+        
+//        作者：咩咩羊喵喵
+//        链接：http://www.jianshu.com/p/d66a8aef8071
+//        來源：简书
+//        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
         
     } else if ([rowName isEqualToString:ROW_NAME_SHAREL]) {
 //        NSString *msg = @"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈";
@@ -295,6 +314,48 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     } else {
     }
 }
+
+#pragma mark - documentInteraction
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller willBeginSendingToApplication:(nullable NSString *)application {
+    NSLog(@"========willBeginSendingToApplication %@", application);
+}
+
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(nullable NSString *)application {
+    NSLog(@"==========didEndSendingToApplication %@", application);
+}
+
+// Preview presented/dismissed on document.  Use to set up any HI underneath.
+- (void)documentInteractionControllerWillBeginPreview:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerWillBeginPreview");
+}
+
+- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerDidEndPreview");
+}
+
+
+// Options menu presented/dismissed on document.  Use to set up any HI underneath.
+- (void)documentInteractionControllerWillPresentOptionsMenu:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerWillPresentOptionsMenu");
+}
+
+- (void)documentInteractionControllerDidDismissOptionsMenu:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerDidDismissOptionsMenu");
+}
+
+
+// Open in menu presented/dismissed on document.  Use to set up any HI underneath.
+- (void)documentInteractionControllerWillPresentOpenInMenu:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerWillPresentOpenInMenu");
+}
+
+- (void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller {
+    NSLog(@"========documentInteractionControllerDidDismissOpenInMenu");
+}
+
+
+
+
 
 - (void)sendMessage {
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
