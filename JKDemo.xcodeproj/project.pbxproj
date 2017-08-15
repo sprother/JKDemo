@@ -70,6 +70,11 @@
 		9B4B1BF51EA4B249007CBF33 /* login_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B1BF41EA4B249007CBF33 /* login_bg.jpg */; };
 		9B6459571E82975400D1ABD7 /* JKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6459561E82975400D1ABD7 /* JKDemoTests.m */; };
 		9B6BCE0D1E2E146D006E49AA /* JKVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */; };
+		9B6C6B101F4298DF008529BF /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6C6B0C1F4298DF008529BF /* TwitterCore.framework */; };
+		9B6C6B111F4298DF008529BF /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6C6B0D1F4298DF008529BF /* TwitterKit.framework */; };
+		9B6C6B121F4298DF008529BF /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C6B0E1F4298DF008529BF /* TwitterKitResources.bundle */; };
+		9B6C6B131F4298DF008529BF /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C6B0F1F4298DF008529BF /* TwitterShareExtensionUIResources.bundle */; };
+		9B6C6B151F42A2CC008529BF /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6C6B141F42A2CC008529BF /* SafariServices.framework */; };
 		9B72F1A31DFE517C00B92A8A /* DMPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */; };
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
@@ -218,6 +223,11 @@
 		9B6459581E82975400D1ABD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6BCE0B1E2E146D006E49AA /* JKVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKVideoView.m; sourceTree = "<group>"; };
 		9B6BCE0C1E2E146D006E49AA /* JKVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKVideoView.h; sourceTree = "<group>"; };
+		9B6C6B0C1F4298DF008529BF /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		9B6C6B0D1F4298DF008529BF /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		9B6C6B0E1F4298DF008529BF /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		9B6C6B0F1F4298DF008529BF /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
+		9B6C6B141F42A2CC008529BF /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9B72F19F1DFE517C00B92A8A /* DMPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPullToRefreshControl.h; sourceTree = "<group>"; };
 		9B72F1A01DFE517C00B92A8A /* DMPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPullToRefreshControl.m; sourceTree = "<group>"; };
 		9B72F1A11DFE517C00B92A8A /* WCGraintCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCGraintCircleLayer.h; sourceTree = "<group>"; };
@@ -236,7 +246,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6C6B151F42A2CC008529BF /* SafariServices.framework in Frameworks */,
 				5AA9C8E1A3C61F05F433C749 /* libPods-JKDemo.a in Frameworks */,
+				9B6C6B101F4298DF008529BF /* TwitterCore.framework in Frameworks */,
+				9B6C6B111F4298DF008529BF /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +330,7 @@
 		9B0D516D1DF6D94F005C9893 /* JKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9B6C6B031F429781008529BF /* Librarys */,
 				9B0D51941DF6DA2F005C9893 /* Classes */,
 				9B0D51971DF6DC3B005C9893 /* Other sources */,
 				9B0D51961DF6DC32005C9893 /* Resources */,
@@ -335,6 +349,7 @@
 		9B0D51931DF6D972005C9893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B6C6B141F42A2CC008529BF /* SafariServices.framework */,
 				397CF007D149EEDBBCFC6177 /* libPods-JKDemo.a */,
 			);
 			name = Frameworks;
@@ -650,6 +665,17 @@
 			path = Classes/Views/Video;
 			sourceTree = "<group>";
 		};
+		9B6C6B031F429781008529BF /* Librarys */ = {
+			isa = PBXGroup;
+			children = (
+				9B6C6B0C1F4298DF008529BF /* TwitterCore.framework */,
+				9B6C6B0D1F4298DF008529BF /* TwitterKit.framework */,
+				9B6C6B0E1F4298DF008529BF /* TwitterKitResources.bundle */,
+				9B6C6B0F1F4298DF008529BF /* TwitterShareExtensionUIResources.bundle */,
+			);
+			path = Librarys;
+			sourceTree = "<group>";
+		};
 		9B72F19E1DFE517C00B92A8A /* RefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,8 +849,10 @@
 				9B4B1BEC1EA4B23C007CBF33 /* tabbar_icon_at_click@2x.png in Resources */,
 				9B4B1BEF1EA4B23C007CBF33 /* tabbar_icon_auth@2x.png in Resources */,
 				9B4B1BF21EA4B23C007CBF33 /* tabbar_icon_space_click@2x.png in Resources */,
+				9B6C6B121F4298DF008529BF /* TwitterKitResources.bundle in Resources */,
 				9B4B1BED1EA4B23C007CBF33 /* tabbar_icon_at@2x.png in Resources */,
 				9B4B1BEE1EA4B23C007CBF33 /* tabbar_icon_auth_click@2x.png in Resources */,
+				9B6C6B131F4298DF008529BF /* TwitterShareExtensionUIResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,9 +1113,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JKDemo/Librarys",
+				);
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.jacky.JKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1104,9 +1136,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JBS4AWYMFX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JKDemo/Librarys",
+				);
 				GCC_PREFIX_HEADER = "JKDemo/Other sources/JKDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JKDemo/Other sources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.jacky.JKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

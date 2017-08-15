@@ -19,6 +19,8 @@
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
 
+#import <TwitterKit/TwitterKit.h>
+
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
 
@@ -39,6 +41,7 @@
 #define ROW_NAME_SHARET     @"分享到Twitter"
 #define ROW_NAME_SHAREM     @"分享到iMessage"
 #define ROW_NAME_WIFI       @"跳转到WIFI设置"
+#define ROW_NAME_LOGINT     @"Twitter登录"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
@@ -107,7 +110,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_LOGINT, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -270,38 +273,10 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
         }];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREE]) {
         [self sendEmail];
-    } else if ([rowName isEqualToString:ROW_NAME_SHARET]) {//Twitter
-        Class slClass = (NSClassFromString(@"SLComposeViewController"));
-        if (slClass == nil) {
-            //有发送功能要做的事情
-            JLog(@"SLComposeViewController is nil");
-            return;
-        }
-        if(![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){//主要看设置中有没有Twitter账号
-            NSLog(@"Twitter服务不可用.");
-            return;
-        }
-        SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        if(composeVc == nil){
-            NSLog(@"Twitter服务不可用(未登录).");
-            return;
-        }
-        BOOL success = [composeVc setInitialText:@"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈"];//分享内容
-        BOOL imageSuccess = [composeVc addImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];//分享的图片
-        BOOL linkSuccess = [composeVc addURL:[NSURL URLWithString:@"www.qq.com/?name=jackyL&phone=13988888888"]];
-        //回调
-        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
-            if (result == SLComposeViewControllerResultCancelled) {
-                NSLog(@"Twitter发送已取消");
-            }else{
-                NSLog(@"Twitter发送已完成");
-            }
-            [composeVc dismissViewControllerAnimated:YES completion:Nil];
-        };
-        composeVc.completionHandler = myBlock;
-        if(success && imageSuccess && linkSuccess) {
-            [self presentViewController:composeVc animated:YES completion:nil];
-        }
+    } else if ([rowName isEqualToString:ROW_NAME_SHARET]) {//Twitter ROW_NAME_LOGINT
+        [self sendTwitter2];
+    } else if ([rowName isEqualToString:ROW_NAME_LOGINT]) {//Twitter
+        [self twitterLogin];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
     } else if ([rowName isEqualToString:ROW_NAME_WIFI]) {
@@ -313,6 +288,80 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
         }];
     } else {
     }
+}
+
+#pragma mark - sendTwitter
+- (void)sendTwitter {
+    Class slClass = (NSClassFromString(@"SLComposeViewController"));
+    if (slClass == nil) {
+        //有发送功能要做的事情
+        JLog(@"SLComposeViewController is nil");
+        return;
+    }
+    if(![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){//主要看设置中有没有Twitter账号
+        NSLog(@"Twitter服务不可用.");
+        return;
+    }
+    SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    if(composeVc == nil){
+        NSLog(@"Twitter服务不可用(未登录).");
+        return;
+    }
+    BOOL success = [composeVc setInitialText:@"HelloWorld! jkdemo://?name=jackyL&phone=13988888888 哈哈"];//分享内容
+    BOOL imageSuccess = [composeVc addImage:[UIImage imageNamed:@"tabbar_icon_at_click@2x.png"]];//分享的图片
+    BOOL linkSuccess = [composeVc addURL:[NSURL URLWithString:@"www.qq.com/?name=jackyL&phone=13988888888"]];
+    //回调
+    SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
+        if (result == SLComposeViewControllerResultCancelled) {
+            NSLog(@"Twitter发送已取消");
+        }else{
+            NSLog(@"Twitter发送已完成");
+        }
+        [composeVc dismissViewControllerAnimated:YES completion:Nil];
+    };
+    composeVc.completionHandler = myBlock;
+    if(success && imageSuccess && linkSuccess) {
+        [self presentViewController:composeVc animated:YES completion:nil];
+    }
+}
+
+- (void)sendTwitter2 {
+    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+    TWTRSession *lastSession = store.session;
+    NSArray *sessions = [store existingUserSessions];
+    NSLog(@"lastSession:%@", lastSession.userName);
+    //[store logOutUserID:lastSession.userID];
+    for (TWTRSession *s in sessions) {
+        NSLog(@"Session:%@", s.userName);
+        
+    }
+    
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+    
+    UIImage *image = [UIImage imageNamed:@"login_bg.jpg"];
+    [composer setText:@"just setting up my Twitter Kit"];
+    [composer setImage:image];
+    [composer setURL:[NSURL URLWithString:@"www.qq.com"]];
+    
+    // Called from a UIViewController
+    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            NSLog(@"Tweet composition cancelled");
+        }
+        else {
+            NSLog(@"Sending Tweet!");
+        }
+    }];
+}
+
+- (void)twitterLogin {
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            NSLog(@"signed in as %@", [session userName]);
+        } else {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
 }
 
 #pragma mark - documentInteraction

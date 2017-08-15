@@ -19,6 +19,7 @@
 #import "MainThreadWatchdog.h"
 #endif
 
+#import <TwitterKit/TwitterKit.h>
 
 @interface JKAppDelegate ()
 
@@ -33,6 +34,9 @@
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     JLog(@"程序开始, launchOptions=%@", launchOptions);
+    //其他初始化
+    [[Twitter sharedInstance] startWithConsumerKey:@"D9Qhy7jWIxjVKKLBnfw78RSt9" consumerSecret:@"6O3Ag0EAdFQJLlY3GDbneTWeXooQBepYC8Z8a8nebfc4iQn66j"];
+    
     [[[JKSayHi alloc] init] speek];
     self.window                 = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = UIColorFromHex(0xffffff);
@@ -110,6 +114,7 @@
     JLog(@"port:%@", url.port);
     JLog(@"path:%@", url.path);
     JLog(@"query:%@", url.query);
+    [[Twitter sharedInstance] application:app openURL:url options:options];
     return YES;
 }
 

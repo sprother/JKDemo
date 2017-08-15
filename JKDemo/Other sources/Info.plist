@@ -52,6 +52,8 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>whatsapp1</string>
+		<string>twitter</string>
+		<string>twitterauth</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
@@ -103,6 +105,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>jkdemo</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLIconFile</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>twitter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-D9Qhy7jWIxjVKKLBnfw78RSt9</string>
 			</array>
 		</dict>
 	</array>
