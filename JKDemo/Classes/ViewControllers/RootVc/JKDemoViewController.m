@@ -292,6 +292,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
 
 #pragma mark - sendTwitter
 - (void)sendTwitter {
+    SLComposeViewController *compose = [SLComposeViewController new];
     Class slClass = (NSClassFromString(@"SLComposeViewController"));
     if (slClass == nil) {
         //有发送功能要做的事情
@@ -326,31 +327,38 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
 }
 
 - (void)sendTwitter2 {
-    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
-    TWTRSession *lastSession = store.session;
-    NSArray *sessions = [store existingUserSessions];
-    NSLog(@"lastSession:%@", lastSession.userName);
-    //[store logOutUserID:lastSession.userID];
-    for (TWTRSession *s in sessions) {
-        NSLog(@"Session:%@", s.userName);
-        
-    }
+//    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+//    TWTRSession *lastSession = store.session;
+//    NSArray *sessions = [store existingUserSessions];
+//    NSLog(@"lastSession:%@", lastSession.userName);
+//    [store logOutUserID:lastSession.userID];
+//    for (TWTRSession *s in sessions) {
+//        NSLog(@"Session:%@", s.userName);
+//        
+//    }
+//    
+//    TWTRComposer *composer = [[TWTRComposer alloc] init];
+//    
+//    UIImage *image = [UIImage imageNamed:@"login_bg.jpg"];
+//    BOOL isSuccess = [composer setText:@"just setting up my Twitter Kit11"];
+//    isSuccess = [composer setImage:image];
+//    isSuccess = [composer setURL:[NSURL URLWithString:@"www.qq.com"]];
+//    
+//    // Called from a UIViewController
+//    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+//        if (result == TWTRComposerResultCancelled) {
+//            NSLog(@"Tweet composition cancelled");
+//        }
+//        else {
+//            NSLog(@"Sending Tweet!");
+//        }
+//    }];
     
-    TWTRComposer *composer = [[TWTRComposer alloc] init];
-    
-    UIImage *image = [UIImage imageNamed:@"login_bg.jpg"];
-    [composer setText:@"just setting up my Twitter Kit"];
-    [composer setImage:image];
-    [composer setURL:[NSURL URLWithString:@"www.qq.com"]];
-    
-    // Called from a UIViewController
-    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
-        if (result == TWTRComposerResultCancelled) {
-            NSLog(@"Tweet composition cancelled");
-        }
-        else {
-            NSLog(@"Sending Tweet!");
-        }
+    // 静默分享
+    NSString *userID = [Twitter sharedInstance].sessionStore.session.userID;
+    TWTRAPIClient *client = [[TWTRAPIClient alloc] initWithUserID:userID];
+    [client sendTweetWithText:@"twitter text" image:[UIImage imageNamed:@"login_bg.jpg"] completion:^(TWTRTweet * _Nullable tweet, NSError * _Nullable error) {
+        NSLog(@"tweet=%@, error=%@", tweet, error);
     }];
 }
 

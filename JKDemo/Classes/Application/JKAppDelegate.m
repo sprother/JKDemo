@@ -21,6 +21,51 @@
 
 #import <TwitterKit/TwitterKit.h>
 
+#import <objc/runtime.h>
+void getClassInfo(NSString* className) {
+    const char * cClassName = [className UTF8String];
+    
+    id classM = objc_getClass(cClassName);
+    if (!classM) {
+        return;
+    }
+    unsigned int outProptyCount, outMethodCount, outIvarCount, outProtocolCount, i;
+    objc_property_t * properties = class_copyPropertyList(classM, &outProptyCount);
+    Method *methods = class_copyMethodList(classM, &outMethodCount);
+    Ivar *ivars = class_copyIvarList(classM, &outIvarCount);
+    Protocol *__unsafe_unretained*protocols = class_copyProtocolList(classM, &outProtocolCount);
+    
+    NSLog(@"CaptainHook: hook %@ ; outProptyCount = %ud, outMethodCount = %ud, outIvarCount = %ud, outProtocolCount = %ud .", className, outProptyCount, outMethodCount, outIvarCount, outProtocolCount);
+    //
+    for (i = 0; i < outProptyCount; i++) {
+        objc_property_t property = properties[i];
+        // 获得属性名称
+        NSString * attributeName = [NSString stringWithUTF8String:property_getName(property)];
+        NSLog(@"CaptainHook: property %ud : %@ .",i, attributeName);
+    }
+    
+    for (i = 0; i < outMethodCount; i++) {
+        Method method = methods[i];
+        // 获得方法名称
+        NSString * attributeName = NSStringFromSelector(method_getName(method));
+        NSLog(@"CaptainHook: method %ud : %@ .",i, attributeName);
+    }
+    
+    for (i = 0; i < outIvarCount; i++) {
+        Ivar ivar = ivars[i];
+        // 获得变量名称
+        NSString * attributeName = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        NSLog(@"CaptainHook: ivar %ud : %@ .",i, attributeName);
+    }
+    
+    for (i = 0; i < outProtocolCount; i++) {
+        Protocol *protocol = protocols[i];
+        // 获得协议名称
+        NSString * attributeName = [NSString stringWithUTF8String:protocol_getName(protocol)];
+        NSLog(@"CaptainHook: protocol %ud : %@ .",i, attributeName);
+    }
+}
+
 @interface JKAppDelegate ()
 
 @end
@@ -33,7 +78,7 @@
 
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    JLog(@"程序开始, launchOptions=%@", launchOptions);
+    getClassInfo(@"Twitter");
     //其他初始化
     [[Twitter sharedInstance] startWithConsumerKey:@"D9Qhy7jWIxjVKKLBnfw78RSt9" consumerSecret:@"6O3Ag0EAdFQJLlY3GDbneTWeXooQBepYC8Z8a8nebfc4iQn66j"];
     
