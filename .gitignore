@@ -1,0 +1,8 @@
+### Objective-C ###
+# Xcode
+xcuserdata
+
+.DS_Store
+
+# pod
+Pods/

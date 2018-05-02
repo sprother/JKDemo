@@ -22,6 +22,10 @@
 #import <TwitterKit/TwitterKit.h>
 
 #import <objc/runtime.h>
+
+#import "JKMemoTest.h"
+
+
 void getClassInfo(NSString* className) {
     const char * cClassName = [className UTF8String];
     
@@ -296,6 +300,10 @@ void getClassInfo(NSString* className) {
     JLog(@"port:%@", url.port);
     JLog(@"path:%@", url.path);
     JLog(@"query:%@", url.query);
+    
+    //
+    [[JKMemoTest sharedInstance] start];
+    
 }
 
 

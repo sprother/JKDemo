@@ -79,6 +79,7 @@
 		9B72F1A41DFE517C00B92A8A /* WCGraintCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1A21DFE517C00B92A8A /* WCGraintCircleLayer.m */; };
 		9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B72F1AC1DFED0E700B92A8A /* JKAssitPointView.m */; };
 		9B73FB4C1E713EB7003F05FE /* JKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */; };
+		9B92910D2099616C00774E2B /* JKMemoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B92910C2099616C00774E2B /* JKMemoTest.m */; };
 		9BAE7DAC1ECAF64E00429155 /* NSDictionary+Tencent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE7DAB1ECAF64E00429155 /* NSDictionary+Tencent.m */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +238,8 @@
 		9B73FB491E713EB7003F05FE /* JKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B73FB4B1E713EB7003F05FE /* JKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDemoUITests.m; sourceTree = "<group>"; };
 		9B73FB4D1E713EB7003F05FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B92910B2099616C00774E2B /* JKMemoTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMemoTest.h; sourceTree = "<group>"; };
+		9B92910C2099616C00774E2B /* JKMemoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMemoTest.m; sourceTree = "<group>"; };
 		9BAE7DAA1ECAF64E00429155 /* NSDictionary+Tencent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Tencent.h"; sourceTree = "<group>"; };
 		9BAE7DAB1ECAF64E00429155 /* NSDictionary+Tencent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Tencent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -583,6 +586,8 @@
 			children = (
 				9B4B1B921EA4B0B1007CBF33 /* JKFPSCount.h */,
 				9B4B1B931EA4B0B1007CBF33 /* JKFPSCount.m */,
+				9B92910B2099616C00774E2B /* JKMemoTest.h */,
+				9B92910C2099616C00774E2B /* JKMemoTest.m */,
 				9B4B1B941EA4B0B1007CBF33 /* JKReadWriteLock.h */,
 				9B4B1B951EA4B0B1007CBF33 /* JKReadWriteLock.m */,
 				9B4B1B961EA4B0B1007CBF33 /* MainThreadWatchdog.h */,
@@ -736,12 +741,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B0D518D1DF6D94F005C9893 /* Build configuration list for PBXNativeTarget "JKDemo" */;
 			buildPhases = (
+				E2437D6584E3B6B5D5D2CFE7 /* [CP] Check Pods Manifest.lock */,
 				93EC84CCC24731D4A10C1A02 /* 📦 Check Pods Manifest.lock */,
 				9B0D51671DF6D94F005C9893 /* Sources */,
 				9B0D51681DF6D94F005C9893 /* Frameworks */,
 				9B0D51691DF6D94F005C9893 /* Resources */,
 				CD496CA9C840931DF0CDB97A /* 📦 Embed Pods Frameworks */,
 				B39FFE916598F6B9EAA050F0 /* 📦 Copy Pods Resources */,
+				DE73FF5885F64086A079D3E5 /* [CP] Embed Pods Frameworks */,
+				73159331D986E821AD58B029 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -873,6 +881,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		73159331D986E821AD58B029 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKDemo/Pods-JKDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		93EC84CCC24731D4A10C1A02 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -918,6 +941,39 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKDemo/Pods-JKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DE73FF5885F64086A079D3E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKDemo/Pods-JKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2437D6584E3B6B5D5D2CFE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -927,6 +983,7 @@
 			files = (
 				9B4B1BCD1EA4B18C007CBF33 /* JKDemoViewController.m in Sources */,
 				9B4B1BDC1EA4B1BF007CBF33 /* JKVideoViewController.m in Sources */,
+				9B92910D2099616C00774E2B /* JKMemoTest.m in Sources */,
 				9B4B1B6D1EA4AECA007CBF33 /* UIView+Tencent.m in Sources */,
 				9B4B1BB21EA4B161007CBF33 /* ImageCollectViewController.m in Sources */,
 				9B4B1B911EA4B026007CBF33 /* NSDate+WristBand.m in Sources */,
