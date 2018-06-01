@@ -302,7 +302,7 @@ void getClassInfo(NSString* className) {
     JLog(@"query:%@", url.query);
     
     //
-    [[JKMemoTest sharedInstance] start];
+    //[[JKMemoTest sharedInstance] start];
     
 }
 

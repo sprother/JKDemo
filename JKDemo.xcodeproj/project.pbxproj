@@ -15,6 +15,9 @@
 		9B0D54461DFAA97C005C9893 /* JKEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54451DFAA97C005C9893 /* JKEllipseView.m */; };
 		9B0D54491DFAAAF0005C9893 /* JKEllipseLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */; };
 		9B0D544C1DFAACD5005C9893 /* DMScanCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */; };
+		9B24270C20BEC09200AD8660 /* JKEmailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24270B20BEC09200AD8660 /* JKEmailWebViewController.m */; };
+		9B24270E20BFDCFE00AD8660 /* login_test.html in Resources */ = {isa = PBXBuildFile; fileRef = 9B24270D20BFDCFE00AD8660 /* login_test.html */; };
+		9B24273F20C0EBDB00AD8660 /* JKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24273E20C0EBDB00AD8660 /* JKWebViewController.m */; };
 		9B46A0BD1E0D4E6B00318777 /* JKRunBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */; };
 		9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0BF1E0E4BD300318777 /* JKCirclingBall.m */; };
 		9B46A0DD1E1124EE00318777 /* JKPlayBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46A0DC1E1124EE00318777 /* JKPlayBall.m */; };
@@ -119,6 +122,11 @@
 		9B0D54481DFAAAF0005C9893 /* JKEllipseLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKEllipseLineView.m; path = Classes/Views/Animation/JKEllipseLineView.m; sourceTree = "<group>"; };
 		9B0D544A1DFAACD5005C9893 /* DMScanCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMScanCircleView.h; path = Classes/Views/Animation/DMScanCircleView.h; sourceTree = "<group>"; };
 		9B0D544B1DFAACD5005C9893 /* DMScanCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMScanCircleView.m; path = Classes/Views/Animation/DMScanCircleView.m; sourceTree = "<group>"; };
+		9B24270A20BEC09200AD8660 /* JKEmailWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKEmailWebViewController.h; sourceTree = "<group>"; };
+		9B24270B20BEC09200AD8660 /* JKEmailWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKEmailWebViewController.m; sourceTree = "<group>"; };
+		9B24270D20BFDCFE00AD8660 /* login_test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = login_test.html; sourceTree = "<group>"; };
+		9B24273D20C0EBDB00AD8660 /* JKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKWebViewController.h; sourceTree = "<group>"; };
+		9B24273E20C0EBDB00AD8660 /* JKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKWebViewController.m; sourceTree = "<group>"; };
 		9B46A0BB1E0D4E6B00318777 /* JKRunBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKRunBall.h; path = Classes/Views/Animation/JKRunBall.h; sourceTree = "<group>"; };
 		9B46A0BC1E0D4E6B00318777 /* JKRunBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKRunBall.m; path = Classes/Views/Animation/JKRunBall.m; sourceTree = "<group>"; };
 		9B46A0BE1E0E4BD300318777 /* JKCirclingBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKCirclingBall.h; path = Classes/Views/Animation/JKCirclingBall.h; sourceTree = "<group>"; };
@@ -388,6 +396,7 @@
 		9B0D51961DF6DC32005C9893 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B24270D20BFDCFE00AD8660 /* login_test.html */,
 				9B0D51B21DF6E968005C9893 /* Images */,
 				9B4B1BE21EA4B208007CBF33 /* Images.xcassets */,
 			);
@@ -407,6 +416,7 @@
 		9B0D51A11DF6DCFD005C9893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B24270920BEC04B00AD8660 /* Webview */,
 				9B0D543C1DFA8B34005C9893 /* Animations */,
 				9B72F1B21DFFF25000B92A8A /* BLE */,
 				9B0D51AD1DF6E3C5005C9893 /* Common */,
@@ -629,6 +639,17 @@
 			name = Animations;
 			sourceTree = "<group>";
 		};
+		9B24270920BEC04B00AD8660 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				9B24270A20BEC09200AD8660 /* JKEmailWebViewController.h */,
+				9B24270B20BEC09200AD8660 /* JKEmailWebViewController.m */,
+				9B24273D20C0EBDB00AD8660 /* JKWebViewController.h */,
+				9B24273E20C0EBDB00AD8660 /* JKWebViewController.m */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
 		9B431F851E7A794200489ECF /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +870,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B24270E20BFDCFE00AD8660 /* login_test.html in Resources */,
 				9B4B1BF11EA4B23C007CBF33 /* tabbar_icon_more@2x.png in Resources */,
 				9B4B1BF31EA4B23C007CBF33 /* tabbar_icon_space@2x.png in Resources */,
 				9B4B1BE31EA4B208007CBF33 /* Images.xcassets in Resources */,
@@ -997,6 +1019,7 @@
 				9B4B1BD61EA4B1AD007CBF33 /* JKSearchResultController.m in Sources */,
 				9B0D53531DF98A4C005C9893 /* DMNumberPickerView.m in Sources */,
 				9B4B1B901EA4B026007CBF33 /* DMWristBandUserData.m in Sources */,
+				9B24270C20BEC09200AD8660 /* JKEmailWebViewController.m in Sources */,
 				9B4B1B851EA4AFA2007CBF33 /* DMWristBandManager.m in Sources */,
 				9B4B1BE11EA4B1DD007CBF33 /* main.m in Sources */,
 				9B4B1BCE1EA4B18C007CBF33 /* JKFindViewController.m in Sources */,
@@ -1026,6 +1049,7 @@
 				9B4B1BAA1EA4B13D007CBF33 /* JKBaseNavigationViewController.m in Sources */,
 				9BAE7DAC1ECAF64E00429155 /* NSDictionary+Tencent.m in Sources */,
 				9B46A0C01E0E4BD300318777 /* JKCirclingBall.m in Sources */,
+				9B24273F20C0EBDB00AD8660 /* JKWebViewController.m in Sources */,
 				9B4B1B841EA4AFA2007CBF33 /* DMBLECentralManager.m in Sources */,
 				9B4B1B8E1EA4B026007CBF33 /* DMPeripheral.m in Sources */,
 				9B72F1AD1DFED0E700B92A8A /* JKAssitPointView.m in Sources */,

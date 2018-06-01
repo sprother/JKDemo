@@ -24,6 +24,8 @@
 
 }
 
-
+- (void)dealloc {
+    JLog(@"%@ dealloc", NSStringFromClass([self class]));
+}
 
 @end

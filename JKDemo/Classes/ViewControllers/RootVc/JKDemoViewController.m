@@ -14,6 +14,8 @@
 #import "JKVideoViewController.h"
 #import "DMPullToRefreshControl.h"
 #import "PeriListViewController.h"
+#import "JKEmailWebViewController.h"
+#import "JKWebViewController.h"
 #import <FLEX/FLEXManager.h>
 #import "IMSDKUIClient.h"
 #import <MessageUI/MessageUI.h>
@@ -42,6 +44,8 @@
 #define ROW_NAME_SHAREM     @"分享到iMessage"
 #define ROW_NAME_WIFI       @"跳转到WIFI设置"
 #define ROW_NAME_LOGINT     @"Twitter登录"
+#define ROW_NAME_WEBVIEW    @"Webview"
+#define ROW_NAME_PRESENT    @"PresentVC"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
@@ -110,7 +114,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_LOGINT, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_LOGINT, ROW_NAME_WEBVIEW, ROW_NAME_PRESENT, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -279,6 +283,17 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
         [self twitterLogin];
     } else if ([rowName isEqualToString:ROW_NAME_SHAREM]) {
         [self sendMessage];
+    } else if ([rowName isEqualToString:ROW_NAME_WEBVIEW]) {
+        JKEmailWebViewController *vc = [[JKEmailWebViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        JKBaseNavigationViewController *nav = [[JKBaseNavigationViewController alloc] initWithRootViewController:vc];
+        //[self presentModalViewController:nav animated:YES];
+        [self presentViewController:nav animated:YES completion:^(void) {JLog(@"presentViewController finished");}];
+    } else if ([rowName isEqualToString:ROW_NAME_PRESENT]) {
+        JKWebViewController *vc = [[JKWebViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+        JKBaseNavigationViewController *nav = [[JKBaseNavigationViewController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:^(void) {JLog(@"presentViewController finished");}];
     } else if ([rowName isEqualToString:ROW_NAME_WIFI]) {
         NSString *urlString = [NSString stringWithFormat:@"App-Prefs:root=General&path=About"];
         NSURL *url = [NSURL URLWithString:urlString];
