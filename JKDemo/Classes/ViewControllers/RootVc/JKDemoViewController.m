@@ -23,6 +23,9 @@
 
 #import <TwitterKit/TwitterKit.h>
 
+#import "IMSDKKeychainItemWrapper.h"
+#import "KeychainItemWrapper.h"
+
 #define ROW_NAME_SCAN_BLE   @"扫描BLE周边"
 #define ROW_NAME_SCAN_MFI   @"扫描MFI"
 
@@ -46,6 +49,8 @@
 #define ROW_NAME_LOGINT     @"Twitter登录"
 #define ROW_NAME_WEBVIEW    @"Webview"
 #define ROW_NAME_PRESENT    @"PresentVC"
+#define ROW_NAME_WRITE_KC   @"写keychain"
+#define ROW_NAME_READ_KC    @"读keychain"
 #define ROW_NAME_NONE       @"其他"
 
 int UICmdIndex = 0;
@@ -114,7 +119,7 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
     sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_SPLASH, ROW_NAME_LOGOUT, ROW_NAME_GEN_NOTIFY, ROW_NAME_FLEX, nil];
     [mDataSource addObject:sectionDataSource];
     
-    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_LOGINT, ROW_NAME_WEBVIEW, ROW_NAME_PRESENT, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
+    sectionDataSource = [NSArray arrayWithObjects:ROW_NAME_VIDEO, ROW_NAME_NET, ROW_NAME_SHAREW, ROW_NAME_SHAREL, ROW_NAME_SHAREE, ROW_NAME_SHARET, ROW_NAME_SHAREM, ROW_NAME_WIFI, ROW_NAME_LOGINT, ROW_NAME_WEBVIEW, ROW_NAME_PRESENT, ROW_NAME_WRITE_KC, ROW_NAME_READ_KC, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, ROW_NAME_NONE, nil];
     [mDataSource addObject:sectionDataSource];
 
     self.dataSource = mDataSource;
@@ -301,6 +306,29 @@ typedef NS_ENUM (NSInteger, JKNavVisible) {
         [[UIApplication sharedApplication] openURL:url options:@{@"key":@"value"} completionHandler:^(BOOL success) {
             JLog(@"===success %d", success);
         }];
+    } else if ([rowName isEqualToString:ROW_NAME_WRITE_KC]) {
+        NSString *path        = [[NSBundle mainBundle] pathForResource:@"JKDemo" ofType:@"entitlements"];
+        NSArray  *groupsArray = [[NSDictionary dictionaryWithContentsOfFile:path] objectForKey:@"keychain-access-groups"];
+        NSString *accessGroup = nil;//groupsArray[0];//
+        
+//        KeychainItemWrapper *keychainItemWrapper    = [[KeychainItemWrapper alloc] initWithIdentifier:@"UUID_source16" accessGroup:accessGroup];
+//        [keychainItemWrapper setObject:@"UUIDasIMEI11" forKey:(id)kSecValueData];
+//
+        IMSDKKeychainItemWrapper *item = [[IMSDKKeychainItemWrapper alloc] initWithIdentifier:@"UUID_imsdk25" accessGroup:accessGroup];
+        [item setObject:@"UUIDasIMEI24-imsdk" forKey:(__bridge id)kSecValueData];
+        JLog(@"UUIDasIMEI-imsdk accessGroup = %@.", accessGroup);
+    } else if ([rowName isEqualToString:ROW_NAME_READ_KC]) {
+        NSString *path        = [[NSBundle mainBundle] pathForResource:@"JKDemo" ofType:@"entitlements"];
+        NSArray  *groupsArray = [[NSDictionary dictionaryWithContentsOfFile:path] objectForKey:@"keychain-access-groups"];
+        NSString *accessGroup = @"JBS4AWYMFX.com.jacky16.demo1";//groupsArray[0];//
+        
+//        KeychainItemWrapper *keychainItemWrapper    = [[KeychainItemWrapper alloc] initWithIdentifier:@"UUID_source16" accessGroup:accessGroup];
+//        NSString *UUIDasIMEI = [keychainItemWrapper objectForKey:(id)kSecValueData];
+//        JLog(@"UUIDasIMEI = %@.", UUIDasIMEI);
+//
+        IMSDKKeychainItemWrapper *item = [[IMSDKKeychainItemWrapper alloc] initWithIdentifier:@"UUID_imsdk25" accessGroup:accessGroup];
+        NSString *UUIDasIMEI2 = [item objectForKey:(id)kSecValueData];
+        JLog(@"UUIDasIMEI-imsdk %@ = %@.", accessGroup, UUIDasIMEI2);
     } else {
     }
 }

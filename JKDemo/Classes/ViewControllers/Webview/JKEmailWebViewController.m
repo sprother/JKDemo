@@ -35,9 +35,33 @@
     [self.view addSubview:self.progressView];
     [self.view addSubview:self.webView];
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"login_test" withExtension:@"html"];
-    //NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+    //NSURL *url = [[NSBundle mainBundle] URLForResource:@"login_test" withExtension:@"html"];
+    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)viewDidLayoutSubviews {
+    JLog(@"viewDidLayoutSubviews");
+    [super viewDidLayoutSubviews];
+//    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//    CGRect rect = self.view.frame;
+//    CGFloat height = CGRectGetHeight(rect);
+//    CGFloat width  = CGRectGetWidth(rect);
+//
+//    CGRect webRect = self.webView.frame;
+//    CGFloat webY = CGRectGetMinY(webRect);
+//    CGFloat webHeight = CGRectGetHeight(webRect);
+//    CGFloat webWidth  = CGRectGetWidth(webRect);
+//    if (UIInterfaceOrientationIsPortrait(orientation)) {
+//        self.webView.frame = CGRectMake(0, webY, webWidth, webHeight);
+//        self.view.frame = CGRectMake(0, 0, width, height);
+//        [self.webView reload];
+//    } else {
+//        self.webView.frame = CGRectMake(0, webY, webHeight, webWidth);
+//        self.view.frame = CGRectMake(0, 0, height, width);
+//        [self.webView reload];
+//    }
+//
 }
 
 - (void)dealloc {
@@ -116,6 +140,9 @@
         [_webView setOpaque:NO];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
+        [_webView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        [_webView setMultipleTouchEnabled:YES];
+        [_webView setAutoresizesSubviews:YES];
         //
         [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
         [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];

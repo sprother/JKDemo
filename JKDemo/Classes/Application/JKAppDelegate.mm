@@ -25,6 +25,7 @@
 
 #import "JKMemoTest.h"
 
+#include <string>
 
 void getClassInfo(NSString* className) {
     const char * cClassName = [className UTF8String];
@@ -290,19 +291,36 @@ void getClassInfo(NSString* className) {
 //    
 //    JLog(@"===%@===", _error.localizedDescription);
     
-    double timestamp = CFAbsoluteTimeGetCurrent();
-    double timestamp2 = (int)[[NSDate date] timeIntervalSince1970];
-    
-    NSString *urlString = @"http://www.qq.com:80/news/recent?name=testName&roomId=1001";
-    NSURL *url = [NSURL URLWithString:urlString];
-    JLog(@"scheme:%@", url.scheme);
-    JLog(@"host:%@", url.host);
-    JLog(@"port:%@", url.port);
-    JLog(@"path:%@", url.path);
-    JLog(@"query:%@", url.query);
+//    double timestamp = CFAbsoluteTimeGetCurrent();
+//    double timestamp2 = (int)[[NSDate date] timeIntervalSince1970];
+//
+//    NSString *urlString = @"http://www.qq.com:80/news/recent?name=testName&roomId=1001";
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    JLog(@"scheme:%@", url.scheme);
+//    JLog(@"host:%@", url.host);
+//    JLog(@"port:%@", url.port);
+//    JLog(@"path:%@", url.path);
+//    JLog(@"query:%@", url.query);
     
     //
     //[[JKMemoTest sharedInstance] start];
+    //
+    JLog(@"availableLocaleIdentifiers %@", [NSLocale availableLocaleIdentifiers]);
+    NSString *url = @"http://www-beta.itop.qq.com/oauth/email/?111";
+    
+    NSRange rang = [url rangeOfString:@"?"];
+    NSString *gameId = @"11";
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0]?:@"en";
+    
+    if (rang.location != NSNotFound) {
+        NSString *parametersString = [url substringFromIndex:rang.location+1];
+        NSString *hostString = [url substringToIndex:rang.location+1];
+        JLog(@"parametersString = %@, hostString = %@.", parametersString, hostString);
+    } else {
+        NSString *refreshedUrl = [NSString stringWithFormat:@"%@?iGameId=%@&lang=%@", url, gameId, languageName];
+        JLog(@"refreshedUrl = %@", refreshedUrl);
+    }
     
 }
 
